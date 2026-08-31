@@ -968,3 +968,62 @@
 }
 </style>
 
+
+<style>
+/* FINAL: "Unsere Leistungen" intro text directly underneath */
+.services .section-head{
+  display:block !important;
+  max-width:100% !important;
+  margin-bottom:42px !important;
+}
+
+.services .section-head > div{
+  display:block;
+}
+
+.services .section-head p{
+  display:block;
+  width:100% !important;
+  max-width:760px !important;
+  margin:14px 0 0 0 !important;
+  justify-self:auto !important;
+}
+
+/* Keep the reduced top space */
+.services{
+  padding-top:38px !important;
+}
+
+@media(max-width:900px){
+  .services{
+    padding-top:30px !important;
+  }
+
+  .services .section-head p{
+    max-width:100% !important;
+    margin-top:14px !important;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL: keep the Leistungen intro sentence on one line on desktop */
+@media(min-width:901px){
+  .services .section-head p{
+    width:auto !important;
+    max-width:none !important;
+    white-space:nowrap !important;
+    margin:14px 0 0 0 !important;
+  }
+}
+
+/* Allow normal wrapping on smaller screens */
+@media(max-width:900px){
+  .services .section-head p{
+    width:100% !important;
+    max-width:100% !important;
+    white-space:normal !important;
+  }
+}
+</style>
