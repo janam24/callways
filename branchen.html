@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branchen | Callways</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --yellow:#D7BD09; --yellow-dark:#b89e00; --navy:#071A34;
+      --grey:#667286; --cream:#FAF7F2; --white:#fff; --border:#e2e7ee; --max:1180px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Montserrat',sans-serif;color:var(--navy);background:#fff}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+
+    header{background:var(--cream);border-bottom:1px solid #ece7dc;position:sticky;top:0;z-index:100}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .logo img{width:150px;height:auto;display:block}
+    .menu{display:flex;align-items:center;gap:30px;margin-left:auto;font-size:14px;font-weight:600}
+    .menu a{position:relative;padding:29px 0 26px}
+    .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:18px;height:3px;border-radius:99px;background:var(--yellow)}
+    .header-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      background:var(--yellow);
+      color:var(--navy);
+      padding:9px 16px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:600;
+      line-height:1;
+      white-space:nowrap;
+      border:0;
+      box-shadow:none;
+      transition:.2s ease;
+    }
+    .header-cta:hover{
+      background:#cdb308;
+      transform:translateY(-1px);
+    }
+
+    .hero{background:var(--cream);padding:52px 0 42px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:38px}
+    .eyebrow{display:block;margin:0 0 14px;color:var(--yellow);font-size:28px;line-height:1;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(48px,4.7vw,68px);line-height:1.02;letter-spacing:-.045em;font-weight:800;max-width:680px}
+    .accent{color:var(--yellow)}
+    .hero-copy{margin:22px 0 0;max-width:640px;color:#4f5e73;font-size:17px;line-height:1.7;font-weight:500}
+    .hero-art{position:relative;min-height:390px;display:flex;align-items:center;justify-content:center}
+    .hero-giraffe{position:relative;z-index:2;width:min(100%,490px);animation:giraffefloat 5s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(7,26,52,.13))}
+    @keyframes giraffefloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .spark{position:absolute;z-index:1;color:var(--yellow);font-weight:800;opacity:.9}
+    .s1{top:14%;left:12%;font-size:28px}.s2{right:11%;top:22%;font-size:22px}.s3{left:15%;bottom:17%;font-size:30px}
+
+    .industries{padding:44px 0 72px}
+    .section-head{max-width:760px;margin-bottom:28px}
+    .section-head h2{margin:0 0 12px;font-size:38px;line-height:1.15;letter-spacing:-.03em;font-weight:800}
+    .section-head p{margin:0;color:var(--grey);font-size:15px;line-height:1.7}
+    .industry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .industry-card{min-height:0;padding:24px 25px;border:1px solid var(--border);border-radius:18px;background:#fff;display:flex;flex-direction:column;transition:.2s ease}
+    .industry-card:hover{transform:translateY(-3px);border-color:var(--yellow);box-shadow:0 12px 28px rgba(7,26,52,.07)}
+    .icon{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fbf1b9;
+      margin-bottom:18px;
+      color:var(--navy);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+    .industry-card h3{margin:0 0 9px;font-size:18px;line-height:1.3;font-weight:800}
+    .industry-card p{margin:0 0 10px;color:var(--grey);font-size:13px;line-height:1.65}
+    .industry-card ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start;align-content:flex-start}
+    .industry-card li{font-size:11px;font-weight:600;background:#faf8ef;padding:6px 10px;border-radius:999px;white-space:nowrap;line-height:1.2}
+    .industry-card li::before{content:"✓";color:var(--yellow);font-weight:800;margin-right:5px}
+
+    .cta{
+      background:var(--yellow);
+      padding:47px 0;
+    }
+
+    .cta-inner{
+      display:grid;
+      grid-template-columns:1fr auto auto;
+      gap:34px;
+      align-items:center;
+    }
+
+    .cta h2{
+      margin:0 0 5px;
+      font-size:31px;
+      line-height:1.1;
+      font-weight:800;
+    }
+
+    .cta p{
+      margin:0;
+      font-size:13px;
+      font-weight:500;
+    }
+
+    .contact-mini{
+      display:flex;
+      gap:26px;
+      align-items:center;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .contact-mini span{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      white-space:nowrap;
+    }
+
+    .dark-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      background:var(--navy);
+      color:#fff;
+      padding:14px 20px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      white-space:nowrap;
+      transition:.2s ease;
+    }
+
+    .dark-btn:hover{transform:translateY(-1px)}
+
+    .site-footer{
+      background:#fff;
+      border-top:1px solid rgba(7,26,52,.08);
+    }
+
+    .footer-main{
+      min-height:94px;
+      display:flex;
+      align-items:center;
+      gap:28px;
+      justify-content:space-between;
+    }
+
+    .footer-logo img{width:125px}
+
+    .footer-contact{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:11px;
+      color:#617084;
+      font-weight:500;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      font-size:11px;
+      font-weight:600;
+      color:#4d5a6c;
+    }
+
+    .footer-links a:hover{text-decoration:underline}
+
+    .legal-bar{
+      background:#1d1f21;
+      color:#fff;
+      padding:18px 0;
+    }
+
+    .legal-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .cookie-button{
+      border:1px solid rgba(255,255,255,.85);
+      color:#fff;
+      background:transparent;
+      border-radius:5px;
+      padding:9px 13px;
+      font-size:10px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .legal-copy{
+      margin-left:auto;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      text-align:right;
+    }
+
+    .legal-copy a{
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .legal-copy a:hover{text-decoration:underline}
+
+    .legal-copy .highlight{
+      background:var(--yellow);
+      color:var(--navy);
+      padding:5px 7px;
+      margin-left:7px;
+    }
+
+    .legal-copy .highlight a{
+      color:var(--navy);
+    }
+
+    .cookie-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.48);align-items:center;justify-content:center;padding:20px}
+    .cookie-modal.active{display:flex}
+    .cookie-box{width:min(100%,520px);background:#fff;color:var(--navy);border-radius:20px;padding:30px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+    .cookie-box h3{margin:0 0 12px;font-size:22px}
+    .cookie-box p{margin:0;color:var(--grey);font-size:13px;line-height:1.65}
+    .cookie-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .cookie-actions button{border:1px solid #d7dde5;border-radius:10px;padding:11px 14px;background:#fff;color:var(--navy);font-family:inherit;font-weight:700;cursor:pointer}
+    #acceptCookies{background:var(--yellow);border-color:var(--yellow)}
+
+    @media(max-width:980px){
+      .menu{display:none}
+      .header-cta{display:none}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-art{min-height:360px}
+      .industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .cta-inner{grid-template-columns:1fr}
+      .contact-mini{flex-wrap:wrap}
+      .footer-main{flex-wrap:wrap;padding:25px 0}
+    }
+
+    @media(max-width:720px){
+      .container{width:min(var(--max),calc(100% - 30px))}
+      .hero{padding:42px 0 34px}
+      .eyebrow{font-size:23px}
+      h1{font-size:44px}
+      .hero-art{min-height:320px}
+      .hero-giraffe{width:390px}
+      .industries{padding:34px 0 58px}
+      .industry-grid{grid-template-columns:1fr}
+      .footer-contact,.footer-links{flex-wrap:wrap}
+      .legal-inner{align-items:flex-start;flex-direction:column}
+      .legal-copy{margin-left:0;text-align:left;line-height:2}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+    </a>
+    <nav class="menu">
+      <a href="index.html">Startseite</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a class="active" href="branchen.html">Branchen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="blog.html">Blog</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="kontakt.html">
+      <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                 19.79 19.79 0 0 1-8.63-3.07
+                 19.5 19.5 0 0 1-6-6
+                 19.79 19.79 0 0 1-3.07-8.67
+                 A2 2 0 0 1 4.11 2h3
+                 a2 2 0 0 1 2 1.72
+                 c.12.9.33 1.78.62 2.63
+                 a2 2 0 0 1-.45 2.11L8 9.73
+                 a16 16 0 0 0 6 6l1.27-1.27
+                 a2 2 0 0 1 2.11-.45
+                 c.85.29 1.73.5 2.63.62
+                 A2 2 0 0 1 22 16.92z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Jetzt kontaktieren
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Branchen</span>
+        <h1>Branchen, die wir<br><span class="accent">verstehen.</span></h1>
+        <p class="hero-copy">
+          Über 20 Jahre Erfahrung im Kundenservice – mit individuellen Lösungen, klaren Prozessen und geprüfter Qualität.
+        </p>
+      </div>
+
+      <div class="hero-art" aria-label="Callways Giraffen-Maskottchen">
+        <span class="spark s1">✦</span>
+        <span class="spark s2">○</span>
+        <span class="spark s3">⌁</span>
+        <img class="hero-giraffe"
+             src="https://ik.imagekit.io/callways/ChatGPT%20Image%2031.%20Aug.%202026,%2009_43_16.png"
+             alt="Callways Giraffe">
+      </div>
+    </div>
+  </section>
+
+  <section class="industries">
+    <div class="container">
+      <div class="section-head">
+        <h2>Unsere Branchen</h2>
+        <p>
+          Kundenservice muss zur Branche passen. Deshalb richten wir Prozesse,
+          Erreichbarkeit und Kommunikation an den Anforderungen deines Unternehmens aus.
+        </p>
+      </div>
+
+      <div class="industry-grid">
+
+        <article class="industry-card">
+          <div class="icon">01</div>
+          <h3>Wohnungswirtschaft</h3>
+          <p>Mieteranfragen, Störungsmeldungen und Notfallannahme – zuverlässig und strukturiert.</p>
+          <ul>
+            <li>Mieterhotline</li><li>Störungsannahme</li><li>Notfallhotline</li>
+            <li>Terminmanagement</li><li>Ticketaufnahme</li><li>Backoffice</li>
+          </ul>
+        </article>
+
+        <article class="industry-card">
+          <div class="icon">02</div>
+          <h3>Energie</h3>
+          <p>Kundenservice für Energieversorger und energienahe Unternehmen – von Zählerständen bis zu Vertrags- und Störungsanfragen.</p>
+          <ul>
+            <li>Zählerstände</li><li>Vertragsfragen</li><li>Lieferantenwechsel</li><li>Störungsannahme</li>
+          </ul>
+        </article>
+
+        <article class="industry-card">
+          <div class="icon">03</div>
+          <h3>E-Commerce</h3>
+          <p>Bestell-, Retouren- und Lieferanfragen schnell, verständlich und lösungsorientiert bearbeiten.</p>
+          <ul>
+            <li>Bestellservice</li><li>Retouren</li><li>Lieferstatus</li><li>E-Mail &amp; Chat</li>
+          </ul>
+        </article>
+
+        <article class="industry-card">
+          <div class="icon">04</div>
+          <h3>Mobilität</h3>
+          <p>Service für Flotten, Mietwagen, Mobilitätsanbieter und fahrzeugbezogene Kundenanfragen.</p>
+          <ul>
+            <li>Kundenhotline</li><li>Pannenannahme</li><li>Terminservice</li><li>Backoffice</li>
+          </ul>
+        </article>
+
+        <article class="industry-card">
+          <div class="icon">05</div>
+          <h3>Weitere Branchen</h3>
+          <p>Deine Branche ist nicht dabei? Wir entwickeln passende Serviceprozesse – auf Wunsch auch mit KI, Automatisierung und digitalen Lösungen.</p>
+          <ul>
+            <li>Individuelle Prozesse</li><li>KI &amp; Automatisierung</li><li>Flexible Erreichbarkeit</li><li>Skalierbare Teams</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-inner">
+      <div>
+        <h2>Bereit für besseren<br>Kundenservice?</h2>
+        <p>Wir freuen uns auf deine Anfrage!</p>
+      </div>
+
+      <div class="contact-mini">
+        <span>☎ +49 30 33027-2727</span>
+        <span>✉ vertrieb@callways.de</span>
+      </div>
+
+      <a class="dark-btn" href="kontakt.html">Jetzt kontaktieren →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+
+  <div class="container footer-main">
+    <a class="footer-logo" href="index.html" aria-label="Callways Startseite">
+      <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+    </a>
+
+    <div class="footer-contact">
+      <span>☎ +49 30 33027-2727</span>
+      <span>✉ vertrieb@callways.de</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="kontakt.html">Kontakt</a>
+      <a href="https://callways.de/impressum.html">Impressum</a>
+      <a href="https://callways.de/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+
+  <div class="legal-bar">
+    <div class="container legal-inner">
+
+      <button class="cookie-button" id="openCookies">Cookie Einstellungen</button>
+
+      <div class="legal-copy">
+        © 2026 CALLWAYS CALL CENTER GMBH ·
+        <span class="highlight">
+          <a href="https://callways.de/impressum.html">IMPRESSUM</a> ·
+          <a href="https://callways.de/datenschutz.html">DATENSCHUTZ</a>
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+
+<div class="cookie-modal" id="cookieModal">
+  <div class="cookie-box">
+    <h3>Cookie Einstellungen</h3>
+    <p>Wir verwenden technisch notwendige Cookies. Analyse-Cookies werden erst nach deiner Zustimmung aktiviert.</p>
+    <div class="cookie-actions">
+      <button id="acceptCookies">Alle akzeptieren</button>
+      <button id="necessaryCookies">Nur notwendige</button>
+      <button id="closeCookies">Schließen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cookieModal = document.getElementById("cookieModal");
+  const openCookies = document.getElementById("openCookies");
+  const closeCookies = document.getElementById("closeCookies");
+  const acceptCookies = document.getElementById("acceptCookies");
+  const necessaryCookies = document.getElementById("necessaryCookies");
+
+  openCookies.addEventListener("click", () => cookieModal.classList.add("active"));
+  closeCookies.addEventListener("click", () => cookieModal.classList.remove("active"));
+
+  acceptCookies.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "all");
+    cookieModal.classList.remove("active");
+  });
+
+  necessaryCookies.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "necessary");
+    cookieModal.classList.remove("active");
+  });
+
+  cookieModal.addEventListener("click", event => {
+    if(event.target === cookieModal) cookieModal.classList.remove("active");
+  });
+</script>
+
+</body>
+</html>
