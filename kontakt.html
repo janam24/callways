@@ -6,7 +6,7 @@
   <title>Kontakt | Callways</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -603,6 +603,543 @@
       .legal-copy{margin-left:0;text-align:left;line-height:2}
     }
   </style>
+
+<style>
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);}
+  h1,h2,h3,.btn,.eyebrow,.submit-btn{font-family:'Poppins',sans-serif;}
+  .container{max-width:1200px;width:auto;margin:0 auto;padding:0 24px;}
+
+  /* exact navigation proportions used on Leistungen */
+  .nav-wrap{padding:16px 24px;max-width:1200px;margin:0 auto;}
+  nav.main-nav{gap:34px;}
+  nav.main-nav a{font-size:14.5px;font-weight:500;padding:4px 0;}
+  .brand img.brand-logo{height:32px;width:auto;}
+
+  /* same hero proportions as Leistungen */
+  .hero{background:var(--cream);padding:56px 0 16px;}
+  .hero-grid{grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;
+    margin:0 0 14px;padding:6px 14px;
+    color:var(--gold-dark);background:rgba(215,189,9,.12);
+    border-radius:999px;font-size:13px;line-height:1.5;
+    font-weight:600;letter-spacing:0;text-transform:none;
+  }
+  h1{
+    margin:0 0 20px;
+    font-size:clamp(34px,5vw,54px);
+    line-height:1.08;letter-spacing:-.5px;
+    font-weight:800;max-width:560px;color:var(--ink);
+  }
+  .accent{color:var(--gold);}
+  .hero-copy{
+    margin:0;max-width:460px;color:var(--gray);
+    font-size:16.5px;line-height:1.5;font-weight:400;
+  }
+  .hero-art{min-height:420px;}
+  .hero-giraffe{width:74%;max-width:none;}
+
+  /* contact content harmonized with the other pages */
+  .contact-section{background:#fff;padding:76px 0 88px;border-top:1px solid var(--border);}
+  .contact-intro h2{font-size:34px;line-height:1.15;letter-spacing:-.3px;}
+  .contact-intro > p{font-size:14.5px;line-height:1.55;color:var(--gray);}
+  .form-card{border-radius:20px;}
+  .form-card h2{font-size:26px;}
+
+  /* final Leistungen-style bottom */
+  .cta-band{background:var(--gold);padding:34px 0 0;}
+  .cta-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:30px;flex-wrap:nowrap;
+  }
+  .cta-inner h2{
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(22px,3vw,28px);font-weight:800;
+    color:var(--ink);margin:0 0 6px;line-height:1.2;
+  }
+  .cta-inner p{font-size:14px;color:#4a4321;margin:0;}
+  .cta-contacts{
+    display:flex;align-items:center;justify-content:flex-end;
+    gap:26px;flex-wrap:nowrap;white-space:nowrap;
+  }
+  .cta-contact{
+    display:flex;align-items:center;gap:10px;
+    font-size:14px;font-weight:600;color:var(--ink);flex-shrink:0;
+  }
+  .cta-contact-icon{
+    width:34px;height:34px;border:1.5px solid rgba(10,24,47,.35);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .cta-contact-icon svg{width:15px;height:15px;}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .yellow-footer-row{
+    margin-top:24px;padding:18px 0;background:var(--cream);
+    margin-bottom:0;border-bottom:0;
+  }
+  .yellow-footer-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .yellow-footer-logo img{height:30px;width:auto;display:block;}
+  .yellow-footer-links{
+    display:flex;align-items:center;gap:24px;font-size:12px;color:var(--navy);
+  }
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;text-align:center;}
+    .hero-copy{margin-left:auto;margin-right:auto;}
+    .hero-art{margin-top:20px;}
+    .cta-inner{flex-wrap:wrap;}
+    .cta-contacts{flex-wrap:wrap;justify-content:flex-start;white-space:normal;}
+    .yellow-footer-inner{flex-wrap:wrap;}
+  }
+  @media(max-width:720px){
+    .hero{padding:44px 0 30px;}
+    .hero-art{min-height:340px;}
+    .hero-giraffe{width:78%;}
+    .contact-section{padding:56px 0 64px;}
+  }
+  @media(max-width:600px){
+    .yellow-footer-inner{justify-content:center;text-align:center;}
+    .yellow-footer-links{width:100%;justify-content:center;}
+  }
+</style>
+
+
+<style>
+/* Kontakt layout aligned with the Startseite */
+.hero{
+  padding:56px 0 34px !important;
+}
+.hero-grid{
+  display:grid !important;
+  grid-template-columns:1.05fr 1fr !important;
+  gap:40px !important;
+  align-items:center !important;
+}
+.hero h1{
+  font-size:clamp(34px,5vw,54px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.5px !important;
+  max-width:560px !important;
+  margin:0 0 20px !important;
+}
+.hero-copy{
+  font-size:16.5px !important;
+  line-height:1.5 !important;
+  max-width:500px !important;
+}
+.hero-art{
+  min-height:420px !important;
+}
+.hero-giraffe{
+  width:90% !important;
+  max-width:520px !important;
+}
+
+/* Contact section: information left, form clearly on the right */
+.contact-grid{
+  display:grid !important;
+  grid-template-columns:.82fr 1.18fr !important;
+  gap:48px !important;
+  align-items:start !important;
+}
+.contact-intro{
+  grid-column:1 !important;
+}
+.form-card{
+  grid-column:2 !important;
+  width:100% !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+}
+
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    text-align:center !important;
+  }
+  .hero-copy{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .hero-giraffe{
+    width:82% !important;
+  }
+  .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+  .contact-intro,
+  .form-card{
+    grid-column:1 !important;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL KONTAKT POSITIONING */
+
+/* Hero keeps the same proportions as the Startseite */
+.hero{
+  padding:56px 0 28px !important;
+}
+.hero-grid{
+  grid-template-columns:1.05fr 1fr !important;
+  gap:40px !important;
+  align-items:center !important;
+}
+.hero h1{
+  font-size:clamp(34px,5vw,54px) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.5px !important;
+  max-width:560px !important;
+}
+.hero-copy{
+  font-size:16.5px !important;
+  line-height:1.5 !important;
+  max-width:470px !important;
+}
+.hero-art{
+  min-height:420px !important;
+  justify-content:flex-end !important;
+  padding-right:0 !important;
+}
+.hero-giraffe{
+  width:90% !important;
+  max-width:none !important;
+  margin-left:auto !important;
+  transform-origin:center !important;
+}
+
+/* LinkedIn + jobs in the red-marked space */
+.hero-social-links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:28px;
+  max-width:540px;
+}
+.hero-social-card{
+  min-height:92px;
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:15px 16px;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:16px;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.hero-social-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+  border-color:rgba(215,189,9,.55);
+}
+.hero-social-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  background:rgba(215,189,9,.16);
+  color:var(--navy);
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+  font-size:16px;
+}
+.linkedin-icon{
+  background:var(--navy);
+  color:#fff;
+  border-radius:10px;
+  font-size:18px;
+}
+.hero-social-copy{
+  min-width:0;
+}
+.hero-social-copy strong{
+  display:block;
+  font-family:'Poppins',sans-serif;
+  font-size:13px;
+  line-height:1.25;
+  margin-bottom:4px;
+  color:var(--ink);
+}
+.hero-social-copy span{
+  display:block;
+  color:var(--gray);
+  font-size:11.5px;
+  line-height:1.4;
+}
+.hero-social-arrow{
+  font-size:17px;
+  color:var(--gold-dark);
+  align-self:center;
+}
+
+/* Contact content: form clearly on the right, moved upward */
+.contact-section{
+  padding:58px 0 80px !important;
+}
+.contact-grid{
+  grid-template-columns:.82fr 1.18fr !important;
+  gap:44px !important;
+  align-items:start !important;
+}
+.contact-intro{
+  grid-column:1 !important;
+  padding-top:6px;
+}
+.form-card{
+  grid-column:2 !important;
+  width:100% !important;
+  margin-top:-28px !important;
+  position:relative;
+  z-index:2;
+}
+
+/* Keep the form comfortable and aligned */
+.form-card h2{
+  font-size:26px !important;
+}
+.form-grid{
+  gap:15px !important;
+}
+
+/* Responsive */
+@media(max-width:980px){
+  .hero-social-links{
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+@media(max-width:900px){
+  .hero-art{
+    justify-content:center !important;
+  }
+  .hero-giraffe{
+    width:82% !important;
+    margin:0 auto !important;
+  }
+  .hero-social-links{
+    grid-template-columns:1fr;
+    max-width:520px;
+  }
+  .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+  .contact-intro,
+  .form-card{
+    grid-column:1 !important;
+  }
+  .form-card{
+    margin-top:0 !important;
+  }
+}
+@media(max-width:560px){
+  .hero-social-card{
+    grid-template-columns:40px 1fr auto;
+  }
+}
+</style>
+
+
+<style>
+/* ===== FINAL: Kontakt hero matched exactly to homepage ===== */
+
+.hero{
+  padding:56px 0 16px !important;
+  overflow:hidden;
+}
+
+.hero-grid{
+  display:grid !important;
+  grid-template-columns:1.05fr 1fr !important;
+  gap:40px !important;
+  align-items:center !important;
+}
+
+.hero h1{
+  font-size:clamp(34px,5vw,54px) !important;
+  font-weight:800 !important;
+  line-height:1.08 !important;
+  letter-spacing:-.5px !important;
+  color:var(--ink) !important;
+  margin:0 0 20px !important;
+  max-width:none !important;
+}
+
+.hero-copy{
+  font-size:16.5px !important;
+  color:var(--gray) !important;
+  max-width:460px !important;
+  margin:0 !important;
+  line-height:1.5 !important;
+  font-weight:400 !important;
+}
+
+.hero-art{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:420px !important;
+  padding-right:0 !important;
+}
+
+.hero-giraffe{
+  position:relative !important;
+  z-index:2 !important;
+  width:90% !important;
+  max-width:none !important;
+  height:auto !important;
+  display:block !important;
+  margin:0 auto !important;
+  filter:drop-shadow(0 18px 30px rgba(10,24,47,0.18)) !important;
+  animation:giraffefloat 5s ease-in-out infinite !important;
+}
+
+/* LinkedIn + careers cards under the hero text */
+.hero-social-links{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:30px;
+  max-width:540px;
+}
+
+.hero-social-card{
+  min-height:92px;
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:15px 16px;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:16px;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.hero-social-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+  border-color:rgba(215,189,9,.55);
+}
+
+.hero-social-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(215,189,9,.16);
+  color:var(--navy);
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+  font-size:16px;
+}
+
+.linkedin-icon{
+  background:var(--navy);
+  color:#fff;
+  border-radius:10px;
+  font-size:18px;
+}
+
+.hero-social-copy strong{
+  display:block;
+  font-family:'Poppins',sans-serif;
+  font-size:13px;
+  line-height:1.25;
+  margin-bottom:4px;
+  color:var(--ink);
+}
+
+.hero-social-copy span{
+  display:block;
+  color:var(--gray);
+  font-size:11.5px;
+  line-height:1.4;
+}
+
+.hero-social-arrow{
+  font-size:17px;
+  color:var(--gold-dark);
+}
+
+/* Contact section: form on the right */
+.contact-section{
+  padding:58px 0 80px !important;
+}
+
+.contact-grid{
+  display:grid !important;
+  grid-template-columns:.82fr 1.18fr !important;
+  gap:44px !important;
+  align-items:start !important;
+}
+
+.contact-intro{
+  grid-column:1 !important;
+  padding-top:6px;
+}
+
+.form-card{
+  grid-column:2 !important;
+  width:100% !important;
+  max-width:none !important;
+  justify-self:stretch !important;
+  margin-top:-28px !important;
+  position:relative;
+  z-index:2;
+}
+
+@media(max-width:900px){
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    text-align:center !important;
+  }
+
+  .hero-copy{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .hero-art{
+    margin-top:20px !important;
+  }
+
+  .hero-giraffe{
+    width:90% !important;
+  }
+
+  .hero-social-links{
+    grid-template-columns:1fr;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .contact-intro,
+  .form-card{
+    grid-column:1 !important;
+  }
+
+  .form-card{
+    margin-top:0 !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -673,6 +1210,27 @@
           Schreib uns oder ruf direkt an. Wir besprechen gemeinsam, was zu deinem
           Unternehmen und deinen Anforderungen passt.
         </p>
+
+        <div class="hero-social-links">
+          <a class="hero-social-card" href="https://www.linkedin.com/company/callways-berlin" target="_blank" rel="noopener noreferrer">
+            <div class="hero-social-icon linkedin-icon">in</div>
+            <div class="hero-social-copy">
+              <strong>Folge uns auf LinkedIn</strong>
+              <span>News, Einblicke und Updates von Callways.</span>
+            </div>
+            <span class="hero-social-arrow">↗</span>
+          </a>
+
+          <a class="hero-social-card" href="https://callways.career.softgarden.de/" target="_blank" rel="noopener noreferrer">
+            <div class="hero-social-icon">👥</div>
+            <div class="hero-social-copy">
+              <strong>Join our team</strong>
+              <span>Entdecke unsere offenen Stellen.</span>
+            </div>
+            <span class="hero-social-arrow">↗</span>
+          </a>
+        </div>
+
       </div>
 
       <div class="hero-art" aria-label="Callways Giraffen-Maskottchen">
@@ -782,7 +1340,7 @@
             Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Angaben
             zur Bearbeitung deiner Anfrage einverstanden. Weitere Informationen findest
             du in unserer
-            <a href="https://callways.de/datenschutz.html">Datenschutzerklärung</a>.
+            <a href="datenschutz.html">Datenschutzerklärung</a>.
           </p>
 
           <button class="submit-btn" type="submit">Nachricht senden →</button>
@@ -793,120 +1351,66 @@
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container cta-inner">
-
+  
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
       <div>
-        <h2>Bereit für besseren<br>Kundenservice?</h2>
+        <h2>Bereit für besseren Kundenservice?</h2>
         <p>Wir freuen uns auf deine Anfrage!</p>
       </div>
 
-      <div class="contact-mini">
-        <span>☎ +49 30 33027-2727</span>
-        <span>✉ vertrieb@callways.de</span>
+      <div class="cta-contacts">
+        <div class="cta-contact">
+          <div class="cta-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <a href="tel:+4930330272727">+49 30 33027-2727</a>
+        </div>
+
+        <div class="cta-contact">
+          <div class="cta-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </div>
+          <a href="mailto:vertrieb@callways.de">vertrieb@callways.de</a>
+        </div>
+
+        <a href="kontakt.html#kontaktformular" class="btn btn-navy">
+          Jetzt kontaktieren
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
-
-      <a class="dark-btn" href="kontakt.html#kontaktformular">Jetzt kontaktieren →</a>
-
     </div>
-  </section>
+  </div>
+
+  <div class="yellow-footer-row">
+    <div class="container yellow-footer-inner">
+      <a href="index.html" class="yellow-footer-logo" aria-label="Callways Startseite">
+        <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+      </a>
+      <div class="yellow-footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 </main>
 
-<footer class="site-footer">
 
-  <div class="container footer-main">
 
-    <a class="footer-logo" href="index.html" aria-label="Callways Startseite">
-      <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
-    </a>
 
-    <div class="footer-contact">
-      <span>☎ +49 30 33027-2727</span>
-      <span>✉ vertrieb@callways.de</span>
-    </div>
-
-    <div class="footer-links">
-      <a href="kontakt.html">Kontakt</a>
-      <a href="https://callways.de/impressum.html">Impressum</a>
-      <a href="https://callways.de/datenschutz.html">Datenschutz</a>
-    </div>
-
-  </div>
-
-  <div class="legal-bar">
-    <div class="container legal-inner">
-
-      <button class="cookie-button" id="openCookies">Cookie Einstellungen</button>
-
-      <div class="legal-copy">
-        © 2026 CALLWAYS CALL CENTER GMBH ·
-        <span class="highlight">
-          <a href="https://callways.de/impressum.html">IMPRESSUM</a> ·
-          <a href="https://callways.de/datenschutz.html">DATENSCHUTZ</a>
-        </span>
-      </div>
-
-    </div>
-  </div>
-
-</footer>
-
-<div class="cookie-modal" id="cookieModal">
-  <div class="cookie-box">
-    <h3>Cookie Einstellungen</h3>
-    <p>
-      Wir verwenden technisch notwendige Cookies.
-      Analyse-Cookies werden erst nach deiner Zustimmung aktiviert.
-    </p>
-
-    <div class="cookie-actions">
-      <button id="acceptCookies">Alle akzeptieren</button>
-      <button id="necessaryCookies">Nur notwendige</button>
-      <button id="closeCookies">Schließen</button>
-    </div>
-  </div>
 </div>
 
 <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const mainNav = document.getElementById("mainNav");
-
-  if(menuToggle && mainNav){
-    menuToggle.addEventListener("click", () => {
-      mainNav.classList.toggle("open");
-    });
-  }
-
-  const cookieModal = document.getElementById("cookieModal");
-  const openCookies = document.getElementById("openCookies");
-  const closeCookies = document.getElementById("closeCookies");
-  const acceptCookies = document.getElementById("acceptCookies");
-  const necessaryCookies = document.getElementById("necessaryCookies");
-
-  openCookies.addEventListener("click", () => {
-    cookieModal.classList.add("active");
-  });
-
-  closeCookies.addEventListener("click", () => {
-    cookieModal.classList.remove("active");
-  });
-
-  acceptCookies.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "all");
-    cookieModal.classList.remove("active");
-  });
-
-  necessaryCookies.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "necessary");
-    cookieModal.classList.remove("active");
-  });
-
-  cookieModal.addEventListener("click", event => {
-    if(event.target === cookieModal){
-      cookieModal.classList.remove("active");
-    }
-  });
+const menuToggle=document.getElementById('menuToggle');
+const mainNav=document.getElementById('mainNav');
+if(menuToggle && mainNav){
+  menuToggle.addEventListener('click',()=>mainNav.classList.toggle('open'));
+  mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('open')));
+}
 </script>
 
 </body>
