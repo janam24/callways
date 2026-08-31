@@ -835,3 +835,136 @@
   }
 }
 </style>
+
+<style>
+/* FINAL: Leistungen section aligned like Branchen reference */
+@media(min-width:901px){
+  .services .section-head{
+    display:grid;
+    grid-template-columns:440px 1fr;
+    align-items:end;
+    gap:0;
+    max-width:100%;
+    margin-bottom:42px;
+  }
+
+  .services .section-head > div{
+    min-width:0;
+  }
+
+  .services .section-head p{
+    max-width:760px;
+    width:100%;
+    margin:0;
+    justify-self:start;
+  }
+}
+
+@media(max-width:900px){
+  .services .section-head{
+    display:block;
+  }
+
+  .services .section-head p{
+    max-width:100%;
+    margin-top:14px;
+  }
+}
+</style>
+
+<style>
+/* =========================================================
+   FINAL LEISTUNGEN LAYOUT
+   - remove excess white space above "Unser Angebot"
+   - put service number next to service title
+   ========================================================= */
+
+/* Pull the Leistungen content upward */
+.services{
+  padding-top:38px !important;
+}
+
+/* Keep heading/intro aligned like Branchen */
+@media(min-width:901px){
+  .services .section-head{
+    display:grid;
+    grid-template-columns:440px 1fr;
+    align-items:end;
+    gap:0;
+    max-width:100%;
+    margin-bottom:42px;
+  }
+
+  .services .section-head p{
+    max-width:760px;
+    width:100%;
+    margin:0;
+    justify-self:start;
+  }
+}
+
+/* Number + title on the same line.
+   Existing HTML order is card-top, then h3, so use display:contents
+   and make each card a small internal grid. */
+.service-card{
+  display:grid !important;
+  grid-template-columns:auto 1fr auto;
+  grid-template-rows:auto auto auto;
+  column-gap:12px;
+  align-content:start;
+  min-height:260px;
+}
+
+.service-card .card-top{
+  display:contents;
+}
+
+.service-card .number{
+  grid-column:1;
+  grid-row:1;
+  align-self:center;
+  margin:0;
+}
+
+.service-card .card-line{
+  grid-column:3;
+  grid-row:1;
+  align-self:center;
+}
+
+.service-card h3{
+  grid-column:2;
+  grid-row:1;
+  align-self:center;
+  margin:0 !important;
+}
+
+.service-card > p{
+  grid-column:1 / -1;
+  grid-row:2;
+  margin:14px 0 10px !important;
+}
+
+.service-card > .features{
+  grid-column:1 / -1;
+  grid-row:3;
+  margin-top:0 !important;
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .services{
+    padding-top:30px !important;
+  }
+
+  .services .section-head{
+    display:block;
+  }
+
+  .services .section-head p{
+    max-width:100%;
+    margin-top:14px;
+  }
+}
+</style>
+
