@@ -1140,6 +1140,243 @@
 }
 </style>
 
+
+<style>
+/* ===== FINAL KONTAKT: form replaces giraffe in hero ===== */
+.hero{
+  padding:56px 0 56px !important;
+  overflow:visible !important;
+}
+.hero-grid{
+  display:grid !important;
+  grid-template-columns:1.05fr 1fr !important;
+  gap:40px !important;
+  align-items:start !important;
+}
+.hero-grid > div:first-child{
+  padding-top:8px;
+}
+.hero-form-wrap{
+  width:100%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+.hero-form-wrap .form-card{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  position:relative !important;
+  z-index:2;
+  grid-column:auto !important;
+  padding:28px !important;
+  border:1.5px solid var(--border) !important;
+  border-radius:20px !important;
+  background:#fff !important;
+  box-shadow:0 12px 28px rgba(10,24,47,.07) !important;
+}
+.hero-form-wrap .form-card h2{
+  font-size:26px !important;
+  line-height:1.2;
+}
+.hero-form-wrap .form-card > p{
+  font-size:13px;
+  line-height:1.55;
+  margin-bottom:20px;
+}
+.hero-form-wrap .form-grid{
+  gap:13px !important;
+}
+.hero-form-wrap input,
+.hero-form-wrap textarea{
+  padding:11px 12px;
+}
+.hero-form-wrap textarea{
+  min-height:118px;
+}
+.hero-form-wrap .submit-btn{
+  margin-top:16px;
+}
+
+/* lower section now contains only direct contact information */
+.contact-section{
+  background:#fff;
+  padding:64px 0 76px !important;
+  border-top:1px solid var(--border);
+}
+.contact-grid{
+  display:block !important;
+}
+.contact-intro{
+  max-width:760px;
+  padding-top:0 !important;
+}
+.contact-details{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.contact-detail.address{
+  min-height:108px;
+}
+
+@media(max-width:900px){
+  .hero{
+    padding:44px 0 48px !important;
+  }
+  .hero-grid{
+    grid-template-columns:1fr !important;
+    gap:34px !important;
+    text-align:left !important;
+  }
+  .hero-grid > div:first-child{
+    padding-top:0;
+  }
+  .hero-copy{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  .hero-social-links{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  .hero-form-wrap{
+    width:100%;
+  }
+}
+@media(max-width:720px){
+  .contact-details{
+    grid-template-columns:1fr;
+  }
+  .hero-form-wrap .form-grid{
+    grid-template-columns:1fr;
+  }
+  .hero-form-wrap .field.full{
+    grid-column:auto;
+  }
+}
+</style>
+
+
+<style>
+/* ===== FINAL CONTACT REFINEMENTS ===== */
+/* LinkedIn and careers stacked vertically */
+.hero-social-links{
+  grid-template-columns:1fr !important;
+  max-width:300px !important;
+  gap:10px !important;
+}
+.hero-social-card{
+  min-height:82px !important;
+}
+
+/* Slightly more compact form, especially the message field */
+.hero-form-wrap .form-card{
+  padding:24px !important;
+}
+.hero-form-wrap .form-card > p{
+  margin-bottom:16px !important;
+}
+.hero-form-wrap .form-grid{
+  gap:11px 13px !important;
+}
+.hero-form-wrap input{
+  padding:10px 12px !important;
+}
+.hero-form-wrap textarea{
+  min-height:82px !important;
+  height:82px !important;
+  padding:10px 12px !important;
+}
+.hero-form-wrap .privacy{
+  margin-top:11px !important;
+}
+.hero-form-wrap .submit-btn{
+  margin-top:13px !important;
+}
+
+/* Direct-contact boxes spread across the full page */
+.contact-intro{
+  max-width:none !important;
+  width:100% !important;
+}
+.contact-details{
+  width:100% !important;
+  grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+  gap:14px !important;
+  align-items:stretch;
+}
+.contact-detail{
+  min-height:98px;
+}
+.contact-detail:nth-child(1){grid-column:1 / span 2;}
+.contact-detail:nth-child(2){grid-column:3 / span 2;}
+.contact-detail:nth-child(3){grid-column:5 / span 2;}
+.contact-detail:nth-child(4){grid-column:2 / span 2;}
+.contact-detail:nth-child(5){grid-column:4 / span 2;}
+.contact-detail-icon svg{
+  width:15px;
+  height:15px;
+}
+
+@media(max-width:900px){
+  .hero-social-links{
+    max-width:300px !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  .contact-details{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .contact-detail:nth-child(n){
+    grid-column:auto !important;
+  }
+}
+@media(max-width:620px){
+  .contact-details{
+    grid-template-columns:1fr !important;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL: only the two location cards, balanced across the section */
+.contact-details{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:42px !important;
+  width:min(100%,960px) !important;
+  margin:30px auto 0 !important;
+  align-items:stretch !important;
+}
+.contact-detail.address{
+  grid-column:auto !important;
+  min-height:118px !important;
+  padding:22px 24px !important;
+}
+@media(max-width:720px){
+  .contact-details{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+    width:100% !important;
+  }
+}
+</style>
+
+
+<style>
+/* Remove the large gap above "Direkt erreichbar" */
+.contact-section{
+  padding-top:18px !important;
+}
+@media(max-width:720px){
+  .contact-section{
+    padding-top:18px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -1233,72 +1470,9 @@
 
       </div>
 
-      <div class="hero-art" aria-label="Callways Giraffen-Maskottchen">
-        <span class="spark s1">✦</span>
-        <span class="spark s2">○</span>
-        <span class="spark s3">⌁</span>
+      <div class="hero-form-wrap" id="kontaktformular">
 
-        <img
-          class="hero-giraffe"
-          src="https://ik.imagekit.io/callways/contact"
-          alt="Callways Giraffe"
-        >
-      </div>
-
-    </div>
-  </section>
-
-  <section class="contact-section" id="kontaktformular">
-    <div class="container contact-grid">
-
-      <div class="contact-intro">
-        <h2>Direkt erreichbar.</h2>
-
-        <p>
-          Ob erste Frage, konkrete Anfrage oder neues Projekt – wir freuen uns,
-          von dir zu hören.
-        </p>
-
-        <div class="contact-details">
-
-          <div class="contact-detail">
-            <span class="contact-detail-icon">24</span>
-            <div class="contact-detail-text">
-              <strong>24/7 erreichbar</strong>
-              <span>365 Tage im Jahr für deine Kunden da.</span>
-            </div>
-          </div>
-
-          <div class="contact-detail address">
-            <span class="contact-detail-icon">⌖</span>
-            <div class="contact-detail-text">
-              <strong>Berlin</strong>
-              <span>CALLWAYS Call Center GmbH<br>An der Wuhlheide 232 B<br>12459 Berlin</span>
-            </div>
-          </div>
-
-          <div class="contact-detail address">
-            <span class="contact-detail-icon">⌖</span>
-            <div class="contact-detail-text">
-              <strong>Hagenow</strong>
-              <span>CALLWAYS Call Center GmbH<br>Möllner Str. 51a<br>19230 Hagenow</span>
-            </div>
-          </div>
-
-          <a class="contact-detail" href="tel:+4930330272727">
-            <span class="contact-detail-icon">☎</span>
-            <span>+49 30 33027-2727</span>
-          </a>
-
-          <a class="contact-detail" href="mailto:vertrieb@callways.de">
-            <span class="contact-detail-icon">✉</span>
-            <span>vertrieb@callways.de</span>
-          </a>
-
-        </div>
-      </div>
-
-      <div class="form-card">
+        <div class="form-card">
         <h2>Schreib uns.</h2>
         <p>Füll das Formular aus und wir melden uns bei dir.</p>
 
@@ -1346,6 +1520,42 @@
           <button class="submit-btn" type="submit">Nachricht senden →</button>
 
         </form>
+      </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+
+      <div class="contact-intro">
+        <h2>Direkt erreichbar.</h2>
+
+        <p>
+          Ob erste Frage, konkrete Anfrage oder neues Projekt – wir freuen uns,
+          von dir zu hören.
+        </p>
+
+        <div class="contact-details">
+
+          <div class="contact-detail address">
+            <span class="contact-detail-icon">⌖</span>
+            <div class="contact-detail-text">
+              <strong>Berlin</strong>
+              <span>CALLWAYS Call Center GmbH<br>An der Wuhlheide 232 B<br>12459 Berlin</span>
+            </div>
+          </div>
+
+          <div class="contact-detail address">
+            <span class="contact-detail-icon">⌖</span>
+            <div class="contact-detail-text">
+              <strong>Hagenow</strong>
+              <span>CALLWAYS Call Center GmbH<br>Möllner Str. 51a<br>19230 Hagenow</span>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
