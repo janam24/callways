@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz | Callways</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    --cream:#FCFAF2;
+    --gold:#D7BD09;
+    --gold-dark:#B89F06;
+    --navy:#0A182F;
+    --navy-2:#132038;
+    --ink:#101322;
+    --gray:#6B7280;
+    --border:#E7E2D4;
+    --white:#FFFFFF;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-full:999px;
+    --shadow-sm:0 2px 10px rgba(10,24,47,0.05);
+    --shadow-md:0 10px 30px rgba(10,24,47,0.08);
+  }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.btn{font-family:'Poppins',sans-serif}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:var(--radius-full);
+    font-weight:600;
+    font-size:15px;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn svg{transition:transform .18s ease;}
+  .btn:hover svg{transform:translateX(3px);}
+  .btn-gold{
+    background:var(--gold);
+    color:var(--navy);
+  }
+  .btn-gold:hover{background:var(--gold-dark); box-shadow:var(--shadow-md);}
+  .btn-outline{
+    background:transparent;
+    border-color:var(--ink);
+    color:var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink); color:var(--white); border-color:var(--ink);}
+  .btn-navy{
+    background:var(--navy);
+    color:var(--white);
+  }
+  .btn-navy:hover{background:#000; box-shadow:var(--shadow-md);}
+  .btn-sm{padding:11px 20px; font-size:13.5px;}
+
+  
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(252,250,242,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+  }
+  .brand img.brand-logo{
+    height:32px;
+    width:auto;
+    display:block;
+  }
+  nav.main-nav{display:flex; gap:34px;}
+  nav.main-nav a{
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--ink);
+    position:relative;
+    padding:4px 0;
+  }
+  nav.main-nav a::after{
+    content:'';
+    position:absolute; left:0; bottom:-2px;
+    width:0; height:2px;
+    background:var(--gold);
+    transition:width .2s ease;
+  }
+  nav.main-nav a:hover::after{width:100%;}
+  .nav-cta{display:flex; align-items:center; gap:18px;}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-toggle svg{width:26px;height:26px;}
+
+  @media(max-width:900px){
+    nav.main-nav{
+      position:fixed; top:70px; left:0; right:0;
+      background:var(--cream);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--border);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    nav.main-nav.open{max-height:400px;}
+    nav.main-nav a{padding:16px 24px; border-top:1px solid var(--border);}
+    .nav-cta .btn-gold span{display:none;}
+    .nav-cta .btn-gold{padding:12px;}
+    .menu-toggle{display:block;}
+  }
+
+  
+.legal-hero{padding:68px 0 38px;text-align:center}
+.legal-hero h1{font-size:clamp(38px,5vw,56px);font-weight:800;letter-spacing:-1px}
+.legal-content{max-width:900px;margin:0 auto;padding:12px 24px 90px}
+.legal-content h2{font-size:27px;margin:42px 0 14px}
+.legal-content h3{font-size:20px;margin:30px 0 10px}
+.legal-content h4{font-size:16px;margin:24px 0 8px}
+.legal-content p{margin:0 0 16px;color:#3f4652}
+.legal-content ul{margin:0 0 18px 22px;color:#3f4652}
+.legal-content li{margin:7px 0}
+.legal-content a{color:#8d7a00;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.legal-content strong{color:var(--ink)}
+
+footer{border-top:1px solid var(--border);padding:32px 0;background:#fff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--gray)}
+.footer-copy{font-size:12px;color:var(--gray)}
+.brand-logo{height:32px;width:auto;display:block}
+@media(max-width:900px){
+  .legal-hero{padding-top:50px}
+}
+
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
+  margin:10px 0 28px;
+}
+.privacy-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  font-size:13px;
+  line-height:1.45;
+  table-layout:auto;
+}
+.privacy-table thead th{
+  background:#2b2b29;
+  color:#fff;
+  font-weight:700;
+  text-align:left;
+  padding:8px 10px;
+  border:1px solid #2b2b29;
+}
+.privacy-table tbody td{
+  padding:8px 10px;
+  vertical-align:top;
+  border-top:1px solid #777;
+  border-bottom:1px solid #777;
+  color:#4b5563;
+}
+.privacy-table tbody tr:nth-child(even) td{
+  background:#f1f1f1;
+}
+.privacy-table th:nth-child(1),
+.privacy-table td:nth-child(1){
+  width:28%;
+}
+.privacy-table th:nth-child(2),
+.privacy-table td:nth-child(2){
+  width:22%;
+  white-space:nowrap;
+}
+.privacy-table th:nth-child(3),
+.privacy-table td:nth-child(3){
+  width:50%;
+}
+@media(max-width:700px){
+  .privacy-table{
+    min-width:720px;
+    font-size:12px;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="brand-logo" src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Startseite</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a href="branchen.html">Branchen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="blog.html">Blog</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="kontakt.html" class="btn btn-gold btn-sm">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Jetzt kontaktieren</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+<section class="legal-hero"><div class="container"><h1>Datenschutzerklärung</h1></div></section>
+<article class="legal-content">
+<h2>Datenschutzerklärung</h2>
+<h3>1. Datenschutz auf einen Blick</h3>
+<h4>Allgemeine Hinweise</h4>
+<p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+<h4>Datenerfassung auf dieser Website</h4>
+<h4>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</h4>
+<p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle“ in dieser Datenschutzerklärung entnehmen.</p>
+<h4>Wie erfassen wir Ihre Daten?</h4>
+<p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
+<p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+<h4>Wofür nutzen wir Ihre Daten?</h4>
+<p>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+<h4>Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
+<p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+<p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
+<h4>Analyse-Tools und Tools von Dritt­anbietern</h4>
+<p>Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit sogenannten Analyseprogrammen.</p>
+<p>Detaillierte Informationen zu diesen Analyseprogrammen finden Sie in der folgenden Datenschutzerklärung.</p>
+<h3>2. Hosting</h3>
+<p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
+<h4>Externes Hosting</h4>
+<p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters / der Hoster gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+<p>Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.</p>
+<p>Unser(e) Hoster wird bzw. werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen.</p>
+<p>Wir setzen folgende(n) Hoster ein:</p>
+<p>LIEPS GmbH - Die Werbeagentur Schwedenstraße 25 17033 Neubrandenburg</p>
+<h4>Auftragsverarbeitung</h4>
+<p>Wir haben einen Vertrag über Auftragsverarbeitung (AVV) mit dem oben genannten Anbieter geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
+<h3>3. Allgemeine Hinweise und Pflicht­informationen</h3>
+<h4>Datenschutz</h4>
+<p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+<p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.</p>
+<p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+<h4>Hinweis zur verantwortlichen Stelle</h4>
+<p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+<p>CALLWAYS Call Center GmbH Andrea Reichelt, Achim Reinhardt Möllner Str. 51 a 19230 Hagenow</p>
+<p>Telefon: 030 - 330 27 27 27 E-Mail: post@callways.de</p>
+<p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+<h4>Speicherdauer</h4>
+<p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.</p>
+<h4>Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website</h4>
+<p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im Falle einer ausdrücklichen Einwilligung in die Übertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs. 1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in Ihr Endgerät (z. B. via Device-Fingerprinting) eingewilligt haben, erfolgt die Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit widerrufbar. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen. Über die jeweils im Einzelfall einschlägigen Rechtsgrundlagen wird in den folgenden Absätzen dieser Datenschutzerklärung informiert.</p>
+<h4>Datenschutz­beauftragter</h4>
+<p>Wir haben einen Datenschutzbeauftragten benannt.</p>
+<p>DataCo GmbH Sandstraße 33 80335 München +49 89 740045840 datenschutz@dataguard.de</p>
+<h4>Hinweis zur Datenweitergabe in die USA und sonstige Drittstaaten</h4>
+<p>Wir verwenden unter anderem Tools von Unternehmen mit Sitz in den USA oder sonstigen datenschutzrechtlich nicht sicheren Drittstaaten. Wenn diese Tools aktiv sind, können Ihre personenbezogene Daten in diese Drittstaaten übertragen und dort verarbeitet werden. Wir weisen darauf hin, dass in diesen Ländern kein mit der EU vergleichbares Datenschutzniveau garantiert werden kann. Beispielsweise sind US-Unternehmen dazu verpflichtet, personenbezogene Daten an Sicherheitsbehörden herauszugeben, ohne dass Sie als Betroffener hiergegen gerichtlich vorgehen könnten. Es kann daher nicht ausgeschlossen werden, dass US-Behörden (z. B. Geheimdienste) Ihre auf US-Servern befindlichen Daten zu Überwachungszwecken verarbeiten, auswerten und dauerhaft speichern. Wir haben auf diese Verarbeitungstätigkeiten keinen Einfluss.</p>
+<h4>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>
+<p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+<h4>Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)</h4>
+<p>WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH FÜR EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKLÄRUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).</p>
+<p>WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH FÜR DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).</p>
+<h4>Beschwerde­recht bei der zuständigen Aufsichts­behörde</h4>
+<p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
+<h4>Recht auf Daten­übertrag­barkeit</h4>
+<p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.</p>
+<h4>Auskunft, Löschung und Berichtigung</h4>
+<p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.</p>
+<h4>Recht auf Einschränkung der Verarbeitung</h4>
+<p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:</p>
+<ul><li>Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li><li>Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.</li><li>Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li><li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li></ul>
+<p>Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben, dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats verarbeitet werden.</p>
+<h4>SSL- bzw. TLS-Verschlüsselung</h4>
+<p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http\://“ auf „https\://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+<p>Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
+<h4>Widerspruch gegen Werbe-E-Mails</h4>
+<p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p>
+<h3>4. Datenerfassung auf dieser Website</h3>
+<h4>Cookies</h4>
+<p>Unsere Internetseiten verwenden so genannte „Cookies“. Cookies sind kleine Datenpakete und richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem Endgerät gespeichert. Session-Cookies werden nach Ende Ihres Besuchs automatisch gelöscht. Permanente Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese selbst löschen oder eine automatische Löschung durch Ihren Webbrowser erfolgt.</p>
+<p>Teilweise können auch Cookies von Drittunternehmen auf Ihrem Endgerät gespeichert werden, wenn Sie unsere Seite betreten (Third-Party-Cookies). Diese ermöglichen uns oder Ihnen die Nutzung bestimmter Dienstleistungen des Drittunternehmens (z. B. Cookies zur Abwicklung von Zahlungsdienstleistungen).</p>
+<p>Cookies haben verschiedene Funktionen. Zahlreiche Cookies sind technisch notwendig, da bestimmte Websitefunktionen ohne diese nicht funktionieren würden (z. B. die Warenkorbfunktion oder die Anzeige von Videos). Andere Cookies dienen dazu, das Nutzerverhalten auszuwerten oder Werbung anzuzeigen.</p>
+<p>Cookies, die zur Durchführung des elektronischen Kommunikationsvorgangs, zur Bereitstellung bestimmter, von Ihnen erwünschter Funktionen (z. B. für die Warenkorbfunktion) oder zur Optimierung der Website (z. B. Cookies zur Messung des Webpublikums) erforderlich sind (notwendige Cookies), werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert, sofern keine andere Rechtsgrundlage angegeben wird. Der Websitebetreiber hat ein berechtigtes Interesse an der Speicherung von notwendigen Cookies zur technisch fehlerfreien und optimierten Bereitstellung seiner Dienste. Sofern eine Einwilligung zur Speicherung von Cookies und vergleichbaren Wiedererkennungstechnologien abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage dieser Einwilligung (Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG); die Einwilligung ist jederzeit widerrufbar.</p>
+<p>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.</p>
+<p>Soweit Cookies von Drittunternehmen oder zu Analysezwecken eingesetzt werden, werden wir Sie hierüber im Rahmen dieser Datenschutzerklärung gesondert informieren und ggf. eine Einwilligung abfragen.</p>
+<h4>Verwendete Cookies</h4>
+<p>Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung von Endgeräteinformationen und personenbezogenen Daten. Die Verarbeitung dient der Einbindung von Inhalten, externen Diensten und Elementen Dritter, der statistischen Analyse/Messung, der personalisierten Werbung sowie der Einbindung sozialer Medien. Je nach Funktion werden dabei Daten an Dritte weitergegeben und an Dritte in Ländern, in denen kein angemessenes Datenschutzniveau vorliegt und von diesen verarbeitet wird, z. B. die USA. Ihre Einwilligung ist stets freiwillig, für die Nutzung unserer Website nicht erforderlich und kann jederzeit auf unserer Seite abgelehnt oder widerrufen werden.</p>
+<p>Ihr aktueller Zustand: abgelehnt Ihre Einwilligungs-ID: 9c2f48f73cbcc283 Einwilligungsdatum: 28.8.2026, 17:17:59</p>
+<ul><li>[Zustimmung ändern](javascript:)</li></ul>
+<h4>Technisch notwendig</h4>
+<h4>Cookie Consent Manager CCM</h4>
+<p><strong>Herausgeber</strong> CALLWAYS Call Center GmbH</p>
+<p><strong>Beschreibung</strong> Dient zur Speicherung der Cookie Consent Vereinbarung - welche Cookies gesetzt werden dürfen.</p>
+<p><strong>Link zur Datenschutzerklärung</strong> [https://callways.de/datenschutz.html](https://callways.de/datenschutz.html "Datenschutzerklärung für Einbindung \"Cookie Consent Manager CCM\"")</p>
+<p><strong>Welche Daten werden erhoben?</strong> Zustand der Einstellung welche Cookies gesetzt werden dürfen für Sie. Daten werden nach Kategorien sortiert gespeichert.</p>
+<p><strong>Zweck der Datenerhebung</strong> Um Ihre Präferenz für die Nutzung von Cookies auf dieser Seite zu speichern.</p>
+<p><strong>Local Storage:</strong></p>
+<div class="table-wrap"><table class="privacy-table">
+<thead><tr><th>Name</th><th>Lebensdauer</th><th>Beschreibung</th></tr></thead>
+<tbody>
+<tr><td>ccm_consent</td><td>1 Jahr</td><td>Dient zur Speicherung der Cookie-Consent-Vereinbarung, in der festgehalten wird, welche Cookies gesetzt werden dürfen.</td></tr>
+</tbody></table></div>
+<p><strong>Rechtliche Grundlage</strong> Art. 6 Abs. 1 s. 1 lit. c DSGVO</p>
+<p><strong>Ort der Verarbeitung</strong> Deutschalnd</p>
+<h4>Analyse / Statistiken</h4>
+<h4>Google Analytics 4</h4>
+<p><strong>Herausgeber</strong> Google Ireland Limited</p>
+<p><strong>Beschreibung</strong> Google Analytics ist ein Webanalysetool, das Websitebesitzern hilft, die Interaktionen der Nutzer auf ihrer Website zu verstehen und zu analysieren. Es sammelt Daten über Websitebesuche, darunter Informationen darüber, wie Nutzer auf eine Website gelangen (z. B. über Suchmaschinen, soziale Medien oder direkt), wie sie auf der Website navigieren, welche Seiten sie besuchen und wie lange sie auf diesen Seiten verweilen. Diese Informationen werden dann in verschiedenen Berichten dargestellt, die Einblicke in das Nutzerverhalten geben und es Websitebetreibern ermöglichen, ihre Website zu optimieren und die Nutzererfahrung zu verbessern. Die Daten werden auch zur Personalisierung und zur effektiven Aussteuerung von Werbeanzeigen genutzt.</p>
+<p><strong>Link zur Datenschutzerklärung</strong> [https://business.safety.google/privacy/](https://business.safety.google/privacy/ "Datenschutzerklärung für Einbindung \"Google Analytics 4\"")</p>
+<p><strong>Welche Daten werden erhoben?</strong> Browser-Informationen; Klickpfad; Datum und Uhrzeit des Besuchs; Standort-Informationen; Internetdienstanbieter; Geräteinformationen; Referrer URL; Bildschirmauflösung; Mausbewegungen; Anonymisierte IP-Adresse; Besuchsdauer; Kontodaten; Absprungraten; Downloads; Verhaltensdaten; App-Aktualisierungen</p>
+<p><strong>Zweck der Datenerhebung</strong> Analyse; Marketing; Personalisierung; Remarketing; effektive Aussteuerung von Werbeanzeigen</p>
+<p><strong>Cookies:</strong></p>
+<div class="table-wrap"><table class="privacy-table">
+<thead><tr><th>Name</th><th>Lebensdauer</th><th>Beschreibung</th></tr></thead>
+<tbody>
+<tr><td>_ga</td><td>24 Monate</td><td>Dient zur Unterscheidung einzelner Nutzer.</td></tr>
+<tr><td>_gid</td><td>24 Stunden</td><td>Dient zur Unterscheidung einzelner Nutzer, hat aber nur eine Laufzeit von 24 Stunden.</td></tr>
+<tr><td>_gac_gb_\*</td><td>90 Tage</td><td>Dieses Cookie wird nur gesetzt, wenn Google Analytics 4 mit Google Ads verknüpft ist. Es enthält Informationen zu Google-Ads-Kampagnen.</td></tr>
+<tr><td>_ga_\*</td><td>2 Jahre</td><td>Dient zur Speicherung des Sitzungsstatus.</td></tr>
+<tr><td>FPID</td><td>Persistent</td><td>Server-seitiger GA-Identifier</td></tr>
+<tr><td>FPLC</td><td>24 Stunden</td><td>Hash aus FPID fürs Cross-Domain-Linking bei GA</td></tr>
+</tbody></table></div>
+<p><strong>Rechtliche Grundlage</strong> EU: Art. 6 Abs. 1 s. 1 lit. a DSGVO Schweiz: Art. 45c (b) FMG, Art. 17 Satz 1 a) DSG</p>
+<p><strong>Ort der Verarbeitung</strong> Europäische Union</p>
+<h4>Google Analytics</h4>
+<p><strong>Herausgeber</strong> Google Ireland Limited</p>
+<p><strong>Beschreibung</strong> Google Analytics ist ein Webanalysetool, das Websitebesitzern dabei hilft, die Interaktionen der Nutzer auf ihrer Website zu verstehen und zu analysieren. Es sammelt Daten über Webseitenbesuche, darunter Informationen darüber, wie Nutzer auf eine Website gelangen (z. B. über Suchmaschinen, soziale Medien oder direkt), wie sie auf der Website navigieren, welche Seiten sie besuchen und wie lange sie auf diesen Seiten verweilen. Diese Informationen werden dann in verschiedenen Berichten dargestellt, die Einblicke in das Nutzerverhalten geben und es Websitebetreibern ermöglichen, ihre Website zu optimieren und die Nutzererfahrung zu verbessern. Die Daten werden auch zur Personalisierung und zur effektiven Aussteuerung von Werbeanzeigen genutzt.</p>
+<p><strong>Link zur Datenschutzerklärung</strong> [https://business.safety.google/privacy/](https://business.safety.google/privacy/ "Datenschutzerklärung für Einbindung \"Google Analytics\"")</p>
+<p><strong>Welche Daten werden erhoben?</strong> Browser-Informationen; Klickpfad; Datum und Uhrzeit des Besuchs; Standort-Informationen; IP-Adresse; Interaktionsdaten; Nutzungsdaten; Gerätebestriebssystem; Geräteinformationen; Referrer URL; Browser-Typ; Browser-Sprache; Bildschirmauflösung; JavaScript-Support; Besuchte Seiten; Nutzerverhalten; Hostname; Besuchte URL; Downloads; App-Aktualisierungen; Kaufaktivität; Widget-Interaktionen; Flash-Version; IP Adresse; Standortinformationen; Geräte Informationen; Geräteinformation; App-Updates; JavaScript-Unterstützung; Kaufaktivitäten; Browser Informationen;</p>
+<p><strong>Zweck der Datenerhebung</strong> Personalisierung; Remarketing; effektive Aussteuerung von Werbeanzeigen; Analyse und Marketing</p>
+<p><strong>Cookies:</strong></p>
+<div class="table-wrap"><table class="privacy-table">
+<thead><tr><th>Name</th><th>Lebensdauer</th><th>Beschreibung</th></tr></thead>
+<tbody>
+<tr><td>_ga</td><td>24 Monate</td><td>Erhebung von Statistik über die Nutzung der Webseite. (Reichweitenmessung)</td></tr>
+<tr><td>_gid</td><td>24 Stunden</td><td>ID zur Identifizierung des Benutzers innerhalb von 24 Stunden nach der letzten Aktivität</td></tr>
+<tr><td>_gat_gtag_\*</td><td>1 Minute</td><td>Dieses Cookie wird verwendet, um Benützer zu unterscheiden.</td></tr>
+<tr><td>_gac_\*</td><td>90 Tage</td><td>Dieses Cookie enthält Informationen über die Anzeige, auf die Sie geklickt haben.</td></tr>
+<tr><td>_gat\*</td><td>1 Minute</td><td>Dies wird verwendet, um die Anforderungsrate zu begrenzen.</td></tr>
+<tr><td>_dc_gtm_\*</td><td>1 Minute</td><td>Dies wird verwendet, um Computer-Nutzer zu unterscheiden.</td></tr>
+<tr><td>IDE</td><td>1 Jahr</td><td>Mit dieser ID kann Google Nutzer über verschiedene Websites und Domains hinweg identifizieren und ihnen personalisierte Werbung anzeigen.</td></tr>
+<tr><td>AMP_TOKEN</td><td>30 Sekunden bis 1 Jahr</td><td>Enthält den Token-Code, der zum Lesen der Client-ID aus dem AMP-Client-ID-Dienst verwendet wird. Durch den Abgleich dieser ID mit der Google Analytics-ID können Nutzer beim Wechsel zwischen AMP- und Nicht-AMP-Inhalten abgleichen. Referenz: https\://support.google.com/analytics/answer/7486764?hl=fr</td></tr>
+<tr><td>__utma</td><td>2 Jahre nach der letzten Aktivität</td><td>Dieses Cookie ist eines der 4 Kern-Cookies von Google Analytics und verfolgt Benutzeraktionen auf der Website und misst die Leistung der Website. Cookies unterscheiden zwischen Benutzern und Sitzungen. Es wird verwendet, um Statistiken zu wiederkehrenden Besuchern zu berechnen, und wird jedes Mal aktualisiert, wenn Daten an Google Analytics gesendet werden.</td></tr>
+<tr><td>__utmt\*</td><td>10 Minuten</td><td>Dieses Cookie wird verwendet, um die Anforderungsrate des Dienstes zu begrenzen und damit die Datenerfassung auf stark frequentierten Websites einzuschränken.</td></tr>
+<tr><td>__utmb</td><td>30 Minuten nach der letzten Aktivität</td><td>Dieses Cookie ist eines der 4 Kern-Cookies von Google Analytics und verfolgt Benutzeraktionen auf der Website und misst die Leistung der Website. Ein Cookie identifiziert neue Sitzungen und Besuche eines Benutzers. Es wird jedes Mal aktualisiert, wenn Daten an Google Analytics gesendet werden. Jede Besucheraktivität während der Lebensdauer des Cookies wird als einzelner Besuch gezählt, auch wenn der Besucher die Website verlässt und dann wieder auf diese zurückkehrt. Besuche nach Ablauf der Cookie-Lebensdauer werden als neue Besuche gezählt.</td></tr>
+<tr><td>__utmc</td><td>Ende der Sitzung (Browser)</td><td>Dieses Cookie ist eines der 4 Kern-Cookies von Google Analytics und verfolgt Benutzeraktionen auf der Website und misst die Leistung der Website. Die meisten Websites verwenden keine Cookies mehr, sind aber immer noch so konfiguriert, dass sie Legacy-Scancode bereitstellen, der auch als Urchin bekannt ist. In älteren Versionen wurde es mit __utmb verwendet, um den Besucher zu identifizieren.</td></tr>
+<tr><td>__utmz</td><td>6 Monate nach der letzten Aktivität</td><td>Dieses Cookie ist eines der 4 wichtigsten Cookies, die von Google Analytics gesetzt werden, um das Benutzerverhalten zu verfolgen und die Leistung der Website zu messen. Das Cookie identifiziert den Ort des Besuchs des Besuchers auf der Website, um den Eigentümer über den Ort des Besuchs des Benutzers auf der Website zu informieren, und wird jedes Mal aktualisiert, wenn die Daten an Google Analytics gesendet werden.</td></tr>
+<tr><td>__utmv</td><td>2 Jahre nach der letzten Aktivität</td><td>Wird verwendet, um variable Daten auf der Ebene der einzelnen Besucher zu speichern. Dieses Cookie wird erstellt, wenn der Entwickler die Methode _setCustomVar mit benutzerdefinierten Variablen auf Besucherebene verwendet. Dieses Cookie wird auch für die veraltete Methode _setVar verwendet. Das Cookie wird jedes Mal aktualisiert, wenn Daten an Google Analytics gesendet werden.</td></tr>
+<tr><td>__utmx</td><td>18 Monate</td><td>Dieses Cookie ist mit dem Google Website Optimizer verknüpft. Es wird verwendet, um zwei Varianten einer Webseite zu unterscheiden, die den Besuchern im Rahmen eines A/B-Split-Tests präsentiert werden können.</td></tr>
+<tr><td>__utm\*</td><td>18 Monate</td><td>Wird verwendet, um zu bestimmen, wann ein A/B- oder multivariater Benutzerbeteiligungstest endet</td></tr>
+<tr><td>_swag_ga_ga\*</td><td>n.a.</td><td>Die verwendeten Cookies weisen dem Website-Besucher eine Kennung zu und ermitteln statistische Daten über den Besuch des Website-Besuchers auf der Website. Dies wird verwendet, um den Benutzern angezeigte Werbung zu personalisieren.</td></tr>
+<tr><td>__utmd</td><td>n.a.</td><td>Dieser Cookie-Name scheint mit dem Google Analytics-Dienst verknüpft zu sein, der es Websitebesitzern ermöglicht, das Besucherverhalten zu verfolgen und die Websiteleistung zu messen. Google dokumentiert dies jedoch derzeit nicht.</td></tr>
+<tr><td>__utmo</td><td>n.a.</td><td>Dieses Cookie aktiviert die Funktionalität von Google Analytics.</td></tr>
+<tr><td>__gads</td><td>13 Monate</td><td>Wird gesetzt um Anzeigenschaltung oder Retargeting zu ermöglichen.</td></tr>
+<tr><td>_gd\*</td><td>Session</td><td>Speichert einen Zeitstempel des Nutzers.</td></tr>
+<tr><td>_ga_\*</td><td>2 Jahre</td><td>Wird verwendet, um den Sitzungsstatus abzurufen.</td></tr>
+<tr><td>_gcl_gb</td><td>1 Jahr</td><td>Der _gcl-Cookie-Wert enthält eine Versionsnummer, gefolgt von einem Zeitstempel und Kampagneninformationen im Format des GCLID-Werts.</td></tr>
+</tbody></table></div>
+<p><strong>Rechtliche Grundlage</strong> EU: Art. 6 Abs. 1 s. 1 lit. a DSGVO Schweiz: Art. 45c (b) FMG, Art. 17 Satz 1 a) DSG</p>
+<p><strong>Ort der Verarbeitung</strong> Europäische Union</p>
+<h4>Personalisierung</h4>
+<h4>Google Maps</h4>
+<p><strong>Herausgeber</strong> Google Ireland Limited, Google Building Gordon House, 4 Barrow St, Dublin, D04 E5W5, Ireland</p>
+<p><strong>Beschreibung</strong> Wir binden die Karte von Google Maps ein, um Ihnen ein besseres Surferlebnis unserer Seite ermöglichen zu können.</p>
+<p><strong>Link zur Datenschutzerklärung</strong> [https://policies.google.com/privacy?hl=de](https://policies.google.com/privacy?hl=de "Datenschutzerklärung für Einbindung \"Google Maps\"")</p>
+<p><strong>Welche Daten werden erhoben?</strong> Es werden keine Daten gesammelt.</p>
+<p><strong>Zweck der Datenerhebung</strong> Es werden keine Daten gesammelt.</p>
+<p><strong>Local Storage:</strong></p>
+<div class="table-wrap"><table class="privacy-table">
+<thead><tr><th>Name</th><th>Lebensdauer</th><th>Beschreibung</th></tr></thead>
+<tbody>
+<tr><td>goog_pem_mod</td><td>persistent</td><td>Wird verwendet, um Daten zu Google Analytics über das Gerät und das Verhalten des Besuchers zu senden. Erfasst den Besucher über Geräte und Marketingkanäle hinweg.</td></tr>
+</tbody></table></div>
+<p><strong>Rechtliche Grundlage</strong> Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, Art. 49 Abs. 1 lit. a DSGVO</p>
+<p><strong>Ort der Verarbeitung</strong> Europäische Union, Vereinigte Staaten von Amerika</p>
+<h4>CCM</h4>
+<p>Unsere Website nutzt CCM, um Ihre Einwilligung zur Speicherung bestimmter Cookies auf Ihrem Endgerät oder zum Einsatz bestimmter Technologien einzuholen und diese datenschutzkonform zu dokumentieren. Anbieter dieser Technologie ist LIEPS GmbH, Schwedenstraße 25, 17033 Neubrandenburg (im Folgenden „CCM“).</p>
+<p>Wenn Sie unsere Website betreten, wird eine Verbindung zu den Servern von CCM hergestellt, um Ihre Einwilligungen und sonstigen Erklärungen zur Cookie-Nutzung einzuholen. Anschließend speichert CCM einen Cookie in Ihrem Browser, um Ihnen die erteilten Einwilligungen bzw. deren Widerruf zuordnen zu können. Die so erfassten Daten werden gespeichert, bis Sie uns zur Löschung auffordern, den CCM-Cookie selbst löschen oder der Zweck für die Datenspeicherung entfällt. Zwingende gesetzliche Aufbewahrungspflichten bleiben unberührt.</p>
+<p>Der Einsatz von CCM erfolgt, um die gesetzlich vorgeschriebenen Einwilligungen für den Einsatz von Cookies einzuholen. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 S. 1 lit. c DSGVO.</p>
+<h4>Auftragsverarbeitung</h4>
+<p>Wir haben einen Vertrag über Auftragsverarbeitung (AVV) mit dem oben genannten Anbieter geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
+<h4>Server-Log-Dateien</h4>
+<p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+<ul><li>Browsertyp und Browserversion</li><li>verwendetes Betriebssystem</li><li>Referrer URL</li><li>Hostname des zugreifenden Rechners</li><li>Uhrzeit der Serveranfrage</li><li>IP-Adresse</li></ul>
+<p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+<p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+<h4>Kontaktformular</h4>
+<p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+<p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
+<p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+<h4>Anfrage per E-Mail, Telefon oder Telefax</h4>
+<p>Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+<p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
+<p>Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.</p>
+<h3>5. Analyse-Tools und Werbung</h3>
+<h4>Google Analytics</h4>
+<p>Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.</p>
+<p>Google Analytics ermöglicht es dem Websitebetreiber, das Verhalten der Websitebesucher zu analysieren. Hierbei erhält der Websitebetreiber verschiedene Nutzungsdaten, wie z. B. Seitenaufrufe, Verweildauer, verwendete Betriebssysteme und Herkunft des Nutzers. Diese Daten werden dem jeweiligen Endgerät des Users zugeordnet. Eine Zuordnung zu einer User-ID erfolgt nicht.</p>
+<p>Des Weiteren können wir mit Google Analytics u. a. Ihre Maus- und Scrollbewegungen und Klicks aufzeichnen. Ferner verwendet Google Analytics verschiedene Modellierungsansätze, um die erfassten Datensätze zu ergänzen und setzt Machine-Learning-Technologien bei der Datenanalyse ein.</p>
+<p>Google Analytics verwendet Technologien, die die Wiedererkennung des Nutzers zum Zwecke der Analyse des Nutzerverhaltens ermöglichen (z. B. Cookies oder Device-Fingerprinting). Die von Google erfassten Informationen über die Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.</p>
+<p>Die Nutzung dieses Dienstes erfolgt auf Grundlage Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit widerrufbar.</p>
+<p>Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie hier: <a href="https://privacy.google.com/businesses/controllerterms/mccs/" target="_blank" rel="noopener">https://privacy.google.com/businesses/controllerterms/mccs/</a>.</p>
+<h4>Browser Plugin</h4>
+<p>Sie können die Erfassung und Verarbeitung Ihrer Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout?hl=de</a>.</p>
+<p>Mehr Informationen zum Umgang mit Nutzerdaten bei Google Analytics finden Sie in der Datenschutzerklärung von Google: <a href="https://support.google.com/analytics/answer/6004245?hl=de" target="_blank" rel="noopener">https://support.google.com/analytics/answer/6004245?hl=de</a>.</p>
+<h4>Auftragsverarbeitung</h4>
+<p>Wir haben mit Google einen Vertrag zur Auftragsverarbeitung abgeschlossen und setzen die strengen Vorgaben der deutschen Datenschutzbehörden bei der Nutzung von Google Analytics vollständig um.</p>
+<h3>6. Plugins und Tools</h3>
+<h4>Google Fonts (lokales Hosting)</h4>
+<p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google Fonts, die von Google bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet dabei nicht statt.</p>
+<p>Weitere Informationen zu Google Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">https://developers.google.com/fonts/faq</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=de</a>.</p>
+<h4>Google Maps</h4>
+<p>Diese Seite nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.</p>
+<p>Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf diese Datenübertragung. Wenn Google Maps aktiviert ist, kann Google zum Zwecke der einheitlichen Darstellung der Schriftarten Google Fonts verwenden. Beim Aufruf von Google Maps lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen.</p>
+<p>Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.</p>
+<p>Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie hier: <a href="https://privacy.google.com/businesses/gdprcontrollerterms/" target="_blank" rel="noopener">https://privacy.google.com/businesses/gdprcontrollerterms/</a> und <a href="https://privacy.google.com/businesses/gdprcontrollerterms/sccs/" target="_blank" rel="noopener">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.</p>
+<p>Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=de</a>.</p>
+<h3>7. Eigene Dienste</h3>
+<h4>Umgang mit Bewerberdaten</h4>
+<p>Wir bieten Ihnen die Möglichkeit, sich bei uns zu bewerben (z. B. per E-Mail, postalisch oder via Online-Bewerberformular). Im Folgenden informieren wir Sie über Umfang, Zweck und Verwendung Ihrer im Rahmen des Bewerbungsprozesses erhobenen personenbezogenen Daten. Wir versichern, dass die Erhebung, Verarbeitung und Nutzung Ihrer Daten in Übereinstimmung mit geltendem Datenschutzrecht und allen weiteren gesetzlichen Bestimmungen erfolgt und Ihre Daten streng vertraulich behandelt werden.</p>
+<h4>Umfang und Zweck der Datenerhebung</h4>
+<p>Wenn Sie uns eine Bewerbung zukommen lassen, verarbeiten wir Ihre damit verbundenen personenbezogenen Daten (z. B. Kontakt- und Kommunikationsdaten, Bewerbungsunterlagen, Notizen im Rahmen von Bewerbungsgesprächen etc.), soweit dies zur Entscheidung über die Begründung eines Beschäftigungsverhältnisses erforderlich ist. Rechtsgrundlage hierfür ist § 26 BDSG nach deutschem Recht (Anbahnung eines Beschäftigungsverhältnisses), Art. 6 Abs. 1 lit. b DSGVO (allgemeine Vertragsanbahnung) und – sofern Sie eine Einwilligung erteilt haben – Art. 6 Abs. 1 lit. a DSGVO. Die Einwilligung ist jederzeit widerrufbar. Ihre personenbezogenen Daten werden innerhalb unseres Unternehmens ausschließlich an Personen weitergegeben, die an der Bearbeitung Ihrer Bewerbung beteiligt sind.</p>
+<p>Sofern die Bewerbung erfolgreich ist, werden die von Ihnen eingereichten Daten auf Grundlage von § 26 BDSG und Art. 6 Abs. 1 lit. b DSGVO zum Zwecke der Durchführung des Beschäftigungsverhältnisses in unseren Datenverarbeitungssystemen gespeichert.</p>
+<h4>Aufbewahrungsdauer der Daten</h4>
+<p>Sofern wir Ihnen kein Stellenangebot machen können, Sie ein Stellenangebot ablehnen oder Ihre Bewerbung zurückziehen, behalten wir uns das Recht vor, die von Ihnen übermittelten Daten auf Grundlage unserer berechtigten Interessen (Art. 6 Abs. 1 lit. f DSGVO) bis zu 6 Monate ab der Beendigung des Bewerbungsverfahrens (Ablehnung oder Zurückziehung der Bewerbung) bei uns aufzubewahren. Anschließend werden die Daten gelöscht und die physischen Bewerbungsunterlagen vernichtet. Die Aufbewahrung dient insbesondere Nachweiszwecken im Falle eines Rechtsstreits. Sofern ersichtlich ist, dass die Daten nach Ablauf der 6-Monatsfrist erforderlich sein werden (z. B. aufgrund eines drohenden oder anhängigen Rechtsstreits), findet eine Löschung erst statt, wenn der Zweck für die weitergehende Aufbewahrung entfällt.</p>
+<p>Eine längere Aufbewahrung kann außerdem stattfinden, wenn Sie eine entsprechende Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) erteilt haben oder wenn gesetzliche Aufbewahrungspflichten der Löschung entgegenstehen.</p>
+</article>
+</main>
+<footer>
+<div class="container footer-inner">
+<a href="index.html" class="brand"><img class="brand-logo" style="height:26px" src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways"></a>
+<div class="footer-links">
+<a href="kontakt.html">Kontakt</a>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+</div>
+<div class="footer-copy">© 2026 Callways.</div>
+</div>
+</footer>
+</body>
+</html>
