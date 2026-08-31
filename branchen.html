@@ -718,7 +718,7 @@ h1{
         <span class="spark s2">○</span>
         <span class="spark s3">⌁</span>
         <img class="hero-giraffe"
-             src="https://ik.imagekit.io/callways/ChatGPT%20Image%2031.%20Aug.%202026,%2009_43_16.png"
+             src="https://ik.imagekit.io/callways/branchen"
              alt="Callways Giraffe">
       </div>
     </div>
@@ -737,8 +737,10 @@ h1{
       <div class="industry-grid">
 
         <article class="industry-card">
-          <div class="icon">01</div>
-          <h3>Wohnungswirtschaft</h3>
+          <div class="industry-title-row">
+            <div class="icon">01</div>
+            <h3>Wohnungswirtschaft</h3>
+          </div>
           <p>Mieteranfragen, Störungsmeldungen und Notfallannahme – zuverlässig und strukturiert.</p>
           <ul>
             <li>Mieterhotline</li><li>Störungsannahme</li><li>Notfallhotline</li>
@@ -747,8 +749,10 @@ h1{
         </article>
 
         <article class="industry-card">
-          <div class="icon">02</div>
-          <h3>Energie</h3>
+          <div class="industry-title-row">
+            <div class="icon">02</div>
+            <h3>Energie</h3>
+          </div>
           <p>Kundenservice für Energieversorger und energienahe Unternehmen – von Zählerständen bis zu Vertrags- und Störungsanfragen.</p>
           <ul>
             <li>Zählerstände</li><li>Vertragsfragen</li><li>Lieferantenwechsel</li><li>Störungsannahme</li>
@@ -756,8 +760,10 @@ h1{
         </article>
 
         <article class="industry-card">
-          <div class="icon">03</div>
-          <h3>E-Commerce</h3>
+          <div class="industry-title-row">
+            <div class="icon">03</div>
+            <h3>E-Commerce</h3>
+          </div>
           <p>Bestell-, Retouren- und Lieferanfragen schnell, verständlich und lösungsorientiert bearbeiten.</p>
           <ul>
             <li>Bestellservice</li><li>Retouren</li><li>Lieferstatus</li><li>E-Mail &amp; Chat</li>
@@ -765,8 +771,10 @@ h1{
         </article>
 
         <article class="industry-card">
-          <div class="icon">04</div>
-          <h3>Mobilität</h3>
+          <div class="industry-title-row">
+            <div class="icon">04</div>
+            <h3>Mobilität</h3>
+          </div>
           <p>Service für Flotten, Mietwagen, Mobilitätsanbieter und fahrzeugbezogene Kundenanfragen.</p>
           <ul>
             <li>Kundenhotline</li><li>Pannenannahme</li><li>Terminservice</li><li>Backoffice</li>
@@ -774,8 +782,10 @@ h1{
         </article>
 
         <article class="industry-card">
-          <div class="icon">05</div>
-          <h3>Weitere Branchen</h3>
+          <div class="industry-title-row">
+            <div class="icon">05</div>
+            <h3>Weitere Branchen</h3>
+          </div>
           <p>Deine Branche ist nicht dabei? Wir entwickeln passende Serviceprozesse – auf Wunsch auch mit KI, Automatisierung und digitalen Lösungen.</p>
           <ul>
             <li>Individuelle Prozesse</li><li>KI &amp; Automatisierung</li><li>Flexible Erreichbarkeit</li><li>Skalierbare Teams</li>
@@ -984,3 +994,42 @@ mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.
 }
 </style>
 
+<style>
+/* =========================================================
+   REQUESTED BRANCHEN ADJUSTMENTS
+   ========================================================= */
+
+/* "Kundenservice ..." directly below "Unsere Branchen" */
+.industries .section-head{
+  display:block !important;
+  max-width:760px !important;
+  margin-bottom:38px !important;
+}
+
+.industries .section-head h2{
+  margin:0 0 12px !important;
+  white-space:normal !important;
+}
+
+.industries .section-head p{
+  margin:0 !important;
+  max-width:760px !important;
+}
+
+/* Number and card title on the same line */
+.industry-title-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.industry-title-row .icon{
+  flex:0 0 46px;
+  margin-bottom:0 !important;
+}
+
+.industry-title-row h3{
+  margin:0 !important;
+}
+</style>
