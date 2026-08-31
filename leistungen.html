@@ -739,3 +739,99 @@
     margin-bottom:0 !important;
   }
 </style>
+
+
+<style>
+/* =========================================================
+   FINAL LEISTUNGEN ALIGNMENT
+   1) Better section-head text width
+   2) Remove large gaps between card text and feature pills
+   ========================================================= */
+
+/* Keep the intro text wider, but inside the same container/card boundary */
+@media(min-width:901px){
+  .services .section-head{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:end;
+    gap:40px;
+    max-width:100%;
+    margin-bottom:42px;
+  }
+
+  .services .section-head > div{
+    min-width:0;
+  }
+
+  .services .section-head p{
+    max-width:560px;
+    margin:0;
+    justify-self:end;
+    width:100%;
+  }
+}
+
+/* Remove the artificial empty space above feature pills */
+.service-card .features{
+  margin-top:0 !important;
+}
+
+/* Slightly tighter spacing between description and feature pills */
+.service-card p{
+  margin-bottom:10px !important;
+}
+
+/* Cards still align cleanly, but content stays naturally together */
+.service-card{
+  justify-content:flex-start;
+}
+
+/* Mobile: return to normal stacked section heading */
+@media(max-width:900px){
+  .services .section-head{
+    display:block;
+  }
+
+  .services .section-head p{
+    max-width:100%;
+    margin-top:14px;
+  }
+}
+</style>
+
+
+<style>
+/* FINAL: move Leistungen intro paragraph closer to heading */
+@media(min-width:901px){
+  .services .section-head{
+    display:grid;
+    grid-template-columns:440px 1fr;
+    align-items:end;
+    gap:25px;
+    max-width:100%;
+    margin-bottom:42px;
+  }
+
+  .services .section-head > div{
+    min-width:0;
+  }
+
+  .services .section-head p{
+    max-width:560px;
+    width:100%;
+    margin:0;
+    justify-self:start;
+  }
+}
+
+@media(max-width:900px){
+  .services .section-head{
+    display:block;
+  }
+
+  .services .section-head p{
+    max-width:100%;
+    margin-top:14px;
+  }
+}
+</style>
