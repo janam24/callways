@@ -867,7 +867,27 @@
     }
     </style>
 
-    </head>
+    
+<style>
+/* Mobile: center the hero stats block while keeping icon/text alignment clean */
+@media(max-width:520px){
+  .hero-stats{
+    width:max-content !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+    grid-template-columns:1fr !important;
+  }
+
+  .hero-stat{
+    width:260px !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+    text-align:left !important;
+  }
+}
+</style>
+
+</head>
 
     <body>
 
