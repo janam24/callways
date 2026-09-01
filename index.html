@@ -207,20 +207,30 @@ nav.main-nav a:hover::after{
     top:70px;
     left:0;
     right:0;
-    background:var(--cream);
+    background:#fffdf7;
     flex-direction:column;
+    gap:0;
     max-height:0;
     overflow:hidden;
     transition:max-height .3s ease;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 12px 24px rgba(10,24,47,0.10);
+    z-index:99;
   }
 
   nav.main-nav.open{
-    max-height:400px;
+    max-height:420px;
   }
 
   nav.main-nav a{
-    padding:16px 24px;
-    border-top:1px solid var(--border);
+    padding:18px 24px;
+    border-top:1px solid #ebe6d8;
+    font-size:14.5px;
+    background:transparent;
+  }
+
+  nav.main-nav a:hover{
+    background:rgba(215,189,9,0.06);
   }
 
   .menu-toggle{
@@ -229,6 +239,10 @@ nav.main-nav a:hover::after{
 
   .nav-cta .btn-gold span{
     display:none;
+  }
+
+  .nav-cta .btn-gold{
+    padding:12px;
   }
 }
 
@@ -706,6 +720,7 @@ nav.main-nav a:hover::after{
 <a href="branchen.html">Branchen</a>
 <a href="ueber-uns.html">Über uns</a>
 <a href="blog.html">Blog</a>
+<a href="jobs.html">Jobs</a>
 <a href="kontakt.html">Kontakt</a>
 </nav>
 
