@@ -1,1377 +1,1453 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Callways – Kundenservice, der immer erreichbar ist.</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --cream:#FCFAF2;
-  --gold:#D7BD09;
-  --gold-dark:#B89F06;
-  --navy:#0A182F;
-  --navy-2:#132038;
-  --ink:#101322;
-  --gray:#6B7280;
-  --border:#E7E2D4;
-  --white:#FFFFFF;
-  --radius-lg:20px;
-  --radius-full:999px;
-  --shadow-md:0 10px 30px rgba(10,24,47,0.08);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--cream);
-  color:var(--ink);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-}
-
-h1,h2,h3,h4,.btn{
-  font-family:'Poppins',sans-serif;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 24px;
-}
-
-section{
-  padding:88px 0;
-}
-
-@media(max-width:768px){
-  section{
-    padding:56px 0;
-  }
-}
-
-
-/* BUTTONS */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:14px 26px;
-  border-radius:var(--radius-full);
-  font-weight:600;
-  font-size:15px;
-  border:2px solid transparent;
-  cursor:pointer;
-  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-  white-space:nowrap;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn svg{
-  transition:transform .18s ease;
-}
-
-.btn:hover svg{
-  transform:translateX(3px);
-}
-
-.btn-gold{
-  background:var(--gold);
-  color:var(--navy);
-}
-
-.btn-gold:hover{
-  background:var(--gold-dark);
-  box-shadow:var(--shadow-md);
-}
-
-.btn-outline{
-  background:transparent;
-  border-color:var(--ink);
-  color:var(--ink);
-}
-
-.btn-outline:hover{
-  background:var(--ink);
-  color:var(--white);
-}
-
-.btn-navy{
-  background:var(--navy);
-  color:var(--white);
-}
-
-.btn-sm{
-  padding:11px 20px;
-  font-size:13.5px;
-}
-
-
-/* HEADER */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(252,250,242,0.92);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border);
-}
-
-.nav-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 24px;
-  max-width:1200px;
-  margin:0 auto;
-}
-
-.brand img{
-  height:32px;
-  width:auto;
-}
-
-nav.main-nav{
-  display:flex;
-  gap:34px;
-}
-
-nav.main-nav a{
-  font-size:14.5px;
-  font-weight:500;
-  position:relative;
-}
-
-nav.main-nav a::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--gold);
-  transition:.2s;
-}
-
-nav.main-nav a:hover::after{
-  width:100%;
-}
-
-.nav-cta{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.menu-toggle{
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-}
-
-@media(max-width:900px){
-
-  nav.main-nav{
-    position:fixed;
-    top:70px;
-    left:0;
-    right:0;
-    background:#fffdf7;
-    flex-direction:column;
-    gap:0;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .3s ease;
-    border-bottom:1px solid var(--border);
-    box-shadow:0 12px 24px rgba(10,24,47,0.10);
-    z-index:99;
-  }
-
-  nav.main-nav.open{
-    max-height:420px;
-  }
-
-  nav.main-nav a{
-    padding:18px 24px;
-    border-top:1px solid #ebe6d8;
-    font-size:14.5px;
-    background:transparent;
-  }
-
-  nav.main-nav a:hover{
-    background:rgba(215,189,9,0.06);
-  }
-
-  .menu-toggle{
-    display:block;
-  }
-
-  .nav-cta .btn-gold span{
-    display:none;
-  }
-
-  .nav-cta .btn-gold{
-    padding:12px;
-  }
-}
-
-
-/* HERO */
-
-.hero{
-  padding:56px 0 28px;
-  overflow:hidden;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.05fr 1fr;
-  gap:40px;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:clamp(34px,5vw,54px);
-  font-weight:800;
-  line-height:1.08;
-  margin-bottom:20px;
-}
-
-.hero h1 .accent{
-  color:var(--gold);
-}
-
-.hero p.lead{
-  font-size:16.5px;
-  color:var(--gray);
-  max-width:500px;
-  margin-bottom:30px;
-  line-height:1.55;
-}
-
-.hero-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-bottom:42px;
-}
-
-
-/* HERO STATS - FIXED: equal columns, consistent alignment, long words wrap */
-
-.hero-stats{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:20px;
-  width:100%;
-  max-width:650px;
-}
-
-.hero-stat{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  min-width:0;
-}
-
-.hero-stat-icon{
-  width:38px;
-  height:38px;
-  border:1.5px solid var(--border);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--gold-dark);
-  flex-shrink:0;
-}
-
-.hero-stat-icon svg{
-  width:17px;
-  height:17px;
-}
-
-.hero-stat-text{
-  min-width:0;
-  flex:1;
-}
-
-.hero-stat b{
-  display:block;
-  font-family:'Poppins',sans-serif;
-  font-size:15px;
-  font-weight:700;
-  margin-bottom:4px;
-  line-height:1.2;
-}
-
-.hero-stat span{
-  display:block;
-  font-size:11.5px;
-  line-height:1.35;
-  color:var(--gray);
-  overflow-wrap:break-word;
-  hyphens:auto;
-}
-
-@media(max-width:1100px){
-  .hero-stats{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    max-width:520px;
-    gap:24px 30px;
-  }
-}
-
-@media(max-width:520px){
-  .hero-stats{
-    grid-template-columns:minmax(0,1fr);
-  }
-}
-
-
-/* HERO IMAGE */
-
-.hero-art{
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:420px;
-}
-
-.giraffe-wrap{
-  position:relative;
-  z-index:1;
-  width:90%;
-  animation:giraffefloat 5s ease-in-out infinite;
-}
-
-.giraffe-img{
-  width:100%;
-  filter:drop-shadow(0 18px 30px rgba(10,24,47,0.18));
-}
-
-@keyframes giraffefloat{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-.float-icon{
-  position:absolute;
-  z-index:2;
-  color:var(--gold-dark);
-}
-
-.float-icon.sparkle{top:6%;left:6%;width:30px;}
-.float-icon.chat{top:20%;left:0;width:26px;}
-.float-icon.phone{bottom:14%;left:2%;width:24px;}
-.float-icon.mail{bottom:0;left:38%;width:22px;}
-
-.speech-bubble{
-  position:absolute;
-  top:8%;
-  right:-2%;
-  background:var(--white);
-  border-radius:16px 16px 16px 4px;
-  padding:14px 18px;
-  box-shadow:var(--shadow-md);
-  font-size:12.5px;
-  font-weight:600;
-  z-index:2;
-}
-
-.speech-bubble div:last-child{
-  color:var(--gold-dark);
-}
-
-@media(max-width:900px){
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero-actions{
-    justify-content:center;
-  }
-
-  .hero-stats{
-    margin:0 auto;
-    text-align:left;
-  }
-
-  .hero-art{
-    margin-top:20px;
-  }
-}
-
-
-/* SERVICES */
-
-.section-head{
-  margin-bottom:42px;
-}
-
-.section-head h2{
-  font-size:clamp(26px,3.4vw,34px);
-  font-weight:800;
-}
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.card{
-  background:var(--white);
-  border:1.5px solid var(--border);
-  border-radius:var(--radius-lg);
-  padding:28px 24px;
-  transition:.2s ease;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-md);
-}
-
-.card-head{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:16px;
-}
-
-.card-icon{
-  width:46px;
-  height:46px;
-  background:rgba(215,189,9,0.14);
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--gold-dark);
-  flex-shrink:0;
-}
-
-.card-icon svg{
-  width:22px;
-  height:22px;
-}
-
-.card h3{
-  font-size:16px;
-  font-weight:700;
-  margin:0;
-  line-height:1.3;
-}
-
-.card p{
-  font-size:13.5px;
-  color:var(--gray);
-  line-height:1.55;
-}
-
-.card-dark{
-  background:var(--navy);
-  color:var(--white);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-
-.card-dark .card-icon{
-  background:var(--gold);
-  color:var(--navy);
-}
-
-.card-dark p{
-  color:#B9C1D4;
-}
-
-.card-dark .discover{
-  color:var(--gold);
-  margin-top:14px;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  font-size:13.5px;
-  font-weight:600;
-}
-
-@media(max-width:980px){
-  .services-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:560px){
-  .services-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-
-/* INDUSTRIES */
-
-.industries{
-  background:var(--navy);
-  color:var(--white);
-  padding:64px 0;
-}
-
-.industries-inner{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:48px;
-  align-items:center;
-}
-
-.industries h2{
-  font-size:clamp(24px,3vw,30px);
-  font-weight:800;
-  line-height:1.15;
-}
-
-.industries-list{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:28px;
-}
-
-.industry-item{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  font-size:14px;
-  font-weight:600;
-  color:#E4E8EF;
-  text-align:center;
-}
-
-.industry-item svg{
-  width:34px;
-  height:34px;
-  color:var(--gold);
-}
-
-@media(max-width:900px){
-
-  .industries-inner{
-    grid-template-columns:1fr;
-  }
-
-  .industries h2{
-    text-align:center;
-  }
-
-  .industries-list{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-
-/* CTA */
-
-.cta-band{
-  background:var(--gold);
-  padding:34px 0;
-}
-
-.cta-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:30px;
-}
-
-.cta-inner h2{
-  font-size:clamp(22px,3vw,28px);
-  font-weight:800;
-  margin-bottom:6px;
-}
-
-.cta-inner p{
-  font-size:14px;
-}
-
-.cta-contacts{
-  display:flex;
-  align-items:center;
-  gap:26px;
-}
-
-.cta-contact{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-  font-weight:600;
-  white-space:nowrap;
-}
-
-.cta-contact-icon{
-  width:34px;
-  height:34px;
-  border:1.5px solid rgba(10,24,47,.35);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.cta-contact-icon svg{
-  width:15px;
-  height:15px;
-}
-
-
-.cta-appointment{
-  background:var(--cream);
-  color:var(--navy);
-  border:2px solid var(--navy);
-  padding:11px 18px;
-  font-size:13.5px;
-}
-
-.cta-appointment:hover{
-  background:var(--navy);
-  color:var(--white);
-  box-shadow:var(--shadow-md);
-}
-
-
-@media(max-width:900px){
-
-  .cta-inner{
-    flex-wrap:wrap;
-  }
-
-  .cta-contacts{
-    flex-wrap:wrap;
-  }
-}
-
-
-/* FOOTER */
-
-.site-footer{
-  background:var(--cream);
-}
-
-.footer-simple{
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.footer-simple-inner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:26px;
-}
-
-.footer-simple-logo img{
-  height:32px;
-}
-
-.footer-simple-links{
-  display:flex;
-  gap:26px;
-  font-size:12px;
-  color:var(--navy);
-}
-
-</style>
-
-<style>
-/* ===== HOMEPAGE: HERAUSFORDERUNGEN ===== */
-.challenges{padding:28px 0 68px;}
-.challenges-head{max-width:760px;margin-bottom:30px;}
-.challenges-head h2{
-  font-family:'Poppins',sans-serif;
-  font-size:clamp(26px,3.4vw,34px);
-  font-weight:800;line-height:1.15;margin:0 0 10px;
-}
-.challenges-head p{
-  margin:0;max-width:680px;color:var(--gray);
-  font-size:14.5px;line-height:1.55;
-}
-.challenges-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
-.challenge-card{
-  background:var(--white);
-  border:1.5px solid var(--border);
-  border-radius:var(--radius-lg);
-  padding:22px 20px;
-  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-}
-.challenge-card:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--shadow-md);
-  border-color:transparent;
-}
-.challenge-card-head{
-  display:flex;align-items:center;gap:12px;margin-bottom:12px;
-}
-.challenge-icon{
-  width:42px;height:42px;flex-shrink:0;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(215,189,9,.14);color:var(--gold-dark);
-}
-.challenge-icon svg{width:20px;height:20px;}
-.challenge-card h3{
-  margin:0;font-family:'Poppins',sans-serif;
-  font-size:15px;font-weight:700;line-height:1.3;
-}
-.challenge-card p{
-  margin:0;color:var(--gray);font-size:13px;line-height:1.55;
-}
-@media(max-width:900px){
-  .challenges{padding:22px 0 58px;}
-  .challenges-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-}
-@media(max-width:560px){
-  .challenges-grid{grid-template-columns:1fr;}
-}
-</style>
-
-
-<style>
-/* Hero buttons: exakt gleiche Höhe */
-.hero-actions .btn{
-  height:56px !important;
-  min-height:56px !important;
-  padding-top:0 !important;
-  padding-bottom:0 !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-}
-</style>
-
-
-<style>
-/* Hero CTA buttons: exakt gleiche Größe auf Desktop und Mobile */
-.hero-actions .btn{
-  width:240px !important;
-  height:56px !important;
-  min-width:240px !important;
-  min-height:56px !important;
-  padding:0 20px !important;
-  box-sizing:border-box !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-}
-
-@media(max-width:600px){
-  .hero-actions .btn{
-    width:240px !important;
-    min-width:240px !important;
-    height:56px !important;
-    min-height:56px !important;
-  }
-}
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<div class="nav-wrap">
-
-<a href="index.html" class="brand">
-<img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
-</a>
-
-<nav class="main-nav" id="mainNav">
-<a href="index.html">Startseite</a>
-<a href="leistungen.html">Leistungen</a>
-<a href="branchen.html">Branchen</a>
-<a href="ueber-uns.html">Über uns</a>
-<a href="blog.html">Blog</a>
-<a href="jobs.html">Jobs</a>
-<a href="kontakt.html">Kontakt</a>
-</nav>
-
-<div class="nav-cta">
-
-<a href="kontakt.html" class="btn btn-gold btn-sm">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-<span>Jetzt kontaktieren</span>
-</a>
-
-<button class="menu-toggle" id="menuToggle">
-☰
-</button>
-
-</div>
-
-</div>
-
-</header>
-
-
-<main>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="container hero-grid">
-
-<div>
-
-<h1>
-Kundenservice,<br>
-der <span class="accent">immer erreichbar ist.</span>
-</h1>
-
-<p class="lead">
-Professioneller Inbound-Kundenservice – 24/7, 365 Tage im Jahr.
-Wir sorgen dafür, dass deine Kund:innen jederzeit jemanden erreichen
-und ihre Anliegen zuverlässig bearbeitet werden.
-</p>
-
-<div class="hero-actions">
-
-<a href="leistungen.html" class="btn btn-outline">Unsere Leistungen →</a>
-
-<a href="kontakt.html" class="btn btn-gold">Jetzt kostenlos testen →</a>
-
-</div>
-
-
-<div class="hero-stats">
-
-<div class="hero-stat">
-<div class="hero-stat-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="12" cy="12" r="9"/>
-<path d="M8 12h8M12 8v8"/>
-</svg>
-</div>
-<div class="hero-stat-text">
-<b>25+</b>
-<span>Jahre Erfahrung</span>
-</div>
-</div>
-
-<div class="hero-stat">
-<div class="hero-stat-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
-</svg>
-</div>
-<div class="hero-stat-text">
-<b>100+</b>
-<span>glückliche Auftraggeber:innen</span>
-</div>
-</div>
-
-<div class="hero-stat">
-<div class="hero-stat-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="12" cy="8" r="4"/>
-<path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
-</svg>
-</div>
-<div class="hero-stat-text">
-<b>50+</b>
-<span>geschulte Servicemitarbeitende</span>
-</div>
-</div>
-
-<div class="hero-stat">
-<div class="hero-stat-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="12" cy="12" r="9"/>
-<path d="M12 7v5l3 3"/>
-</svg>
-</div>
-<div class="hero-stat-text">
-<b>365</b>
-<span>Tage erreichbar</span>
-</div>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="hero-art">
-
-<div class="giraffe-wrap">
-<img
-src="https://ik.imagekit.io/callways/fd3eb4a3-dea7-48a7-a46e-07c22e0435b1.png"
-class="giraffe-img"
-alt="Callways Giraffe">
-</div>
-
-<div class="speech-bubble">
-<div>Wir hören zu.</div>
-<div>Wir verstehen.</div>
-<div>Wir lösen. ✓</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- CHALLENGES -->
-<section class="challenges">
-  <div class="container">
-    <div class="challenges-head">
-      <h2>Kommt dir das bekannt vor?</h2>
-      <p>Viele Unternehmen stehen im Kundenservice vor denselben Herausforderungen. Wir helfen dabei, sie zu lösen.</p>
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Callways – Kundenservice, der immer erreichbar ist.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    :root{
+      --cream:#FCFAF2;
+      --gold:#D7BD09;
+      --gold-dark:#B89F06;
+      --navy:#0A182F;
+      --navy-2:#132038;
+      --ink:#101322;
+      --gray:#6B7280;
+      --border:#E7E2D4;
+      --white:#FFFFFF;
+      --radius-lg:20px;
+      --radius-full:999px;
+      --shadow-md:0 10px 30px rgba(10,24,47,0.08);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    h1,h2,h3,h4,.btn{
+      font-family:'Poppins',sans-serif;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    section{
+      padding:88px 0;
+    }
+
+    @media(max-width:768px){
+      section{
+        padding:56px 0;
+      }
+    }
+
+
+    /* BUTTONS */
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:14px 26px;
+      border-radius:var(--radius-full);
+      font-weight:600;
+      font-size:15px;
+      border:2px solid transparent;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn svg{
+      transition:transform .18s ease;
+    }
+
+    .btn:hover svg{
+      transform:translateX(3px);
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:var(--navy);
+    }
+
+    .btn-gold:hover{
+      background:var(--gold-dark);
+      box-shadow:var(--shadow-md);
+    }
+
+    .btn-outline{
+      background:transparent;
+      border-color:var(--ink);
+      color:var(--ink);
+    }
+
+    .btn-outline:hover{
+      background:var(--ink);
+      color:var(--white);
+    }
+
+    .btn-navy{
+      background:var(--navy);
+      color:var(--white);
+    }
+
+    .btn-sm{
+      padding:11px 20px;
+      font-size:13.5px;
+    }
+
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(252,250,242,0.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 24px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .brand img{
+      height:32px;
+      width:auto;
+    }
+
+    nav.main-nav{
+      display:flex;
+      gap:34px;
+    }
+
+    nav.main-nav a{
+      font-size:14.5px;
+      font-weight:500;
+      position:relative;
+    }
+
+    nav.main-nav a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:0;
+      height:2px;
+      background:var(--gold);
+      transition:.2s;
+    }
+
+    nav.main-nav a:hover::after{
+      width:100%;
+    }
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    @media(max-width:900px){
+
+      nav.main-nav{
+        position:fixed;
+        top:70px;
+        left:0;
+        right:0;
+        background:#fffdf7;
+        flex-direction:column;
+        gap:0;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .3s ease;
+        border-bottom:1px solid var(--border);
+        box-shadow:0 12px 24px rgba(10,24,47,0.10);
+        z-index:99;
+      }
+
+      nav.main-nav.open{
+        max-height:420px;
+      }
+
+      nav.main-nav a{
+        padding:18px 24px;
+        border-top:1px solid #ebe6d8;
+        font-size:14.5px;
+        background:transparent;
+      }
+
+      nav.main-nav a:hover{
+        background:rgba(215,189,9,0.06);
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav-cta .btn-gold span{
+        display:none;
+      }
+
+      .nav-cta .btn-gold{
+        padding:12px;
+      }
+    }
+
+
+    /* HERO */
+
+    .hero{
+      padding:56px 0 28px;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:clamp(34px,5vw,54px);
+      font-weight:800;
+      line-height:1.08;
+      margin-bottom:20px;
+    }
+
+    .hero h1 .accent{
+      color:var(--gold);
+    }
+
+    .hero p.lead{
+      font-size:16.5px;
+      color:var(--gray);
+      max-width:500px;
+      margin-bottom:30px;
+      line-height:1.55;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:42px;
+    }
+
+
+    /* HERO STATS - FIXED: equal columns, consistent alignment, long words wrap */
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+      width:100%;
+      max-width:650px;
+    }
+
+    .hero-stat{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-width:0;
+    }
+
+    .hero-stat-icon{
+      width:38px;
+      height:38px;
+      border:1.5px solid var(--border);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold-dark);
+      flex-shrink:0;
+    }
+
+    .hero-stat-icon svg{
+      width:17px;
+      height:17px;
+    }
+
+    .hero-stat-text{
+      min-width:0;
+      flex:1;
+    }
+
+    .hero-stat b{
+      display:block;
+      font-family:'Poppins',sans-serif;
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:4px;
+      line-height:1.2;
+    }
+
+    .hero-stat span{
+      display:block;
+      font-size:11.5px;
+      line-height:1.35;
+      color:var(--gray);
+      overflow-wrap:break-word;
+      hyphens:auto;
+    }
+
+    @media(max-width:1100px){
+      .hero-stats{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        max-width:520px;
+        gap:24px 30px;
+      }
+    }
+
+    @media(max-width:520px){
+      .hero-stats{
+        grid-template-columns:minmax(0,1fr);
+      }
+    }
+
+
+    /* HERO IMAGE */
+
+    .hero-art{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:420px;
+    }
+
+    .giraffe-wrap{
+      position:relative;
+      z-index:1;
+      width:90%;
+      animation:giraffefloat 5s ease-in-out infinite;
+    }
+
+    .giraffe-img{
+      width:100%;
+      filter:drop-shadow(0 18px 30px rgba(10,24,47,0.18));
+    }
+
+    @keyframes giraffefloat{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+    }
+
+    .float-icon{
+      position:absolute;
+      z-index:2;
+      color:var(--gold-dark);
+    }
+
+    .float-icon.sparkle{top:6%;left:6%;width:30px;}
+    .float-icon.chat{top:20%;left:0;width:26px;}
+    .float-icon.phone{bottom:14%;left:2%;width:24px;}
+    .float-icon.mail{bottom:0;left:38%;width:22px;}
+
+    .speech-bubble{
+      position:absolute;
+      top:8%;
+      right:-2%;
+      background:var(--white);
+      border-radius:16px 16px 16px 4px;
+      padding:14px 18px;
+      box-shadow:var(--shadow-md);
+      font-size:12.5px;
+      font-weight:600;
+      z-index:2;
+    }
+
+    .speech-bubble div:last-child{
+      color:var(--gold-dark);
+    }
+
+    @media(max-width:900px){
+
+      .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-actions{
+        justify-content:center;
+      }
+
+      .hero-stats{
+        margin:0 auto;
+        text-align:left;
+      }
+
+      .hero-art{
+        margin-top:20px;
+      }
+    }
+
+
+    /* SERVICES */
+
+    .section-head{
+      margin-bottom:42px;
+    }
+
+    .section-head h2{
+      font-size:clamp(26px,3.4vw,34px);
+      font-weight:800;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .card{
+      background:var(--white);
+      border:1.5px solid var(--border);
+      border-radius:var(--radius-lg);
+      padding:28px 24px;
+      transition:.2s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-md);
+    }
+
+    .card-head{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:16px;
+    }
+
+    .card-icon{
+      width:46px;
+      height:46px;
+      background:rgba(215,189,9,0.14);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold-dark);
+      flex-shrink:0;
+    }
+
+    .card-icon svg{
+      width:22px;
+      height:22px;
+    }
+
+    .card h3{
+      font-size:16px;
+      font-weight:700;
+      margin:0;
+      line-height:1.3;
+    }
+
+    .card p{
+      font-size:13.5px;
+      color:var(--gray);
+      line-height:1.55;
+    }
+
+    .card-dark{
+      background:var(--navy);
+      color:var(--white);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .card-dark .card-icon{
+      background:var(--gold);
+      color:var(--navy);
+    }
+
+    .card-dark p{
+      color:#B9C1D4;
+    }
+
+    .card-dark .discover{
+      color:var(--gold);
+      margin-top:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:13.5px;
+      font-weight:600;
+    }
+
+    @media(max-width:980px){
+      .services-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:560px){
+      .services-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+
+    /* INDUSTRIES */
+
+    .industries{
+      background:var(--navy);
+      color:var(--white);
+      padding:64px 0;
+    }
+
+    .industries-inner{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:48px;
+      align-items:center;
+    }
+
+    .industries h2{
+      font-size:clamp(24px,3vw,30px);
+      font-weight:800;
+      line-height:1.15;
+    }
+
+    .industries-list{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:28px;
+    }
+
+    .industry-item{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      font-size:14px;
+      font-weight:600;
+      color:#E4E8EF;
+      text-align:center;
+    }
+
+    .industry-item svg{
+      width:34px;
+      height:34px;
+      color:var(--gold);
+    }
+
+    @media(max-width:900px){
+
+      .industries-inner{
+        grid-template-columns:1fr;
+      }
+
+      .industries h2{
+        text-align:center;
+      }
+
+      .industries-list{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+
+
+    /* CTA */
+
+    .cta-band{
+      background:var(--gold);
+      padding:52px 0;
+    }
+
+    .cta-inner{
+      display:grid;
+      grid-template-columns:minmax(300px, 0.9fr) minmax(560px, 1.1fr);
+      gap:64px;
+      align-items:center;
+    }
+
+    .cta-copy h2{
+      font-size:clamp(28px,3.2vw,38px);
+      font-weight:800;
+      line-height:1.08;
+      margin-bottom:14px;
+      max-width:440px;
+    }
+
+    .cta-copy p{
+      font-size:18px;
+      color:rgba(10,24,47,.9);
+    }
+
+    .cta-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .cta-tile{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:14px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--navy);
+      transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+
+    .cta-tile:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.38);
+      box-shadow:0 8px 20px rgba(10,24,47,.08);
+    }
+
+    .cta-tile-icon{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:var(--navy);
+      color:var(--gold);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .cta-tile-icon svg{
+      width:17px;
+      height:17px;
+    }
+
+    .cta-tile-text{
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      line-height:1.15;
+    }
+
+    .cta-tile-label{
+      font-family:'Poppins',sans-serif;
+      font-size:12px;
+      font-weight:600;
+      margin-bottom:4px;
+    }
+
+    .cta-tile-value{
+      font-family:'Poppins',sans-serif;
+      font-size:14px;
+      font-weight:700;
+      overflow-wrap:anywhere;
+    }
+
+    .cta-tile-action{
+      font-family:'Poppins',sans-serif;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .cta-tile-arrow{
+      margin-left:auto;
+      flex-shrink:0;
+      font-size:24px;
+      line-height:1;
+      transition:transform .18s ease;
+    }
+
+    .cta-tile:hover .cta-tile-arrow{
+      transform:translateX(3px);
+    }
+
+    @media(max-width:1000px){
+      .cta-inner{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+
+      .cta-copy h2{
+        max-width:none;
+      }
+    }
+
+    @media(max-width:620px){
+      .cta-band{
+        padding:40px 0;
+      }
+
+      .cta-grid{
+        grid-template-columns:1fr;
+      }
+
+      .cta-tile{
+        min-height:70px;
+      }
+    }
+
+
+    /* FOOTER */
+
+    .site-footer{
+      background:var(--cream);
+    }
+
+    .footer-simple{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .footer-simple-inner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:26px;
+    }
+
+    .footer-simple-logo img{
+      height:32px;
+    }
+
+    .footer-simple-links{
+      display:flex;
+      gap:26px;
+      font-size:12px;
+      color:var(--navy);
+    }
+
+    </style>
+
+    <style>
+    /* ===== HOMEPAGE: HERAUSFORDERUNGEN ===== */
+    .challenges{padding:28px 0 68px;}
+    .challenges-head{max-width:760px;margin-bottom:30px;}
+    .challenges-head h2{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(26px,3.4vw,34px);
+      font-weight:800;line-height:1.15;margin:0 0 10px;
+    }
+    .challenges-head p{
+      margin:0;max-width:680px;color:var(--gray);
+      font-size:14.5px;line-height:1.55;
+    }
+    .challenges-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .challenge-card{
+      background:var(--white);
+      border:1.5px solid var(--border);
+      border-radius:var(--radius-lg);
+      padding:22px 20px;
+      transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+    }
+    .challenge-card:hover{
+      transform:translateY(-3px);
+      box-shadow:var(--shadow-md);
+      border-color:transparent;
+    }
+    .challenge-card-head{
+      display:flex;align-items:center;gap:12px;margin-bottom:12px;
+    }
+    .challenge-icon{
+      width:42px;height:42px;flex-shrink:0;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(215,189,9,.14);color:var(--gold-dark);
+    }
+    .challenge-icon svg{width:20px;height:20px;}
+    .challenge-card h3{
+      margin:0;font-family:'Poppins',sans-serif;
+      font-size:15px;font-weight:700;line-height:1.3;
+    }
+    .challenge-card p{
+      margin:0;color:var(--gray);font-size:13px;line-height:1.55;
+    }
+    @media(max-width:900px){
+      .challenges{padding:22px 0 58px;}
+      .challenges-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    }
+    @media(max-width:560px){
+      .challenges-grid{grid-template-columns:1fr;}
+    }
+    </style>
+
+
+    <style>
+    /* Hero buttons: exakt gleiche Höhe */
+    .hero-actions .btn{
+      height:56px !important;
+      min-height:56px !important;
+      padding-top:0 !important;
+      padding-bottom:0 !important;
+      display:inline-flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+    }
+    </style>
+
+
+    <style>
+    /* Hero CTA buttons: exakt gleiche Größe auf Desktop und Mobile */
+    .hero-actions .btn{
+      width:240px !important;
+      height:56px !important;
+      min-width:240px !important;
+      min-height:56px !important;
+      padding:0 20px !important;
+      box-sizing:border-box !important;
+      display:inline-flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+    }
+
+    @media(max-width:600px){
+      .hero-actions .btn{
+        width:240px !important;
+        min-width:240px !important;
+        height:56px !important;
+        min-height:56px !important;
+      }
+    }
+    </style>
+
+    </head>
+
+    <body>
+
+    <header>
+
+    <div class="nav-wrap">
+
+    <a href="index.html" class="brand">
+    <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+    <a href="index.html">Startseite</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="branchen.html">Branchen</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="blog.html">Blog</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="nav-cta">
+
+    <a href="kontakt.html" class="btn btn-gold btn-sm">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Jetzt kontaktieren</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">
+    ☰
+    </button>
+
     </div>
 
-    <div class="challenges-grid">
+    </div>
 
-      <div class="challenge-card">
-        <div class="challenge-card-head">
-          <div class="challenge-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
-            </svg>
-          </div>
-          <h3>Erreichbarkeit</h3>
+    </header>
+
+
+    <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+    <div class="container hero-grid">
+
+    <div>
+
+    <h1>
+    Kundenservice,<br>
+    der <span class="accent">immer erreichbar ist.</span>
+    </h1>
+
+    <p class="lead">
+    Professioneller Inbound-Kundenservice – 24/7, 365 Tage im Jahr.
+    Wir sorgen dafür, dass deine Kund:innen jederzeit jemanden erreichen
+    und ihre Anliegen zuverlässig bearbeitet werden.
+    </p>
+
+    <div class="hero-actions">
+
+    <a href="leistungen.html" class="btn btn-outline">Unsere Leistungen →</a>
+
+    <a href="kontakt.html" class="btn btn-gold">Jetzt kostenlos testen →</a>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+    <div class="hero-stat">
+    <div class="hero-stat-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M8 12h8M12 8v8"/>
+    </svg>
+    </div>
+    <div class="hero-stat-text">
+    <b>25+</b>
+    <span>Jahre Erfahrung</span>
+    </div>
+    </div>
+
+    <div class="hero-stat">
+    <div class="hero-stat-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+    </svg>
+    </div>
+    <div class="hero-stat-text">
+    <b>100+</b>
+    <span>glückliche Auftraggeber:innen</span>
+    </div>
+    </div>
+
+    <div class="hero-stat">
+    <div class="hero-stat-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+    </svg>
+    </div>
+    <div class="hero-stat-text">
+    <b>50+</b>
+    <span>geschulte Servicemitarbeitende</span>
+    </div>
+    </div>
+
+    <div class="hero-stat">
+    <div class="hero-stat-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 7v5l3 3"/>
+    </svg>
+    </div>
+    <div class="hero-stat-text">
+    <b>365</b>
+    <span>Tage erreichbar</span>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+
+
+    <div class="hero-art">
+
+    <div class="giraffe-wrap">
+    <img
+    src="https://ik.imagekit.io/callways/fd3eb4a3-dea7-48a7-a46e-07c22e0435b1.png"
+    class="giraffe-img"
+    alt="Callways Giraffe">
+    </div>
+
+    <div class="speech-bubble">
+    <div>Wir hören zu.</div>
+    <div>Wir verstehen.</div>
+    <div>Wir lösen. ✓</div>
+    </div>
+
+    </div>
+
+    </div>
+
+    </section>
+
+
+
+    <!-- CHALLENGES -->
+    <section class="challenges">
+      <div class="container">
+        <div class="challenges-head">
+          <h2>Kommt dir das bekannt vor?</h2>
+          <p>Viele Unternehmen stehen im Kundenservice vor denselben Herausforderungen. Wir helfen dabei, sie zu lösen.</p>
         </div>
-        <p>Deine Kund:innen erreichen euch nur zu Bürozeiten oder warten zu lange auf eine Antwort.</p>
+
+        <div class="challenges-grid">
+
+          <div class="challenge-card">
+            <div class="challenge-card-head">
+              <div class="challenge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+                </svg>
+              </div>
+              <h3>Erreichbarkeit</h3>
+            </div>
+            <p>Deine Kund:innen erreichen euch nur zu Bürozeiten oder warten zu lange auf eine Antwort.</p>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-card-head">
+              <div class="challenge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/>
+                  <path d="M2.5 20c0-3.5 2.8-5.5 5.5-5.5s5.5 2 5.5 5.5"/>
+                  <path d="M14 15.5c.9-.7 2-1 3.1-1 2.4 0 4.4 1.6 4.4 4.5"/>
+                </svg>
+              </div>
+              <h3>Kapazitätsengpässe</h3>
+            </div>
+            <p>Bei Spitzenlasten, Urlaub oder Krankheit fehlen kurzfristig die nötigen Ressourcen.</p>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-card-head">
+              <div class="challenge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>
+                  <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+                </svg>
+              </div>
+              <h3>Fokus aufs Kerngeschäft</h3>
+            </div>
+            <p>Vertrieb, Marketing oder Fachabteilungen verbringen zu viel Zeit mit Kundenanfragen.</p>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-card-head">
+              <div class="challenge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="7" width="18" height="12" rx="2"/>
+                  <path d="M8 7V5a4 4 0 0 1 8 0v2"/>
+                  <path d="M8 13h.01M12 13h.01M16 13h.01"/>
+                </svg>
+              </div>
+              <h3>KI &amp; Automatisierung</h3>
+            </div>
+            <p>Du möchtest KI einsetzen, weißt aber noch nicht, welche Lösungen wirklich sinnvoll sind.</p>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-card-head">
+              <div class="challenge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+              </div>
+              <h3>Fehlendes Spezialwissen</h3>
+            </div>
+            <p>Für professionellen Kundenservice, Störungen oder Reklamationen fehlen Erfahrung oder Strukturen.</p>
+          </div>
+
+          <div class="challenge-card">
+            <div class="challenge-card-head">
+              <div class="challenge-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M15.5 8.5c-.8-.8-1.9-1.3-3.2-1.3-2.4 0-4.3 1.7-4.3 4.8s1.9 4.8 4.3 4.8c1.3 0 2.4-.5 3.2-1.3"/>
+                  <path d="M6.8 10.2h6M6.8 13.8h5.2"/>
+                </svg>
+              </div>
+              <h3>Hohe Kosten</h3>
+            </div>
+            <p>Personal, Systeme, Infrastruktur und Management machen den internen Kundenservice zunehmend teuer.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="leistungen" style="padding-top:24px;">
+
+    <div class="container">
+
+    <div class="section-head">
+    <h2>Unsere Leistungen</h2>
+    </div>
+
+    <div class="services-grid">
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+    </svg>
+    </div>
+    <h3>Kundenservice</h3>
+    </div>
+
+    <p>
+    Professioneller Kundenservice über alle relevanten Kanäle – flexibel und zuverlässig.
+    </p>
+
+    </div>
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="8" y="2" width="8" height="4" rx="1"/>
+    <path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/>
+    <path d="M9 12h6M9 16h6"/>
+    </svg>
+    </div>
+    <h3>Beratung &amp; Callcenter-Aufbau</h3>
+    </div>
+
+    <p>
+    Von der Planung bis zum laufenden Betrieb – wir unterstützen beim Aufbau effizienter Service-Strukturen.
+    </p>
+
+    </div>
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </svg>
+    </div>
+    <h3>Wissensmanagement</h3>
+    </div>
+
+    <p>
+    Wissen zentral organisieren, aktuell halten und für Mitarbeitende schnell verfügbar machen.
+    </p>
+
+    </div>
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="2" y="7" width="20" height="14" rx="2"/>
+    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </svg>
+    </div>
+    <h3>KI &amp; Automatisierung</h3>
+    </div>
+
+    <p>
+    Intelligente Lösungen für effizientere und skalierbare Kundenservice-Prozesse.
+    </p>
+
+    </div>
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+    <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+    </svg>
+    </div>
+    <h3>Training &amp; Weiterbildung</h3>
+    </div>
+
+    <p>
+    Praxisnahe Trainings für bessere Kommunikation und den sicheren Einsatz moderner KI-Tools.
+    </p>
+
+    </div>
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="m9 12 2 2 4-4"/>
+    </svg>
+    </div>
+    <h3>Qualitätsmanagement</h3>
+    </div>
+
+    <p>
+    Servicequalität messbar machen und kontinuierlich verbessern.
+    </p>
+
+    </div>
+
+
+    <div class="card">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M3 3v18h18"/>
+    <path d="M7 15l4-5 4 3 5-7"/>
+    </svg>
+    </div>
+    <h3>Reporting &amp; Analytics</h3>
+    </div>
+
+    <p>
+    Klare Daten und KPIs als Grundlage für bessere Entscheidungen.
+    </p>
+
+    </div>
+
+
+    <div class="card card-dark">
+
+    <div class="card-head">
+    <div class="card-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+    <path d="M5 12h14M13 6l6 6-6 6"/>
+    </svg>
+    </div>
+    <h3>Alle Leistungen entdecken</h3>
+    </div>
+
+    <p>
+    Alle Teilleistungen im Detail – Inhalte, Kanäle, Daten und KI-Lösungen.
+    </p>
+
+    <a href="leistungen.html" class="discover">
+    Mehr erfahren →
+    </a>
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    </section>
+
+
+    <!-- INDUSTRIES -->
+
+    <section class="industries">
+
+    <div class="container industries-inner">
+
+    <h2>Branchen, die wir verstehen</h2>
+
+    <div class="industries-list">
+
+    <a class="industry-item" href="branchen.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4"/>
+    </svg>
+    Wohnungswirtschaft
+    </a>
+
+    <a class="industry-item" href="branchen.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+    <path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/>
+    </svg>
+    Energie
+    </a>
+
+    <a class="industry-item" href="branchen.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+    <circle cx="9" cy="20" r="1.4"/>
+    <circle cx="18" cy="20" r="1.4"/>
+    <path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H5.2"/>
+    </svg>
+    E-Commerce
+    </a>
+
+    <a class="industry-item" href="branchen.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+    <circle cx="5" cy="12" r="1.6"/>
+    <circle cx="12" cy="12" r="1.6"/>
+    <circle cx="19" cy="12" r="1.6"/>
+    </svg>
+    Weitere Branchen
+    </a>
+
+    </div>
+
+    </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-band">
+
+    <div class="container cta-inner">
+
+      <div class="cta-copy">
+        <h2>Bereit für besseren Kundenservice?</h2>
+        <p>Wir freuen uns auf deine Anfrage!</p>
       </div>
 
-      <div class="challenge-card">
-        <div class="challenge-card-head">
-          <div class="challenge-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/>
-              <path d="M2.5 20c0-3.5 2.8-5.5 5.5-5.5s5.5 2 5.5 5.5"/>
-              <path d="M14 15.5c.9-.7 2-1 3.1-1 2.4 0 4.4 1.6 4.4 4.5"/>
-            </svg>
-          </div>
-          <h3>Kapazitätsengpässe</h3>
-        </div>
-        <p>Bei Spitzenlasten, Urlaub oder Krankheit fehlen kurzfristig die nötigen Ressourcen.</p>
-      </div>
+      <div class="cta-grid">
 
-      <div class="challenge-card">
-        <div class="challenge-card-head">
-          <div class="challenge-icon">
+        <a href="tel:+4930330272727" class="cta-tile">
+          <div class="cta-tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>
-              <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
           </div>
-          <h3>Fokus aufs Kerngeschäft</h3>
-        </div>
-        <p>Vertrieb, Marketing oder Fachabteilungen verbringen zu viel Zeit mit Kundenanfragen.</p>
-      </div>
+          <div class="cta-tile-text">
+            <span class="cta-tile-label">Rufen Sie uns an</span>
+            <span class="cta-tile-value">+49 30 33027-2727</span>
+          </div>
+          <span class="cta-tile-arrow">→</span>
+        </a>
 
-      <div class="challenge-card">
-        <div class="challenge-card-head">
-          <div class="challenge-icon">
+        <a href="kontakt.html" class="cta-tile">
+          <div class="cta-tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="7" width="18" height="12" rx="2"/>
-              <path d="M8 7V5a4 4 0 0 1 8 0v2"/>
-              <path d="M8 13h.01M12 13h.01M16 13h.01"/>
+              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
             </svg>
           </div>
-          <h3>KI &amp; Automatisierung</h3>
-        </div>
-        <p>Du möchtest KI einsetzen, weißt aber noch nicht, welche Lösungen wirklich sinnvoll sind.</p>
-      </div>
+          <span class="cta-tile-action">Jetzt kontaktieren</span>
+          <span class="cta-tile-arrow">→</span>
+        </a>
 
-      <div class="challenge-card">
-        <div class="challenge-card-head">
-          <div class="challenge-icon">
+        <a href="mailto:vertrieb@callways.de" class="cta-tile">
+          <div class="cta-tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
             </svg>
           </div>
-          <h3>Fehlendes Spezialwissen</h3>
-        </div>
-        <p>Für professionellen Kundenservice, Störungen oder Reklamationen fehlen Erfahrung oder Strukturen.</p>
-      </div>
+          <div class="cta-tile-text">
+            <span class="cta-tile-label">Schreiben Sie uns</span>
+            <span class="cta-tile-value">vertrieb@callways.de</span>
+          </div>
+          <span class="cta-tile-arrow">→</span>
+        </a>
 
-      <div class="challenge-card">
-        <div class="challenge-card-head">
-          <div class="challenge-icon">
+        <a href="https://calendly.com/achim-reinhardt-callways/30min" class="cta-tile" target="_blank" rel="noopener noreferrer">
+          <div class="cta-tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M15.5 8.5c-.8-.8-1.9-1.3-3.2-1.3-2.4 0-4.3 1.7-4.3 4.8s1.9 4.8 4.3 4.8c1.3 0 2.4-.5 3.2-1.3"/>
-              <path d="M6.8 10.2h6M6.8 13.8h5.2"/>
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M16 3v4M8 3v4M3 10h18"/>
             </svg>
           </div>
-          <h3>Hohe Kosten</h3>
-        </div>
-        <p>Personal, Systeme, Infrastruktur und Management machen den internen Kundenservice zunehmend teuer.</p>
+          <span class="cta-tile-action">Termin buchen</span>
+          <span class="cta-tile-arrow">→</span>
+        </a>
+
       </div>
 
     </div>
-  </div>
-</section>
 
+    </section>
 
-<!-- SERVICES -->
+    </main>
 
-<section id="leistungen" style="padding-top:24px;">
 
-<div class="container">
+    <footer class="site-footer">
 
-<div class="section-head">
-<h2>Unsere Leistungen</h2>
-</div>
+    <div class="footer-simple">
 
-<div class="services-grid">
+    <div class="container footer-simple-inner">
 
+    <a href="index.html" class="footer-simple-logo">
+    <img
+    src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png"
+    alt="Callways">
+    </a>
 
-<div class="card">
+    <div class="footer-simple-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    </div>
 
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-<path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-</svg>
-</div>
-<h3>Kundenservice</h3>
-</div>
+    </div>
 
-<p>
-Professioneller Kundenservice über alle relevanten Kanäle – flexibel und zuverlässig.
-</p>
+    </div>
 
-</div>
+    </footer>
 
 
-<div class="card">
+    <script>
 
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="8" y="2" width="8" height="4" rx="1"/>
-<path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/>
-<path d="M9 12h6M9 16h6"/>
-</svg>
-</div>
-<h3>Beratung &amp; Callcenter-Aufbau</h3>
-</div>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
 
-<p>
-Von der Planung bis zum laufenden Betrieb – wir unterstützen beim Aufbau effizienter Service-Strukturen.
-</p>
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
+    });
 
-</div>
+    mainNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+      });
+    });
 
+    </script>
 
-<div class="card">
-
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-</svg>
-</div>
-<h3>Wissensmanagement</h3>
-</div>
-
-<p>
-Wissen zentral organisieren, aktuell halten und für Mitarbeitende schnell verfügbar machen.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="2" y="7" width="20" height="14" rx="2"/>
-<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-</svg>
-</div>
-<h3>KI &amp; Automatisierung</h3>
-</div>
-
-<p>
-Intelligente Lösungen für effizientere und skalierbare Kundenservice-Prozesse.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
-<path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
-</svg>
-</div>
-<h3>Training &amp; Weiterbildung</h3>
-</div>
-
-<p>
-Praxisnahe Trainings für bessere Kommunikation und den sicheren Einsatz moderner KI-Tools.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="12" cy="12" r="9"/>
-<path d="m9 12 2 2 4-4"/>
-</svg>
-</div>
-<h3>Qualitätsmanagement</h3>
-</div>
-
-<p>
-Servicequalität messbar machen und kontinuierlich verbessern.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M3 3v18h18"/>
-<path d="M7 15l4-5 4 3 5-7"/>
-</svg>
-</div>
-<h3>Reporting &amp; Analytics</h3>
-</div>
-
-<p>
-Klare Daten und KPIs als Grundlage für bessere Entscheidungen.
-</p>
-
-</div>
-
-
-<div class="card card-dark">
-
-<div class="card-head">
-<div class="card-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-<path d="M5 12h14M13 6l6 6-6 6"/>
-</svg>
-</div>
-<h3>Alle Leistungen entdecken</h3>
-</div>
-
-<p>
-Alle Teilleistungen im Detail – Inhalte, Kanäle, Daten und KI-Lösungen.
-</p>
-
-<a href="leistungen.html" class="discover">
-Mehr erfahren →
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- INDUSTRIES -->
-
-<section class="industries">
-
-<div class="container industries-inner">
-
-<h2>Branchen, die wir verstehen</h2>
-
-<div class="industries-list">
-
-<a class="industry-item" href="branchen.html">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-<path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4"/>
-</svg>
-Wohnungswirtschaft
-</a>
-
-<a class="industry-item" href="branchen.html">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-<path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/>
-</svg>
-Energie
-</a>
-
-<a class="industry-item" href="branchen.html">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-<circle cx="9" cy="20" r="1.4"/>
-<circle cx="18" cy="20" r="1.4"/>
-<path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H5.2"/>
-</svg>
-E-Commerce
-</a>
-
-<a class="industry-item" href="branchen.html">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-<circle cx="5" cy="12" r="1.6"/>
-<circle cx="12" cy="12" r="1.6"/>
-<circle cx="19" cy="12" r="1.6"/>
-</svg>
-Weitere Branchen
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta-band">
-
-<div class="container cta-inner">
-
-<div>
-<h2>Bereit für besseren Kundenservice?</h2>
-<p>Wir freuen uns auf deine Anfrage!</p>
-</div>
-
-<div class="cta-contacts">
-
-<a href="https://calendly.com/achim-reinhardt-callways/30min" class="btn btn-navy" target="_blank" rel="noopener noreferrer">
-Kostenfreien Termin buchen →
-</a>
-
-<div class="cta-contact">
-<div class="cta-contact-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-</div>
-<a href="tel:+4930330272727">
-+49 30 33027-2727
-</a>
-</div>
-
-<div class="cta-contact">
-<div class="cta-contact-icon">✉</div>
-<a href="mailto:vertrieb@callways.de">
-vertrieb@callways.de
-</a>
-</div>
-
-<a href="kontakt.html" class="btn btn-navy">
-Jetzt kontaktieren →
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-<footer class="site-footer">
-
-<div class="footer-simple">
-
-<div class="container footer-simple-inner">
-
-<a href="index.html" class="footer-simple-logo">
-<img
-src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png"
-alt="Callways">
-</a>
-
-<div class="footer-simple-links">
-<a href="impressum.html">Impressum</a>
-<a href="datenschutz.html">Datenschutz</a>
-</div>
-
-</div>
-
-</div>
-
-</footer>
-
-
-<script>
-
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
-
-menuToggle.addEventListener('click', () => {
-  mainNav.classList.toggle('open');
-});
-
-mainNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-  });
-});
-
-</script>
-
-</body>
-</html>
+    </body>
+    </html>
