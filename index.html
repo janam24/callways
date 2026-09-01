@@ -772,6 +772,31 @@ nav.main-nav a:hover::after{
 }
 </style>
 
+
+<style>
+/* Hero CTA buttons: exakt gleiche Größe auf Desktop und Mobile */
+.hero-actions .btn{
+  width:240px !important;
+  height:56px !important;
+  min-width:240px !important;
+  min-height:56px !important;
+  padding:0 20px !important;
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+@media(max-width:600px){
+  .hero-actions .btn{
+    width:240px !important;
+    min-width:240px !important;
+    height:56px !important;
+    min-height:56px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
