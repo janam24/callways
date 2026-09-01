@@ -497,37 +497,125 @@
   }
 </style>
 
+
+<style>
+/* FINAL HEADER/NAVIGATION: identical to Startseite */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(252,250,242,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.nav-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.brand{display:block;}
+.brand img{height:32px;width:auto;display:block;}
+nav.main-nav{display:flex;gap:34px;}
+nav.main-nav a{
+  font-size:14.5px;
+  font-weight:500;
+  color:inherit;
+  position:relative;
+  padding:0;
+}
+nav.main-nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.2s;
+}
+nav.main-nav a:hover::after{width:100%;}
+nav.main-nav a.active::after{width:0;}
+.nav-cta{display:flex;align-items:center;gap:18px;}
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:0;
+  font:inherit;
+  color:inherit;
+}
+@media(max-width:900px){
+  nav.main-nav{
+    position:fixed;
+    top:70px;
+    left:0;
+    right:0;
+    background:#fffdf7;
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 12px 24px rgba(10,24,47,0.10);
+    z-index:99;
+  }
+  nav.main-nav.open{max-height:420px;}
+  nav.main-nav a{
+    padding:18px 24px;
+    border-top:1px solid #ebe6d8;
+    font-size:14.5px;
+    background:transparent;
+  }
+  nav.main-nav a:hover{background:rgba(215,189,9,0.06);}
+  .menu-toggle{display:block;}
+  .nav-cta .btn-gold span{display:none;}
+  .nav-cta .btn-gold{padding:12px;}
+}
+</style>
+
 </head>
 
 <body>
 
   
 <header>
-  <div class="nav-wrap">
-    <a href="index.html" class="brand">
-      <img class="brand-logo" src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
-    </a>
 
-    <nav class="main-nav" id="mainNav">
-      <a href="index.html">Startseite</a>
-      <a href="leistungen.html" class="active">Leistungen</a>
-      <a href="branchen.html">Branchen</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="blog.html">Blog</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
+<div class="nav-wrap">
 
-    <div class="nav-cta">
-      <a href="kontakt.html" class="btn btn-gold btn-sm">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span>Jetzt kontaktieren</span>
-      </a>
+<a href="index.html" class="brand">
+<img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+</a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </button>
-    </div>
-  </div>
+<nav class="main-nav" id="mainNav">
+<a href="index.html">Startseite</a>
+<a href="leistungen.html">Leistungen</a>
+<a href="branchen.html">Branchen</a>
+<a href="ueber-uns.html">Über uns</a>
+<a href="blog.html">Blog</a>
+<a href="jobs.html">Jobs</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
+
+<div class="nav-cta">
+
+<a href="kontakt.html" class="btn btn-gold btn-sm">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<span>Jetzt kontaktieren</span>
+</a>
+
+<button class="menu-toggle" id="menuToggle">
+☰
+</button>
+
+</div>
+
+</div>
+
 </header>
 
 
