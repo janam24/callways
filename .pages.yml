@@ -1,0 +1,23 @@
+media:
+  input: images/blog
+  output: /images/blog
+
+content:
+  - name: posts
+    label: Blog Posts
+    type: collection
+    path: posts
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Titel
+        type: string
+      - name: date
+        label: Datum
+        type: date
+      - name: excerpt
+        label: Kurzbeschreibung
+        type: text
+      - name: body
+        label: Inhalt
+        type: rich-text
