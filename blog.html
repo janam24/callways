@@ -609,14 +609,35 @@ function parseFrontmatter(raw){
   const yamlBlock = match[1];
   const content = match[2];
   const data = {};
-  yamlBlock.split('\n').forEach(line => {
+  const lines = yamlBlock.split('\n');
+  let i = 0;
+  while(i < lines.length){
+    const line = lines[i];
     const idx = line.indexOf(':');
-    if(idx === -1) return;
+    if(idx === -1){ i++; continue; }
     const key = line.slice(0, idx).trim();
     let val = line.slice(idx + 1).trim();
+
+    /* YAML block-scalar values (| or >, optionally with +/-) span the
+       following indented lines rather than sitting after the colon. */
+    if(/^[|>][+-]?\d*$/.test(val)){
+      const blockLines = [];
+      i++;
+      while(i < lines.length && (lines[i].trim() === '' || /^\s/.test(lines[i]))){
+        blockLines.push(lines[i].replace(/^\s+/, ''));
+        i++;
+      }
+      while(blockLines.length && blockLines[blockLines.length - 1] === ''){
+        blockLines.pop();
+      }
+      data[key] = blockLines.join(val.startsWith('>') ? ' ' : '\n').trim();
+      continue;
+    }
+
     val = val.replace(/^["']|["']$/g, '');
     data[key] = val;
-  });
+    i++;
+  }
   return { data, content };
 }
 
