@@ -652,7 +652,7 @@ nav.main-nav a.active::after{width:0;}
 
           <img
             class="hero-giraffe"
-            src="https://ik.imagekit.io/callways/ChatGPT%20Image%2031.%20Aug.%202026,%2008_43_47.png"
+            src="https://ik.imagekit.io/callways/New%20Folder/leistungen.png?updatedAt=1788351393847"
             alt="Callways Giraffe"
           >
         </div>
@@ -793,7 +793,7 @@ nav.main-nav a.active::after{width:0;}
         <span class="cta-tile-arrow">→</span>
       </a>
 
-      <a href="mailto:vertrieb@callways.de" class="cta-tile">
+      <div class="cta-tile cta-email-tile">
         <div class="cta-tile-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="5" width="18" height="14" rx="2"/>
@@ -802,10 +802,10 @@ nav.main-nav a.active::after{width:0;}
         </div>
         <div class="cta-tile-text">
           <span class="cta-tile-label">Schreiben Sie uns</span>
-          <span class="cta-tile-value">vertrieb@callways.de</span>
+          <a href="mailto:vertrieb@callways.de" class="cta-email-link">vertrieb@callways.de</a>
         </div>
-        <span class="cta-tile-arrow">→</span>
-      </a>
+        <a href="mailto:vertrieb@callways.de" class="cta-tile-arrow cta-email-arrow" aria-label="E-Mail an Vertrieb schreiben">→</a>
+      </div>
 
       <a href="https://calendly.com/achim-reinhardt-callways/30min" class="cta-tile" target="_blank" rel="noopener noreferrer">
         <div class="cta-tile-icon">
@@ -1273,5 +1273,33 @@ nav.main-nav a.active::after{width:0;}
   .cta-band{padding:24px 0 0 !important;}
   .cta-grid{grid-template-columns:1fr;}
   .cta-tile{min-height:70px;}
+}
+</style>
+<style>
+/* Email tile: same visual design, but email remains selectable/copyable */
+.cta-email-tile{
+  cursor:default;
+}
+.cta-email-link{
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  color:var(--navy);
+  text-decoration:none;
+  user-select:text;
+  -webkit-user-select:text;
+  cursor:text;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.cta-email-link:hover{
+  text-decoration:underline;
+}
+.cta-email-arrow{
+  color:var(--navy);
+  text-decoration:none;
+}
+.cta-email-tile:hover .cta-email-arrow{
+  transform:translateX(3px);
 }
 </style>
