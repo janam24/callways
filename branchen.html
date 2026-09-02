@@ -721,7 +721,7 @@ h1{
         <span class="spark s2">○</span>
         <span class="spark s3">⌁</span>
         <img class="hero-giraffe"
-             src="https://ik.imagekit.io/callways/branchen"
+             src="https://ik.imagekit.io/callways/New%20Folder/branchen.png?updatedAt=1788351731880"
              alt="Callways Giraffe">
       </div>
     </div>
@@ -830,7 +830,7 @@ h1{
         <span class="cta-tile-arrow">→</span>
       </a>
 
-      <a href="mailto:vertrieb@callways.de" class="cta-tile">
+      <div class="cta-tile cta-email-tile">
         <div class="cta-tile-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="5" width="18" height="14" rx="2"/>
@@ -839,10 +839,10 @@ h1{
         </div>
         <div class="cta-tile-text">
           <span class="cta-tile-label">Schreiben Sie uns</span>
-          <span class="cta-tile-value">vertrieb@callways.de</span>
+          <a href="mailto:vertrieb@callways.de" class="cta-tile-value email-copy-link">vertrieb@callways.de</a>
         </div>
-        <span class="cta-tile-arrow">→</span>
-      </a>
+        <a href="mailto:vertrieb@callways.de" class="cta-tile-arrow email-arrow" aria-label="E-Mail schreiben">→</a>
+      </div>
 
       <a href="https://calendly.com/achim-reinhardt-callways/30min" class="cta-tile" target="_blank" rel="noopener noreferrer">
         <div class="cta-tile-icon">
@@ -1218,5 +1218,31 @@ mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.
   .cta-band{padding:24px 0 0 !important;}
   .cta-grid{grid-template-columns:1fr;}
   .cta-tile{min-height:70px;}
+}
+</style>
+
+<style>
+/* Email tile: same design, but email text remains selectable/copyable */
+.cta-email-tile{
+  cursor:default;
+}
+.cta-email-tile .email-copy-link{
+  user-select:text;
+  -webkit-user-select:text;
+  cursor:text;
+  text-decoration:none;
+  color:inherit;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.cta-email-tile .email-copy-link:hover{
+  text-decoration:underline;
+}
+.cta-email-tile .email-arrow{
+  margin-left:auto;
+  flex-shrink:0;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
 }
 </style>
