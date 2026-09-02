@@ -35,6 +35,7 @@
 
 html{
   scroll-behavior:smooth;
+  height:100%;
 }
 
 body{
@@ -43,6 +44,13 @@ body{
   color:var(--ink);
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+main{
+  flex:1 0 auto;
 }
 
 h1,h2,h3,h4,.btn{
@@ -251,6 +259,7 @@ nav.main-nav a:hover::after{
 
 .site-footer{
   background:var(--cream);
+  flex-shrink:0;
 }
 
 .footer-simple{
