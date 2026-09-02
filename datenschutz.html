@@ -326,6 +326,53 @@ nav.main-nav a:hover::after{width:100%;}
 }
 </style>
 
+
+<style>
+/* ===== FOOTER — same as previous page ===== */
+.site-footer.previous-page-footer{
+  background:#FCFAF2;
+  border-top:1px solid #E7E2D4;
+  padding:0;
+}
+.previous-footer-inner{
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+}
+.previous-footer-logo{
+  display:flex;
+  align-items:center;
+}
+.previous-footer-logo img{
+  height:30px;
+  width:auto;
+  display:block;
+}
+.previous-footer-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-size:12px;
+  color:#0A182F;
+  font-weight:500;
+}
+.previous-footer-links a{
+  text-decoration:none;
+  color:inherit;
+}
+.previous-footer-links a:hover{color:#000;}
+@media(max-width:600px){
+  .previous-footer-inner{
+    min-height:auto;
+    padding:18px 0;
+    flex-direction:column;
+    gap:12px;
+  }
+}
+</style>
+
 </head>
 <body>
 <header>
@@ -574,16 +621,16 @@ nav.main-nav a:hover::after{width:100%;}
 <p>Eine längere Aufbewahrung kann außerdem stattfinden, wenn Sie eine entsprechende Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) erteilt haben oder wenn gesetzliche Aufbewahrungspflichten der Löschung entgegenstehen.</p>
 </article>
 </main>
-<footer>
-<div class="container footer-inner">
-<a href="index.html" class="brand"><img class="brand-logo" style="height:26px" src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways"></a>
-<div class="footer-links">
-<a href="kontakt.html">Kontakt</a>
-<a href="impressum.html">Impressum</a>
-<a href="datenschutz.html">Datenschutz</a>
-</div>
-<div class="footer-copy">© 2026 Callways.</div>
-</div>
+<footer class="site-footer previous-page-footer">
+  <div class="container previous-footer-inner">
+    <a href="index.html" class="previous-footer-logo" aria-label="Callways Startseite">
+      <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+    </a>
+    <div class="previous-footer-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
 </footer>
 
 <script>
