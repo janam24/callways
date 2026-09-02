@@ -1464,176 +1464,32 @@ input[type="file"]::file-selector-button{
 
 
 <style>
-/* ===== FINAL JOBS: MAPS + HOMEPAGE CTA + FOOTER ===== */
-
-/* Clickable Google Maps address cards */
-.map-card{
-  position:relative;
-  cursor:pointer;
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+/* Jobs refinements */
+.hero-form-wrap textarea{
+  min-height:64px !important;
+  height:64px !important;
 }
-.map-card:hover{
-  transform:translateY(-2px);
-  box-shadow:var(--shadow-md);
-  border-color:rgba(215,189,9,.55);
-}
-.map-card .contact-detail-icon{
+select{
+  width:100%;
+  border:1px solid #dfe4eb;
+  border-radius:11px;
+  padding:12px 13px;
+  font-family:inherit;
+  font-size:13px;
   color:var(--navy);
+  outline:none;
+  background:#fff;
 }
-.map-card .contact-detail-icon svg{
-  width:17px;
-  height:17px;
+select:focus{
+  border-color:var(--yellow);
+  box-shadow:0 0 0 3px rgba(215,189,9,.12);
 }
-.map-arrow{
-  margin-left:auto;
-  align-self:center;
-  color:var(--gold-dark);
-  font-size:18px;
+.contact-section{
+  padding-top:42px !important;
 }
-
-/* Same compact CTA as homepage/contact */
-.cta-band{
-  background:var(--gold) !important;
-  padding:28px 0 !important;
-  margin:0 !important;
-}
-.cta-inner{
-  display:grid !important;
-  grid-template-columns:minmax(300px,.9fr) minmax(560px,1.1fr) !important;
-  gap:64px !important;
-  align-items:center !important;
-}
-.cta-copy h2{
-  font-size:clamp(28px,3.2vw,38px) !important;
-  font-weight:800 !important;
-  line-height:1.08 !important;
-  margin:0 0 14px !important;
-  max-width:440px !important;
-}
-.cta-copy p{
-  font-size:18px !important;
-  font-weight:500 !important;
-  color:rgba(10,24,47,.9) !important;
-}
-.cta-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-.cta-tile{
-  min-height:74px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:14px 18px;
-  border-radius:18px;
-  background:rgba(255,255,255,.28);
-  border:1px solid rgba(255,255,255,.18);
-  color:var(--navy);
-  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
-}
-.cta-tile:hover{
-  transform:translateY(-2px);
-  background:rgba(255,255,255,.38);
-  box-shadow:0 8px 20px rgba(10,24,47,.08);
-}
-.cta-tile-icon{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:var(--navy);
-  color:var(--gold);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-}
-.cta-tile-icon svg{width:17px;height:17px;}
-.cta-tile-text{
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  line-height:1.15;
-}
-.cta-tile-label{
-  font-family:'Poppins',sans-serif;
-  font-size:12px;
-  font-weight:600;
-  margin-bottom:4px;
-}
-.cta-tile-value{
-  font-family:'Poppins',sans-serif;
-  font-size:14px;
-  font-weight:700;
-  overflow-wrap:anywhere;
-}
-.cta-tile-action{
-  font-family:'Poppins',sans-serif;
-  font-size:14px;
-  font-weight:700;
-}
-.cta-tile-arrow{
-  margin-left:auto;
-  flex-shrink:0;
-  font-size:24px;
-  line-height:1;
-  transition:transform .18s ease;
-}
-.cta-tile:hover .cta-tile-arrow{
-  transform:translateX(3px);
-}
-
-/* Same footer as homepage/contact */
-.site-footer{
-  background:var(--cream) !important;
-  border:0 !important;
-}
-.footer-simple{
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.footer-simple-inner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:28px;
-}
-.footer-simple-logo img{
-  height:32px;
-  width:auto;
-}
-.footer-simple-links{
-  display:flex;
-  gap:26px;
-  font-size:12px;
-  color:var(--navy);
-}
-
-@media(max-width:1000px){
-  .cta-inner{
-    grid-template-columns:1fr !important;
-    gap:28px !important;
-  }
-  .cta-copy h2{
-    max-width:none !important;
-  }
-}
-@media(max-width:620px){
-  .cta-band{
-    padding:24px 0 !important;
-  }
-  .cta-grid{
-    grid-template-columns:1fr;
-  }
-  .cta-tile{
-    min-height:70px;
-  }
-  .footer-simple-inner{
-    flex-direction:column;
-    gap:10px;
-    padding:14px 0;
+@media(max-width:720px){
+  .contact-section{
+    padding-top:32px !important;
   }
 }
 </style>
@@ -1766,8 +1622,17 @@ input[type="file"]::file-selector-button{
               </div>
 
               <div class="field full">
+                <label for="location">Für welchen Standort bewirbst du dich? *</label>
+                <select id="location" name="standort" required>
+                  <option value="" selected disabled>Standort auswählen</option>
+                  <option value="Berlin">Berlin</option>
+                  <option value="Hagenow">Hagenow</option>
+                </select>
+              </div>
+
+              <div class="field full">
                 <label for="message">Nachricht *</label>
-                <textarea id="message" name="nachricht" placeholder="Erzähl uns kurz etwas über dich und deine Bewerbung." required></textarea>
+                <textarea id="message" name="nachricht" placeholder="Kurze Nachricht zu deiner Bewerbung." required></textarea>
               </div>
 
               <div class="field full">
@@ -1797,43 +1662,30 @@ input[type="file"]::file-selector-button{
     <div class="container contact-grid">
 
       <div class="contact-intro">
-        <h2>Du möchtest zu uns?</h2>
+        <h2>Unsere Standorte</h2>
 
         <p>
-          Bewirb dich direkt über unsere Karriereseite oder nutze das Formular oben.
-          Auch Initiativbewerbungen sind willkommen – wir sind immer gespannt auf Menschen,
-          die gut zu unserem Team passen.
+          Callways ist in Berlin und Hagenow für dich da. Wähle im Bewerbungsformular einfach
+          den Standort aus, für den du dich interessierst.
         </p>
 
         <div class="contact-details">
 
-          <a class="contact-detail address map-card" href="https://www.google.com/maps/search/?api=1&query=An+der+Wuhlheide+232+B%2C+12459+Berlin" target="_blank" rel="noopener noreferrer">
-            <span class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"/>
-                <circle cx="12" cy="10" r="2.5"/>
-              </svg>
-            </span>
+          <div class="contact-detail address">
+            <span class="contact-detail-icon">⌖</span>
             <div class="contact-detail-text">
               <strong>Berlin</strong>
               <span>CALLWAYS Call Center GmbH<br>An der Wuhlheide 232 B<br>12459 Berlin</span>
             </div>
-            <span class="map-arrow">↗</span>
-          </a>
+          </div>
 
-          <a class="contact-detail address map-card" href="https://www.google.com/maps/search/?api=1&query=M%C3%B6llner+Str.+51a%2C+19230+Hagenow" target="_blank" rel="noopener noreferrer">
-            <span class="contact-detail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"/>
-                <circle cx="12" cy="10" r="2.5"/>
-              </svg>
-            </span>
+          <div class="contact-detail address">
+            <span class="contact-detail-icon">⌖</span>
             <div class="contact-detail-text">
               <strong>Hagenow</strong>
               <span>CALLWAYS Call Center GmbH<br>Möllner Str. 51a<br>19230 Hagenow</span>
             </div>
-            <span class="map-arrow">↗</span>
-          </a>
+          </div>
 
         </div>
       </div>
@@ -1843,77 +1695,49 @@ input[type="file"]::file-selector-button{
 
   
 <section class="cta-band">
-  <div class="container cta-inner">
-    <div class="cta-copy">
-      <h2>Bereit für besseren Kundenservice?</h2>
-      <p>Wir freuen uns auf deine Anfrage!</p>
-    </div>
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2>Bereit für deinen nächsten Schritt?</h2>
+        <p>Entdecke unsere offenen Stellen und lerne Callways kennen.</p>
+      </div>
 
-    <div class="cta-grid">
-      <a href="tel:+4930330272727" class="cta-tile">
-        <div class="cta-tile-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
+      <div class="cta-contacts">
+        <div class="cta-contact">
+          <div class="cta-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <a href="tel:+4930330272727">+49 30 33027-2727</a>
         </div>
-        <div class="cta-tile-text">
-          <span class="cta-tile-label">Rufen Sie uns an</span>
-          <span class="cta-tile-value">+49 30 33027-2727</span>
-        </div>
-        <span class="cta-tile-arrow">→</span>
-      </a>
 
-      <a href="kontakt.html" class="cta-tile">
-        <div class="cta-tile-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
-          </svg>
+        <div class="cta-contact">
+          <div class="cta-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </div>
+          <a href="mailto:vertrieb@callways.de">vertrieb@callways.de</a>
         </div>
-        <span class="cta-tile-action">Jetzt kontaktieren</span>
-        <span class="cta-tile-arrow">→</span>
-      </a>
 
-      <a href="mailto:vertrieb@callways.de" class="cta-tile">
-        <div class="cta-tile-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="5" width="18" height="14" rx="2"/>
-            <path d="m3 7 9 6 9-6"/>
-          </svg>
-        </div>
-        <div class="cta-tile-text">
-          <span class="cta-tile-label">Schreiben Sie uns</span>
-          <span class="cta-tile-value">vertrieb@callways.de</span>
-        </div>
-        <span class="cta-tile-arrow">→</span>
-      </a>
-
-      <a href="https://calendly.com/achim-reinhardt-callways/30min" class="cta-tile" target="_blank" rel="noopener noreferrer">
-        <div class="cta-tile-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="5" width="18" height="16" rx="2"/>
-            <path d="M16 3v4M8 3v4M3 10h18"/>
-          </svg>
-        </div>
-        <span class="cta-tile-action">Termin buchen</span>
-        <span class="cta-tile-arrow">→</span>
-      </a>
+        <a href="https://callways.career.softgarden.de/" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
+          Offene Stellen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </div>
-</section>
 
-<footer class="site-footer">
-  <div class="footer-simple">
-    <div class="container footer-simple-inner">
-      <a href="index.html" class="footer-simple-logo">
+  <div class="yellow-footer-row">
+    <div class="container yellow-footer-inner">
+      <a href="index.html" class="yellow-footer-logo" aria-label="Callways Startseite">
         <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
       </a>
-      <div class="footer-simple-links">
+      <div class="yellow-footer-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
     </div>
   </div>
-</footer>
+</section>
+
 
 </main>
 
