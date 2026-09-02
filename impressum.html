@@ -473,6 +473,51 @@ nav.main-nav a:hover::after{
 }
 </style>
 
+
+<style>
+/* ===== FOOTER — same as previous page ===== */
+.site-footer.previous-page-footer{
+  background:#FCFAF2;
+  border-top:1px solid #E7E2D4;
+  padding:0;
+}
+.previous-footer-inner{
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+}
+.previous-footer-logo{
+  display:flex;
+  align-items:center;
+}
+.previous-footer-logo img{
+  height:30px;
+  width:auto;
+  display:block;
+}
+.previous-footer-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-size:12px;
+  color:#0A182F;
+  font-weight:500;
+}
+.previous-footer-links a:hover{
+  color:#000;
+}
+@media(max-width:600px){
+  .previous-footer-inner{
+    min-height:auto;
+    padding:18px 0;
+    flex-direction:column;
+    gap:12px;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -557,25 +602,16 @@ nav.main-nav a:hover::after{
   </section>
 </main>
 
-<footer class="site-footer">
-
-  <div class="container footer-main">
-    <div class="footer-logo">
+<footer class="site-footer previous-page-footer">
+  <div class="container previous-footer-inner">
+    <a href="index.html" class="previous-footer-logo" aria-label="Callways Startseite">
       <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
-    </div>
-
-    <div class="footer-contact">
-      <span>☎ +49 30 33027-2727</span>
-      <span>✉ vertrieb@callways.de</span>
-    </div>
-
-    <div class="footer-links">
-      <a href="kontakt.html">Kontakt</a>
+    </a>
+    <div class="previous-footer-links">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </div>
   </div>
-
 </footer>
 
 
