@@ -849,12 +849,12 @@
     <style>
     /* ===== HOMEPAGE: HERAUSFORDERUNGEN ===== */
     .challenges{
-      padding:64px 0 68px;
-      background:var(--gold);
+      padding:48px 0 50px;
+      background:#F5EFC4;
     }
     .challenges-head{
       max-width:760px;
-      margin:0 auto 30px;
+      margin:0 auto 22px;
       text-align:center;
     }
     .challenges-head h2{
@@ -874,14 +874,16 @@
     }
     .challenges-grid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:18px;
+      max-width:980px;
+      margin:0 auto;
     }
     .challenge-card{
       background:rgba(255,255,255,.72);
       border:1.5px solid rgba(255,255,255,.55);
       border-radius:var(--radius-lg);
-      padding:22px 20px;
+      padding:20px 20px;
       transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
     }
     .challenge-card:hover{
@@ -890,7 +892,7 @@
       background:rgba(255,255,255,.88);
     }
     .challenge-card-head{
-      display:flex;align-items:center;gap:12px;margin-bottom:12px;
+      display:flex;align-items:center;gap:12px;margin-bottom:6px;
     }
     .challenge-icon{
       width:42px;height:42px;flex-shrink:0;border-radius:12px;
@@ -906,7 +908,7 @@
       margin:0;color:rgba(10,24,47,.72);font-size:13px;line-height:1.55;
     }
     .challenges-closing{
-      margin:28px 0 0;
+      margin:20px 0 0;
       text-align:center;
       font-family:'Poppins',sans-serif;
       font-size:14px;
@@ -922,12 +924,21 @@
     }
 
     /* ===== HOMEPAGE: VERGLEICH ===== */
-    .comparison{background:var(--cream);padding:64px 0 58px;}
+    .comparison{background:var(--cream);padding:44px 0 54px;}
     .comparison-head{text-align:center;max-width:760px;margin:0 auto 28px;}
     .comparison-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;line-height:1.15;margin-bottom:10px;}
     .comparison-head p{color:var(--gray);font-size:14.5px;}
     .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:980px;margin:0 auto;}
-    .compare-card{border-radius:var(--radius-lg);padding:30px;border:1.5px solid var(--border);}
+    .compare-card{
+      border-radius:var(--radius-lg);
+      padding:30px;
+      border:1.5px solid var(--border);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .compare-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 14px 32px rgba(10,24,47,.10);
+    }
     .compare-card.classic{background:#F4F6F8;}
     .compare-card.callways{background:rgba(215,189,9,.10);border-color:var(--gold);}
     .compare-card h3{font-size:17px;margin-bottom:20px;color:var(--navy);}
@@ -943,7 +954,7 @@
     @media(max-width:760px){.comparison-grid{grid-template-columns:1fr;}}
 
     /* ===== HOMEPAGE: ÜBER UNS ===== */
-    .about-home{background:var(--white);padding:60px 0;}
+    .about-home{background:var(--white);padding:46px 0;}
     .about-home-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:58px;align-items:center;}
     .about-kicker{
       display:inline-flex;padding:7px 12px;border-radius:var(--radius-full);
@@ -965,8 +976,8 @@
     @media(max-width:760px){.about-home-inner{grid-template-columns:1fr;gap:28px;}}
 
     /* ===== HOMEPAGE: NÄCHSTE SCHRITTE ===== */
-    .next-steps{background:var(--cream);padding:60px 0;}
-    .next-steps-head{text-align:center;max-width:720px;margin:0 auto 30px;}
+    .next-steps{background:var(--cream);padding:46px 0 48px;}
+    .next-steps-head{text-align:center;max-width:720px;margin:0 auto 22px;}
     .next-steps-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-bottom:10px;}
     .next-steps-head p{color:var(--gray);font-size:14.5px;}
     .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;}
