@@ -6,6 +6,11 @@
   <title>Leistungen | Callways</title>
   <meta name="description" content="Kundenservice, Beratung, Wissensmanagement, KI & Automatisierung, Training, Qualitätsmanagement und Reporting von Callways.">
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -826,6 +831,7 @@ nav.main-nav a.active::after{width:0;}
         <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
       </a>
       <div class="yellow-footer-links">
+        <a href="#" id="cookieSettingsLink">Cookie-Einstellungen</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
@@ -834,15 +840,211 @@ nav.main-nav a.active::after{width:0;}
 </section>
   </main>
 <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
 
-  menuToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
-  mainNav.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => mainNav.classList.remove('open'))
-  );
+menuToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+});
+
+mainNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+  });
+});
 </script>
 
+
+<!-- ===== COOKIE-HINWEIS ===== -->
+
+<div id="cookieOverlay" style="
+  position:fixed;
+  inset:0;
+  background:rgba(10,24,47,0.45);
+  z-index:9998;
+  display:none;
+"></div>
+
+<div id="cookieNotice" style="
+  position:fixed;
+  left:24px;
+  right:24px;
+  bottom:24px;
+  max-width:640px;
+  margin:0 auto;
+  background:#FFFFFF;
+  color:#101322;
+  border-radius:20px;
+  padding:32px 34px;
+  box-shadow:0 20px 50px rgba(10,24,47,0.25);
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  z-index:9999;
+  display:none;
+">
+  <h3 style="font-family:'Poppins',sans-serif; font-size:19px; font-weight:700; margin:0 0 14px 0; color:#0A182F;">
+    Wir nutzen Cookies und andere Technologien.
+  </h3>
+
+  <p style="margin:0 0 20px 0; color:#6B7280;">
+    Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung von Endgeräteinformationen und personenbezogenen Daten. Die Verarbeitung dient der Einbindung von Inhalten, externen Diensten und Elementen Dritter, der statistischen Analyse/Messung, der personalisierten Werbung sowie der Einbindung sozialer Medien. Je nach Funktion werden dabei Daten an Dritte weitergegeben und an Dritte in Ländern, in denen kein angemessenes Datenschutzniveau vorliegt und von diesen verarbeitet, z. B. die USA. Ihre Einwilligung ist stets freiwillig, für die Nutzung unserer Website nicht erforderlich und kann jederzeit auf unserer Seite abgelehnt oder widerrufen werden.
+  </p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:18px; margin-bottom:22px;">
+    <label style="display:flex; align-items:center; gap:8px; font-weight:600; color:#0A182F; opacity:0.6;">
+      <input type="checkbox" checked disabled style="width:16px; height:16px; accent-color:#D7BD09;">
+      Technisch notwendig (1)
+    </label>
+    <label style="display:flex; align-items:center; gap:8px; font-weight:600; color:#0A182F;">
+      <input type="checkbox" id="ccAnalytics" style="width:16px; height:16px; accent-color:#D7BD09;">
+      Analyse / Statistiken (2)
+    </label>
+    <label style="display:flex; align-items:center; gap:8px; font-weight:600; color:#0A182F;">
+      <input type="checkbox" id="ccPersonalization" checked style="width:16px; height:16px; accent-color:#D7BD09;">
+      Personalisierung (1)
+    </label>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+    <button id="ccAcceptAll" style="
+      flex:1; min-width:150px;
+      background:#D7BD09; color:#0A182F; border:none; border-radius:10px;
+      padding:13px 18px; font-weight:700; font-size:13px; letter-spacing:.3px;
+      font-family:'Poppins',sans-serif; cursor:pointer; text-transform:uppercase;
+    ">Alles akzeptieren</button>
+
+    <button id="ccSave" style="
+      flex:1; min-width:150px;
+      background:#D7BD09; color:#0A182F; border:none; border-radius:10px;
+      padding:13px 18px; font-weight:700; font-size:13px; letter-spacing:.3px;
+      font-family:'Poppins',sans-serif; cursor:pointer; text-transform:uppercase;
+    ">Speichern</button>
+
+    <button id="ccReject" style="
+      flex:1; min-width:150px;
+      background:#D7BD09; color:#0A182F; border:none; border-radius:10px;
+      padding:13px 18px; font-weight:700; font-size:13px; letter-spacing:.3px;
+      font-family:'Poppins',sans-serif; cursor:pointer; text-transform:uppercase;
+    ">Ablehnen</button>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#6B7280;">
+    <div>
+      <a href="impressum.html" style="color:#6B7280; text-decoration:underline;">Impressum</a>
+      &nbsp;|&nbsp;
+      <a href="datenschutz.html" style="color:#6B7280; text-decoration:underline;">Datenschutzhinweis</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'callways-cookie-consent';
+  var GA_ID = 'G-ZDTZ960X4V';
+  var overlay = document.getElementById('cookieOverlay');
+  var notice = document.getElementById('cookieNotice');
+  var analytics = document.getElementById('ccAnalytics');
+  var personalization = document.getElementById('ccPersonalization');
+  var gaLoaded = false;
+
+  function loadGoogleAnalytics(){
+    if(gaLoaded) return;
+    gaLoaded = true;
+    try{
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
+    }catch(e){}
+  }
+
+  function getStoredConsent(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      return raw ? JSON.parse(raw) : null;
+    }catch(e){
+      return null;
+    }
+  }
+
+  function saveConsent(value){
+    try{
+      localStorage.setItem(KEY, JSON.stringify(value));
+    }catch(e){}
+  }
+
+  // Returning visitor who already said yes to analytics: load GA right away.
+  var existing = getStoredConsent();
+  if(existing && existing.analytics){
+    loadGoogleAnalytics();
+  }
+
+  function show(){
+    if(overlay) overlay.style.display = 'block';
+    if(notice) notice.style.display = 'block';
+  }
+
+  function hide(){
+    if(overlay) overlay.style.display = 'none';
+    if(notice) notice.style.display = 'none';
+  }
+
+  function on(id, handler){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('click', function(e){
+      try{ handler(e); }catch(err){}
+    });
+  }
+
+  on('cookieSettingsLink', function(e){ e.preventDefault(); show(); });
+  on('cookieOverlay', hide);
+
+  on('ccAcceptAll', function(){
+    saveConsent({ necessary:true, analytics:true, personalization:true });
+    loadGoogleAnalytics();
+    hide();
+  });
+
+  on('ccSave', function(){
+    var wantsAnalytics = analytics ? analytics.checked : false;
+    saveConsent({
+      necessary:true,
+      analytics: wantsAnalytics,
+      personalization: personalization ? personalization.checked : false
+    });
+    if(wantsAnalytics){
+      loadGoogleAnalytics();
+    }
+    hide();
+  });
+
+  on('ccReject', function(){
+    saveConsent({ necessary:true, analytics:false, personalization:false });
+    hide();
+  });
+})();
+</script>
+
+<style>
+/* Mobile cookie notice alignment */
+@media(max-width:600px){
+  #cookieNotice{
+    left:12px !important;
+    right:12px !important;
+    bottom:12px !important;
+    padding:24px 20px !important;
+    max-height:calc(100vh - 24px);
+    overflow-y:auto;
+  }
+}
+</style>
 
 </body>
 </html>
