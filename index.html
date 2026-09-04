@@ -1,1670 +1,1814 @@
- <!DOCTYPE html>
-    <html lang="de">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Callways – Kundenservice, der immer erreichbar ist.</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-
-    :root{
-      --cream:#FCFAF2;
-      --gold:#D7BD09;
-      --gold-dark:#B89F06;
-      --navy:#0A182F;
-      --navy-2:#132038;
-      --ink:#101322;
-      --gray:#6B7280;
-      --border:#E7E2D4;
-      --white:#FFFFFF;
-      --radius-lg:20px;
-      --radius-full:999px;
-      --shadow-md:0 10px 30px rgba(10,24,47,0.08);
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:'Inter',sans-serif;
-      background:var(--cream);
-      color:var(--ink);
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-    }
-
-    h1,h2,h3,h4,.btn{
-      font-family:'Poppins',sans-serif;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 24px;
-    }
-
-    section{
-      padding:88px 0;
-    }
-
-    @media(max-width:768px){
-      section{
-        padding:56px 0;
-      }
-    }
-
-
-    /* BUTTONS */
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:14px 26px;
-      border-radius:var(--radius-full);
-      font-weight:600;
-      font-size:15px;
-      border:2px solid transparent;
-      cursor:pointer;
-      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-      white-space:nowrap;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn svg{
-      transition:transform .18s ease;
-    }
-
-    .btn:hover svg{
-      transform:translateX(3px);
-    }
-
-    .btn-gold{
-      background:var(--gold);
-      color:var(--navy);
-    }
-
-    .btn-gold:hover{
-      background:var(--gold-dark);
-      box-shadow:var(--shadow-md);
-    }
-
-    .btn-outline{
-      background:transparent;
-      border-color:var(--ink);
-      color:var(--ink);
-    }
-
-    .btn-outline:hover{
-      background:var(--ink);
-      color:var(--white);
-    }
-
-    .btn-navy{
-      background:var(--navy);
-      color:var(--white);
-    }
-
-    .btn-sm{
-      padding:11px 20px;
-      font-size:13.5px;
-    }
-
-
-    /* HEADER */
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      background:rgba(252,250,242,0.92);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid var(--border);
-    }
-
-    .nav-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:16px 24px;
-      max-width:1200px;
-      margin:0 auto;
-    }
-
-    .brand img{
-      height:32px;
-      width:auto;
-    }
-
-    nav.main-nav{
-      display:flex;
-      gap:34px;
-    }
-
-    nav.main-nav a{
-      font-size:14.5px;
-      font-weight:500;
-      position:relative;
-    }
-
-    nav.main-nav a::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-4px;
-      width:0;
-      height:2px;
-      background:var(--gold);
-      transition:.2s;
-    }
-
-    nav.main-nav a:hover::after{
-      width:100%;
-    }
-
-    .nav-cta{
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
-
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      cursor:pointer;
-    }
-
-    @media(max-width:900px){
-
-      nav.main-nav{
-        position:fixed;
-        top:70px;
-        left:0;
-        right:0;
-        background:#fffdf7;
-        flex-direction:column;
-        gap:0;
-        max-height:0;
-        overflow:hidden;
-        transition:max-height .3s ease;
-        border-bottom:1px solid var(--border);
-        box-shadow:0 12px 24px rgba(10,24,47,0.10);
-        z-index:99;
-      }
-
-      nav.main-nav.open{
-        max-height:420px;
-      }
-
-      nav.main-nav a{
-        padding:18px 24px;
-        border-top:1px solid #ebe6d8;
-        font-size:14.5px;
-        background:transparent;
-      }
-
-      nav.main-nav a:hover{
-        background:rgba(215,189,9,0.06);
-      }
-
-      .menu-toggle{
-        display:block;
-      }
-
-      .nav-cta .btn-gold span{
-        display:none;
-      }
-
-      .nav-cta .btn-gold{
-        padding:12px;
-      }
-    }
-
-
-    /* HERO */
-
-    .hero{
-      padding:56px 0 28px;
-      overflow:hidden;
-    }
-
-    @media(min-width:901px){
-      .hero-grid > div:first-child{
-        position:relative;
-        z-index:3;
-      }
-      .hero-stats{
-        position:relative;
-        z-index:4;
-      }
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr 1fr;
-      gap:40px;
-      align-items:center;
-    }
-
-    .hero h1{
-      font-size:clamp(34px,5vw,54px);
-      font-weight:800;
-      line-height:1.08;
-      margin-bottom:20px;
-    }
-
-    .hero h1 .accent{
-      color:var(--gold);
-    }
-
-    .hero p.lead{
-      font-size:16.5px;
-      color:var(--gray);
-      max-width:500px;
-      margin-bottom:30px;
-      line-height:1.55;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:42px;
-    }
-
-
-    /* HERO STATS - 4 evenly spaced items without breaking words */
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(4, 150px);
-      column-gap:22px;
-      width:max-content;
-      max-width:none;
-      align-items:start;
-    }
-
-    .hero-stat{
-      display:grid;
-      grid-template-columns:38px 1fr;
-      align-items:start;
-      column-gap:10px;
-      width:150px;
-      min-width:150px;
-    }
-
-    .hero-stat-icon{
-      width:38px;
-      height:38px;
-      border:1.5px solid var(--border);
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--gold-dark);
-      flex-shrink:0;
-    }
-
-    .hero-stat-icon svg{
-      width:17px;
-      height:17px;
-    }
-
-    .hero-stat-text{
-      min-width:0;
-      flex:1;
-    }
-
-    .hero-stat b{
-      display:block;
-      font-family:'Poppins',sans-serif;
-      font-size:15px;
-      font-weight:700;
-      margin-bottom:4px;
-      line-height:1.2;
-    }
-
-    .hero-stat span{
-      display:block;
-      font-size:11.5px;
-      line-height:1.35;
-      color:var(--gray);
-      word-break:normal;
-      overflow-wrap:normal;
-      hyphens:none;
-    }
-
-    @media(max-width:760px){
-      .hero-stats{
-        grid-template-columns:repeat(2, 170px);
-        gap:24px 28px;
-        width:max-content;
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .hero-stat{
-        width:170px;
-        min-width:170px;
-        grid-template-columns:38px 1fr;
-      }
-    }
-
-    @media(max-width:430px){
-      .hero-stats{
-        grid-template-columns:170px;
-      }
-    }
-
-
-    /* HERO IMAGE */
-
-    .hero-art{
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:420px;
-    }
-
-    .giraffe-wrap{
-      position:relative;
-      z-index:1;
-      width:90%;
-      animation:giraffefloat 5s ease-in-out infinite;
-    }
-
-    .giraffe-img{
-      width:100%;
-      filter:drop-shadow(0 18px 30px rgba(10,24,47,0.18));
-    }
-
-    @keyframes giraffefloat{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-10px);}
-    }
-
-    .float-icon{
-      position:absolute;
-      z-index:2;
-      color:var(--gold-dark);
-    }
-
-    .float-icon.sparkle{top:6%;left:6%;width:30px;}
-    .float-icon.chat{top:20%;left:0;width:26px;}
-    .float-icon.phone{bottom:14%;left:2%;width:24px;}
-    .float-icon.mail{bottom:0;left:38%;width:22px;}
-
-    .speech-bubble{
-      position:absolute;
-      top:8%;
-      right:-2%;
-      background:var(--white);
-      border-radius:16px 16px 16px 4px;
-      padding:14px 18px;
-      box-shadow:var(--shadow-md);
-      font-size:12.5px;
-      font-weight:600;
-      z-index:2;
-    }
-
-    .speech-bubble div:last-child{
-      color:var(--gold-dark);
-    }
-
-    @media(max-width:900px){
-
-      .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-
-      .hero-actions{
-        justify-content:center;
-      }
-
-      .hero-stats{
-        margin:0 auto;
-        text-align:left;
-      }
-
-      .hero-art{
-        margin-top:20px;
-      }
-    }
-
-
-    /* SERVICES */
-
-    .section-head{
-      margin-bottom:42px;
-    }
-
-    .section-head h2{
-      font-size:clamp(26px,3.4vw,34px);
-      font-weight:800;
-    }
-
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
-    }
-
-    .card{
-      background:var(--white);
-      border:1.5px solid var(--border);
-      border-radius:var(--radius-lg);
-      padding:28px 24px;
-      transition:.2s ease;
-    }
-
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow-md);
-    }
-
-    .card-head{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin-bottom:16px;
-    }
-
-    .card-icon{
-      width:46px;
-      height:46px;
-      background:rgba(215,189,9,0.14);
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--gold-dark);
-      flex-shrink:0;
-    }
-
-    .card-icon svg{
-      width:22px;
-      height:22px;
-    }
-
-    .card h3{
-      font-size:16px;
-      font-weight:700;
-      margin:0;
-      line-height:1.3;
-    }
-
-    .card p{
-      font-size:13.5px;
-      color:var(--gray);
-      line-height:1.55;
-    }
-
-    .card-dark{
-      background:var(--navy);
-      color:var(--white);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-
-    .card-dark .card-icon{
-      background:var(--gold);
-      color:var(--navy);
-    }
-
-    .card-dark p{
-      color:#B9C1D4;
-    }
-
-    .card-dark .discover{
-      color:var(--gold);
-      margin-top:14px;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      font-size:13.5px;
-      font-weight:600;
-    }
-
-    @media(max-width:980px){
-      .services-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-
-    @media(max-width:560px){
-      .services-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-
-    /* INDUSTRIES */
-
-    .industries{
-      background:var(--navy);
-      color:var(--white);
-      padding:64px 0;
-    }
-
-    .industries-inner{
-      display:grid;
-      grid-template-columns:220px 1fr;
-      gap:48px;
-      align-items:center;
-    }
-
-    .industries h2{
-      font-size:clamp(24px,3vw,30px);
-      font-weight:800;
-      line-height:1.15;
-    }
-
-    .industries-list{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:28px;
-    }
-
-    .industry-item{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-      font-size:14px;
-      font-weight:600;
-      color:#E4E8EF;
-      text-align:center;
-    }
-
-    .industry-item svg{
-      width:34px;
-      height:34px;
-      color:var(--gold);
-    }
-
-    @media(max-width:900px){
-
-      .industries-inner{
-        grid-template-columns:1fr;
-      }
-
-      .industries h2{
-        text-align:center;
-      }
-
-      .industries-list{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-
-
-
-    /* CTA */
-
-    .cta-band{
-      background:var(--gold);
-      padding:28px 0;
-    }
-
-    .cta-inner{
-      display:grid;
-      grid-template-columns:minmax(300px, 0.9fr) minmax(560px, 1.1fr);
-      gap:64px;
-      align-items:center;
-    }
-
-    .cta-copy h2{
-      font-size:clamp(28px,3.2vw,38px);
-      font-weight:800;
-      line-height:1.08;
-      margin-bottom:14px;
-      max-width:440px;
-    }
-
-    .cta-copy p{
-  font-size:18px;
-  font-weight:500;
-  color:rgba(10,24,47,.9);
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Callways – Kundenservice, der immer erreichbar ist.</title>
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --cream:#FCFAF2;
+  --gold:#D7BD09;
+  --gold-dark:#B89F06;
+  --navy:#0A182F;
+  --navy-2:#132038;
+  --ink:#101322;
+  --gray:#6B7280;
+  --border:#E7E2D4;
+  --white:#FFFFFF;
+  --radius-lg:20px;
+  --radius-full:999px;
+  --shadow-md:0 10px 30px rgba(10,24,47,0.08);
 }
 
-    .cta-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .cta-tile{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      padding:14px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.28);
-      border:1px solid rgba(255,255,255,.18);
-      color:var(--navy);
-      transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .cta-tile:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.38);
-      box-shadow:0 8px 20px rgba(10,24,47,.08);
-    }
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
 
-    .cta-tile-icon{
-      width:38px;
-      height:38px;
-      border-radius:50%;
-      background:var(--navy);
-      color:var(--gold);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink:0;
-    }
+h1,h2,h3,h4,.btn{
+  font-family:'Poppins',sans-serif;
+}
 
-    .cta-tile-icon svg{
-      width:17px;
-      height:17px;
-    }
+img{
+  max-width:100%;
+  display:block;
+}
 
-    .cta-tile-text{
-      min-width:0;
-      display:flex;
-      flex-direction:column;
-      line-height:1.15;
-    }
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-    .cta-tile-label{
-      font-family:'Poppins',sans-serif;
-      font-size:12px;
-      font-weight:600;
-      margin-bottom:4px;
-    }
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+}
 
-    .cta-tile-value{
-      font-family:'Poppins',sans-serif;
-      font-size:14px;
-      font-weight:700;
-      overflow-wrap:anywhere;
-    }
+section{
+  padding:88px 0;
+}
 
-    .cta-tile-action{
-      font-family:'Poppins',sans-serif;
-      font-size:14px;
-      font-weight:700;
-    }
-
-    .cta-tile-arrow{
-      margin-left:auto;
-      flex-shrink:0;
-      font-size:24px;
-      line-height:1;
-      transition:transform .18s ease;
-    }
-
-    .cta-tile:hover .cta-tile-arrow{
-      transform:translateX(3px);
-    }
-
-    /* Email tile: same design as the other CTA tiles, but text stays selectable */
-    .cta-email-tile{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      padding:14px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.28);
-      border:1px solid rgba(255,255,255,.18);
-      color:var(--navy);
-      transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
-    }
-
-    .cta-email-tile:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.38);
-      box-shadow:0 8px 20px rgba(10,24,47,.08);
-    }
-
-    .cta-email-link{
-      color:var(--navy);
-      text-decoration:none;
-      cursor:text;
-      user-select:text;
-      -webkit-user-select:text;
-      white-space:nowrap;
-      overflow-wrap:normal;
-    }
-
-    .cta-email-link:hover{
-      text-decoration:underline;
-    }
-
-    .cta-email-arrow{
-      margin-left:auto;
-      flex-shrink:0;
-      font-family:'Poppins',sans-serif;
-      font-size:24px;
-      line-height:1;
-      color:var(--navy);
-      cursor:pointer;
-      transition:transform .18s ease;
-    }
-
-    .cta-email-arrow:hover{
-      transform:translateX(3px);
-    }
-
-    @media(max-width:1000px){
-      .cta-inner{
-        grid-template-columns:1fr;
-        gap:28px;
-      }
-
-      .cta-copy h2{
-        max-width:none;
-      }
-    }
-
-    @media(max-width:620px){
-      .cta-band{
-        padding:40px 0;
-      }
-
-      .cta-grid{
-        grid-template-columns:1fr;
-      }
-
-      .cta-tile,
-      .cta-email-tile{
-        min-height:70px;
-      }
-    }
+@media(max-width:768px){
+  section{
+    padding:56px 0;
+  }
+}
 
 
-    /* FOOTER */
+/* BUTTONS */
 
-    .site-footer{
-      background:var(--cream);
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 26px;
+  border-radius:var(--radius-full);
+  font-weight:600;
+  font-size:15px;
+  border:2px solid transparent;
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  white-space:nowrap;
+}
 
-    .footer-simple{
-      min-height:68px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+.btn:hover{
+  transform:translateY(-2px);
+}
 
-    .footer-simple-inner{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:26px;
-    }
+.btn svg{
+  transition:transform .18s ease;
+}
 
-    .footer-simple-logo img{
-      height:32px;
-    }
+.btn:hover svg{
+  transform:translateX(3px);
+}
 
-    .footer-simple-links{
-      display:flex;
-      gap:26px;
-      font-size:12px;
-      color:var(--navy);
-    }
+.btn-gold{
+  background:var(--gold);
+  color:var(--navy);
+}
 
-    </style>
+.btn-gold:hover{
+  background:var(--gold-dark);
+  box-shadow:var(--shadow-md);
+}
 
-    <style>
-    /* ===== HOMEPAGE: HERAUSFORDERUNGEN ===== */
-    .challenges{
-      padding:48px 0 50px;
-      background:#F5EFC4;
-    }
-    .challenges-head{
-      max-width:760px;
-      margin:0 auto 22px;
-      text-align:center;
-    }
-    .challenges-head h2{
-      font-family:'Poppins',sans-serif;
-      font-size:clamp(26px,3.4vw,34px);
-      font-weight:800;
-      line-height:1.15;
-      margin:0 0 10px;
-      color:var(--navy);
-    }
-    .challenges-head p{
-      margin:0 auto;
-      max-width:680px;
-      color:rgba(10,24,47,.82);
-      font-size:14.5px;
-      line-height:1.55;
-    }
-    .challenges-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:18px;
-      max-width:980px;
-      margin:0 auto;
-    }
-    .challenge-card{
-      background:rgba(255,255,255,.72);
-      border:1.5px solid rgba(255,255,255,.55);
-      border-radius:var(--radius-lg);
-      padding:20px 20px;
-      transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-    }
-    .challenge-card:hover{
-      transform:translateY(-3px);
-      box-shadow:var(--shadow-md);
-      background:rgba(255,255,255,.88);
-    }
-    .challenge-card-head{
-      display:flex;align-items:center;gap:12px;margin-bottom:6px;
-    }
-    .challenge-icon{
-      width:42px;height:42px;flex-shrink:0;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:var(--cream);color:var(--gold-dark);
-    }
-    .challenge-icon svg{width:20px;height:20px;}
-    .challenge-card h3{
-      margin:0;font-family:'Poppins',sans-serif;
-      font-size:15px;font-weight:700;line-height:1.3;color:var(--navy);
-    }
-    .challenge-card p{
-      margin:0;color:rgba(10,24,47,.72);font-size:13px;line-height:1.55;
-    }
-    .challenges-closing{
-      margin:20px 0 0;
-      text-align:center;
-      font-family:'Poppins',sans-serif;
-      font-size:14px;
-      font-weight:700;
-      color:var(--navy);
-    }
-    @media(max-width:980px){
-      .challenges-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-    }
-    @media(max-width:560px){
-      .challenges{padding:52px 0;}
-      .challenges-grid{grid-template-columns:1fr;}
-    }
+.btn-outline{
+  background:transparent;
+  border-color:var(--ink);
+  color:var(--ink);
+}
 
-    /* ===== HOMEPAGE: VERGLEICH ===== */
-    .comparison{background:var(--cream);padding:44px 0 54px;}
-    .comparison-head{text-align:center;max-width:760px;margin:0 auto 28px;}
-    .comparison-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;line-height:1.15;margin-bottom:10px;}
-    .comparison-head p{color:var(--gray);font-size:14.5px;}
-    .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:980px;margin:0 auto;}
-    .compare-card{
-      border-radius:var(--radius-lg);
-      padding:30px;
-      border:1.5px solid var(--border);
-      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-    .compare-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 14px 32px rgba(10,24,47,.10);
-    }
-    .compare-card.classic{background:#F4F6F8;}
-    .compare-card.callways{background:rgba(215,189,9,.10);border-color:var(--gold);}
-    .compare-card h3{font-size:17px;margin-bottom:20px;color:var(--navy);}
-    .compare-logo{height:28px;margin-bottom:20px;display:flex;align-items:center;}
-    .compare-logo img{height:28px;width:auto;max-width:150px;object-fit:contain;}
+.btn-outline:hover{
+  background:var(--ink);
+  color:var(--white);
+}
 
-    .compare-list{list-style:none;display:grid;gap:13px;}
-    .compare-list li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.45;color:var(--gray);}
-    .compare-card.callways .compare-list li{color:var(--navy);font-weight:500;}
-    .compare-mark{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:800;}
-    .classic .compare-mark{background:#E7E9ED;color:#7A8290;}
-    .callways .compare-mark{background:var(--gold);color:var(--navy);}
-    @media(max-width:760px){.comparison-grid{grid-template-columns:1fr;}}
+.btn-navy{
+  background:var(--navy);
+  color:var(--white);
+}
 
-    /* ===== HOMEPAGE: ÜBER UNS ===== */
-    .about-home{background:var(--white);padding:46px 0;}
-    .about-home-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:58px;align-items:center;}
-    .about-kicker{
-      display:inline-flex;padding:7px 12px;border-radius:var(--radius-full);
-      background:rgba(215,189,9,.14);color:var(--gold-dark);
-      font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;margin-bottom:14px;
-    }
-    .about-home h2{font-size:clamp(27px,3.4vw,36px);font-weight:800;line-height:1.15;margin-bottom:16px;}
-    .about-home p{color:var(--gray);font-size:14.5px;line-height:1.65;margin-bottom:13px;}
-    .about-quote{
-      background:var(--navy);color:var(--white);border-radius:var(--radius-lg);
-      padding:34px;position:relative;overflow:hidden;
-    }
-    .about-quote:after{
-      content:'';position:absolute;width:150px;height:150px;background:var(--gold);
-      transform:rotate(45deg);right:-85px;top:-75px;opacity:.95;
-    }
-    .about-quote strong{display:block;font-family:'Poppins',sans-serif;font-size:22px;line-height:1.3;margin-bottom:12px;max-width:360px;}
-    .about-quote span{color:#C8CFDC;font-size:13.5px;line-height:1.6;display:block;max-width:390px;}
-    @media(max-width:760px){.about-home-inner{grid-template-columns:1fr;gap:28px;}}
-
-    /* ===== HOMEPAGE: NÄCHSTE SCHRITTE ===== */
-    .next-steps{background:var(--cream);padding:46px 0 48px;}
-    .next-steps-head{text-align:center;max-width:720px;margin:0 auto 22px;}
-    .next-steps-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-bottom:10px;}
-    .next-steps-head p{color:var(--gray);font-size:14.5px;}
-    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;}
-    .step-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;}
-    .step-number{
-      width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);
-      display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;
-      font-weight:800;font-size:13px;margin-bottom:18px;
-    }
-    .step-card h3{font-size:16px;margin-bottom:9px;}
-    .step-card p{font-size:13.5px;color:var(--gray);line-height:1.55;}
-    .steps-action{text-align:center;margin-top:30px;}
-    @media(max-width:760px){.steps-grid{grid-template-columns:1fr;}}
-    </style>
+.btn-sm{
+  padding:11px 20px;
+  font-size:13.5px;
+}
 
 
-    <style>
-    /* Hero buttons: exakt gleiche Höhe */
-    .hero-actions .btn{
-      height:56px !important;
-      min-height:56px !important;
-      padding-top:0 !important;
-      padding-bottom:0 !important;
-      display:inline-flex !important;
-      align-items:center !important;
-      justify-content:center !important;
-    }
-    </style>
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(252,250,242,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.brand img{
+  height:32px;
+  width:auto;
+}
+
+nav.main-nav{
+  display:flex;
+  gap:34px;
+}
+
+nav.main-nav a{
+  font-size:14.5px;
+  font-weight:500;
+  position:relative;
+}
+
+nav.main-nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.2s;
+}
+
+nav.main-nav a:hover::after{
+  width:100%;
+}
+
+.nav-cta{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+@media(max-width:900px){
+
+  nav.main-nav{
+    position:fixed;
+    top:70px;
+    left:0;
+    right:0;
+    background:#fffdf7;
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 12px 24px rgba(10,24,47,0.10);
+    z-index:99;
+  }
+
+  nav.main-nav.open{
+    max-height:420px;
+  }
+
+  nav.main-nav a{
+    padding:18px 24px;
+    border-top:1px solid #ebe6d8;
+    font-size:14.5px;
+    background:transparent;
+  }
+
+  nav.main-nav a:hover{
+    background:rgba(215,189,9,0.06);
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-cta .btn-gold span{
+    display:none;
+  }
+
+  .nav-cta .btn-gold{
+    padding:12px;
+  }
+}
 
 
-    <style>
-    /* Hero CTA buttons: exakt gleiche Größe auf Desktop und Mobile */
-    .hero-actions .btn{
-      width:240px !important;
-      height:56px !important;
-      min-width:240px !important;
-      min-height:56px !important;
-      padding:0 20px !important;
-      box-sizing:border-box !important;
-      display:inline-flex !important;
-      align-items:center !important;
-      justify-content:center !important;
-    }
+/* HERO */
 
-    @media(max-width:600px){
-      .hero-actions .btn{
-        width:240px !important;
-        min-width:240px !important;
-        height:56px !important;
-        min-height:56px !important;
-      }
-    }
-    </style>
+.hero{
+  padding:56px 0 28px;
+  overflow:hidden;
+}
 
-    
+@media(min-width:901px){
+  .hero-grid > div:first-child{
+    position:relative;
+    z-index:3;
+  }
+  .hero-stats{
+    position:relative;
+    z-index:4;
+  }
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(34px,5vw,54px);
+  font-weight:800;
+  line-height:1.08;
+  margin-bottom:20px;
+}
+
+.hero h1 .accent{
+  color:var(--gold);
+}
+
+.hero p.lead{
+  font-size:16.5px;
+  color:var(--gray);
+  max-width:500px;
+  margin-bottom:30px;
+  line-height:1.55;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:42px;
+}
+
+
+/* HERO STATS - 4 evenly spaced items without breaking words */
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4, 150px);
+  column-gap:22px;
+  width:max-content;
+  max-width:none;
+  align-items:start;
+}
+
+.hero-stat{
+  display:grid;
+  grid-template-columns:38px 1fr;
+  align-items:start;
+  column-gap:10px;
+  width:150px;
+  min-width:150px;
+}
+
+.hero-stat-icon{
+  width:38px;
+  height:38px;
+  border:1.5px solid var(--border);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold-dark);
+  flex-shrink:0;
+}
+
+.hero-stat-icon svg{
+  width:17px;
+  height:17px;
+}
+
+.hero-stat-text{
+  min-width:0;
+  flex:1;
+}
+
+.hero-stat b{
+  display:block;
+  font-family:'Poppins',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  margin-bottom:4px;
+  line-height:1.2;
+}
+
+.hero-stat span{
+  display:block;
+  font-size:11.5px;
+  line-height:1.35;
+  color:var(--gray);
+  word-break:normal;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+
+@media(max-width:760px){
+  .hero-stats{
+    grid-template-columns:repeat(2, 170px);
+    gap:24px 28px;
+    width:max-content;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-stat{
+    width:170px;
+    min-width:170px;
+    grid-template-columns:38px 1fr;
+  }
+}
+
+@media(max-width:430px){
+  .hero-stats{
+    grid-template-columns:170px;
+  }
+}
+
+
+/* HERO IMAGE */
+
+.hero-art{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:420px;
+}
+
+.giraffe-wrap{
+  position:relative;
+  z-index:1;
+  width:90%;
+  animation:giraffefloat 5s ease-in-out infinite;
+}
+
+.giraffe-img{
+  width:100%;
+  filter:drop-shadow(0 18px 30px rgba(10,24,47,0.18));
+}
+
+@keyframes giraffefloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+.float-icon{
+  position:absolute;
+  z-index:2;
+  color:var(--gold-dark);
+}
+
+.float-icon.sparkle{top:6%;left:6%;width:30px;}
+.float-icon.chat{top:20%;left:0;width:26px;}
+.float-icon.phone{bottom:14%;left:2%;width:24px;}
+.float-icon.mail{bottom:0;left:38%;width:22px;}
+
+.speech-bubble{
+  position:absolute;
+  top:8%;
+  right:-2%;
+  background:var(--white);
+  border-radius:16px 16px 16px 4px;
+  padding:14px 18px;
+  box-shadow:var(--shadow-md);
+  font-size:12.5px;
+  font-weight:600;
+  z-index:2;
+}
+
+.speech-bubble div:last-child{
+  color:var(--gold-dark);
+}
+
+@media(max-width:900px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero-actions{
+    justify-content:center;
+  }
+
+  .hero-stats{
+    margin:0 auto;
+    text-align:left;
+  }
+
+  .hero-art{
+    margin-top:20px;
+  }
+}
+
+
+/* SERVICES */
+
+.section-head{
+  margin-bottom:42px;
+}
+
+.section-head h2{
+  font-size:clamp(26px,3.4vw,34px);
+  font-weight:800;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  background:var(--white);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:28px 24px;
+  transition:.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+}
+
+.card-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+
+.card-icon{
+  width:46px;
+  height:46px;
+  background:rgba(215,189,9,0.14);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold-dark);
+  flex-shrink:0;
+}
+
+.card-icon svg{
+  width:22px;
+  height:22px;
+}
+
+.card h3{
+  font-size:16px;
+  font-weight:700;
+  margin:0;
+  line-height:1.3;
+}
+
+.card p{
+  font-size:13.5px;
+  color:var(--gray);
+  line-height:1.55;
+}
+
+.card-dark{
+  background:var(--navy);
+  color:var(--white);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.card-dark .card-icon{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.card-dark p{
+  color:#B9C1D4;
+}
+
+.card-dark .discover{
+  color:var(--gold);
+  margin-top:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13.5px;
+  font-weight:600;
+}
+
+@media(max-width:980px){
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:560px){
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* INDUSTRIES */
+
+.industries{
+  background:var(--navy);
+  color:var(--white);
+  padding:64px 0;
+}
+
+.industries-inner{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:48px;
+  align-items:center;
+}
+
+.industries h2{
+  font-size:clamp(24px,3vw,30px);
+  font-weight:800;
+  line-height:1.15;
+}
+
+.industries-list{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+}
+
+.industry-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  font-size:14px;
+  font-weight:600;
+  color:#E4E8EF;
+  text-align:center;
+}
+
+.industry-item svg{
+  width:34px;
+  height:34px;
+  color:var(--gold);
+}
+
+@media(max-width:900px){
+
+  .industries-inner{
+    grid-template-columns:1fr;
+  }
+
+  .industries h2{
+    text-align:center;
+  }
+
+  .industries-list{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+
+/* CTA */
+
+.cta-band{
+  background:var(--gold);
+  padding:28px 0;
+}
+
+.cta-inner{
+  display:grid;
+  grid-template-columns:minmax(300px, 0.9fr) minmax(560px, 1.1fr);
+  gap:64px;
+  align-items:center;
+}
+
+.cta-copy h2{
+  font-size:clamp(28px,3.2vw,38px);
+  font-weight:800;
+  line-height:1.08;
+  margin-bottom:14px;
+  max-width:440px;
+}
+
+.cta-copy p{
+font-size:18px;
+font-weight:500;
+color:rgba(10,24,47,.9);
+}
+
+.cta-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+
+.cta-tile{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.28);
+  border:1px solid rgba(255,255,255,.18);
+  color:var(--navy);
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.cta-tile:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.38);
+  box-shadow:0 8px 20px rgba(10,24,47,.08);
+}
+
+.cta-tile-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:var(--navy);
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.cta-tile-icon svg{
+  width:17px;
+  height:17px;
+}
+
+.cta-tile-text{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.cta-tile-label{
+  font-family:'Poppins',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.cta-tile-value{
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+
+.cta-tile-action{
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:700;
+}
+
+.cta-tile-arrow{
+  margin-left:auto;
+  flex-shrink:0;
+  font-size:24px;
+  line-height:1;
+  transition:transform .18s ease;
+}
+
+.cta-tile:hover .cta-tile-arrow{
+  transform:translateX(3px);
+}
+
+/* Email tile: same design as the other CTA tiles, but text stays selectable */
+.cta-email-tile{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.28);
+  border:1px solid rgba(255,255,255,.18);
+  color:var(--navy);
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.cta-email-tile:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.38);
+  box-shadow:0 8px 20px rgba(10,24,47,.08);
+}
+
+.cta-email-link{
+  color:var(--navy);
+  text-decoration:none;
+  cursor:text;
+  user-select:text;
+  -webkit-user-select:text;
+  white-space:nowrap;
+  overflow-wrap:normal;
+}
+
+.cta-email-link:hover{
+  text-decoration:underline;
+}
+
+.cta-email-arrow{
+  margin-left:auto;
+  flex-shrink:0;
+  font-family:'Poppins',sans-serif;
+  font-size:24px;
+  line-height:1;
+  color:var(--navy);
+  cursor:pointer;
+  transition:transform .18s ease;
+}
+
+.cta-email-arrow:hover{
+  transform:translateX(3px);
+}
+
+@media(max-width:1000px){
+  .cta-inner{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .cta-copy h2{
+    max-width:none;
+  }
+}
+
+@media(max-width:620px){
+  .cta-band{
+    padding:40px 0;
+  }
+
+  .cta-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cta-tile,
+  .cta-email-tile{
+    min-height:70px;
+  }
+}
+
+
+/* FOOTER */
+
+.site-footer{
+  background:var(--cream);
+}
+
+.footer-simple{
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.footer-simple-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:26px;
+}
+
+.footer-simple-logo img{
+  height:32px;
+}
+
+.footer-simple-links{
+  display:flex;
+  gap:26px;
+  font-size:12px;
+  color:var(--navy);
+}
+
+</style>
+
+<style>
+/* ===== HOMEPAGE: HERAUSFORDERUNGEN ===== */
+.challenges{
+  padding:48px 0 50px;
+  background:#F5EFC4;
+}
+.challenges-head{
+  max-width:760px;
+  margin:0 auto 22px;
+  text-align:center;
+}
+.challenges-head h2{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(26px,3.4vw,34px);
+  font-weight:800;
+  line-height:1.15;
+  margin:0 0 10px;
+  color:var(--navy);
+}
+.challenges-head p{
+  margin:0 auto;
+  max-width:680px;
+  color:rgba(10,24,47,.82);
+  font-size:14.5px;
+  line-height:1.55;
+}
+.challenges-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  max-width:980px;
+  margin:0 auto;
+}
+.challenge-card{
+  background:rgba(255,255,255,.72);
+  border:1.5px solid rgba(255,255,255,.55);
+  border-radius:var(--radius-lg);
+  padding:20px 20px;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.challenge-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-md);
+  background:rgba(255,255,255,.88);
+}
+.challenge-card-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:6px;
+}
+.challenge-icon{
+  width:42px;height:42px;flex-shrink:0;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--cream);color:var(--gold-dark);
+}
+.challenge-icon svg{width:20px;height:20px;}
+.challenge-card h3{
+  margin:0;font-family:'Poppins',sans-serif;
+  font-size:15px;font-weight:700;line-height:1.3;color:var(--navy);
+}
+.challenge-card p{
+  margin:0;color:rgba(10,24,47,.72);font-size:13px;line-height:1.55;
+}
+.challenges-closing{
+  margin:20px 0 0;
+  text-align:center;
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  color:var(--navy);
+}
+@media(max-width:980px){
+  .challenges-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:560px){
+  .challenges{padding:52px 0;}
+  .challenges-grid{grid-template-columns:1fr;}
+}
+
+/* ===== HOMEPAGE: VERGLEICH ===== */
+.comparison{background:var(--cream);padding:44px 0 54px;}
+.comparison-head{text-align:center;max-width:760px;margin:0 auto 28px;}
+.comparison-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;line-height:1.15;margin-bottom:10px;}
+.comparison-head p{color:var(--gray);font-size:14.5px;}
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:980px;margin:0 auto;}
+.compare-card{
+  border-radius:var(--radius-lg);
+  padding:30px;
+  border:1.5px solid var(--border);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.compare-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 14px 32px rgba(10,24,47,.10);
+}
+.compare-card.classic{background:#F4F6F8;}
+.compare-card.callways{background:rgba(215,189,9,.10);border-color:var(--gold);}
+.compare-card h3{font-size:17px;margin-bottom:20px;color:var(--navy);}
+.compare-logo{height:28px;margin-bottom:20px;display:flex;align-items:center;}
+.compare-logo img{height:28px;width:auto;max-width:150px;object-fit:contain;}
+
+.compare-list{list-style:none;display:grid;gap:13px;}
+.compare-list li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.45;color:var(--gray);}
+.compare-card.callways .compare-list li{color:var(--navy);font-weight:500;}
+.compare-mark{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:800;}
+.classic .compare-mark{background:#E7E9ED;color:#7A8290;}
+.callways .compare-mark{background:var(--gold);color:var(--navy);}
+@media(max-width:760px){.comparison-grid{grid-template-columns:1fr;}}
+
+/* ===== HOMEPAGE: ÜBER UNS ===== */
+.about-home{background:var(--white);padding:46px 0;}
+.about-home-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:58px;align-items:center;}
+.about-kicker{
+  display:inline-flex;padding:7px 12px;border-radius:var(--radius-full);
+  background:rgba(215,189,9,.14);color:var(--gold-dark);
+  font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;margin-bottom:14px;
+}
+.about-home h2{font-size:clamp(27px,3.4vw,36px);font-weight:800;line-height:1.15;margin-bottom:16px;}
+.about-home p{color:var(--gray);font-size:14.5px;line-height:1.65;margin-bottom:13px;}
+.about-quote{
+  background:var(--cream);color:var(--navy);border-radius:var(--radius-lg);
+  padding:34px;position:relative;overflow:hidden;
+}
+.about-quote:after{
+  content:'';position:absolute;width:150px;height:150px;background:var(--gold);
+  transform:rotate(45deg);right:-85px;top:-75px;opacity:.95;
+}
+.about-quote strong{display:block;font-family:'Poppins',sans-serif;font-size:22px;line-height:1.3;margin-bottom:12px;max-width:360px;}
+.about-quote span{color:var(--gray);font-size:13.5px;line-height:1.6;display:block;max-width:390px;}
+@media(max-width:760px){.about-home-inner{grid-template-columns:1fr;gap:28px;}}
+
+/* ===== HOMEPAGE: NÄCHSTE SCHRITTE ===== */
+.next-steps{background:var(--cream);padding:46px 0 48px;}
+.next-steps-head{text-align:center;max-width:720px;margin:0 auto 22px;}
+.next-steps-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-bottom:10px;}
+.next-steps-head p{color:var(--gray);font-size:14.5px;}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;}
+.step-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;}
+.step-number{
+  width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;
+  font-weight:800;font-size:13px;margin-bottom:18px;
+}
+.step-card h3{font-size:16px;margin-bottom:9px;}
+.step-card p{font-size:13.5px;color:var(--gray);line-height:1.55;}
+.steps-action{text-align:center;margin-top:30px;}
+@media(max-width:760px){.steps-grid{grid-template-columns:1fr;}}
+</style>
+
+
+<style>
+/* Hero buttons: exakt gleiche Höhe */
+.hero-actions .btn{
+  height:56px !important;
+  min-height:56px !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+</style>
+
+
+<style>
+/* Hero CTA buttons: exakt gleiche Größe auf Desktop und Mobile */
+.hero-actions .btn{
+  width:240px !important;
+  height:56px !important;
+  min-width:240px !important;
+  min-height:56px !important;
+  padding:0 20px !important;
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+@media(max-width:600px){
+  .hero-actions .btn{
+    width:240px !important;
+    min-width:240px !important;
+    height:56px !important;
+    min-height:56px !important;
+  }
+}
+</style>
+
 
 
 </head>
 
-    <body>
+<body>
 
-    <header>
+<header>
 
-    <div class="nav-wrap">
+<div class="nav-wrap">
 
-    <a href="index.html" class="brand">
-    <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
-    </a>
+<a href="index.html" class="brand">
+<img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+</a>
 
-    <nav class="main-nav" id="mainNav">
-    <a href="index.html">Startseite</a>
-    <a href="leistungen.html">Leistungen</a>
-    <a href="branchen.html">Branchen</a>
-    <a href="ueber-uns.html">Über uns</a>
-    <a href="blog.html">Blog</a>
-    <a href="jobs.html">Jobs</a>
-    <a href="kontakt.html">Kontakt</a>
-    </nav>
+<nav class="main-nav" id="mainNav">
+<a href="index.html">Startseite</a>
+<a href="leistungen.html">Leistungen</a>
+<a href="branchen.html">Branchen</a>
+<a href="ueber-uns.html">Über uns</a>
+<a href="blog.html">Blog</a>
+<a href="jobs.html">Jobs</a>
+<a href="kontakt.html">Kontakt</a>
+</nav>
 
-    <div class="nav-cta">
+<div class="nav-cta">
 
-    <a href="kontakt.html" class="btn btn-gold btn-sm">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    <span>Jetzt kontaktieren</span>
-    </a>
+<a href="kontakt.html" class="btn btn-gold btn-sm">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<span>Jetzt kontaktieren</span>
+</a>
 
-    <button class="menu-toggle" id="menuToggle">
-    ☰
-    </button>
+<button class="menu-toggle" id="menuToggle">
+☰
+</button>
 
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<h1>
+Kundenservice,<br>
+der <span class="accent">immer erreichbar ist.</span>
+</h1>
+
+<p class="lead">
+Professioneller Inbound-Kundenservice – 24/7, 365 Tage im Jahr.
+Wir sorgen dafür, dass deine Kund:innen jederzeit jemanden erreichen
+und ihre Anliegen zuverlässig bearbeitet werden.
+</p>
+
+<div class="hero-actions">
+
+<a href="leistungen.html" class="btn btn-outline">Unsere Leistungen →</a>
+
+<a href="kontakt.html" class="btn btn-gold">Jetzt kostenlos testen →</a>
+
+</div>
+
+
+<div class="hero-stats">
+
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="9"/>
+<path d="M8 12h8M12 8v8"/>
+</svg>
+</div>
+<div class="hero-stat-text">
+<b>25+</b>
+<span>Jahre Erfahrung</span>
+</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
+</svg>
+</div>
+<div class="hero-stat-text">
+<b>100+</b>
+<span>glückliche Auftraggeber:innen</span>
+</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="8" r="4"/>
+<path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+</svg>
+</div>
+<div class="hero-stat-text">
+<b>50+</b>
+<span>geschulte Servicemitarbeitende</span>
+</div>
+</div>
+
+<div class="hero-stat">
+<div class="hero-stat-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="9"/>
+<path d="M12 7v5l3 3"/>
+</svg>
+</div>
+<div class="hero-stat-text">
+<b>365</b>
+<span>Tage erreichbar</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-art">
+
+<div class="giraffe-wrap">
+<img
+src="https://ik.imagekit.io/callways/New%20Folder/home.png"
+class="giraffe-img"
+alt="Callways Giraffe">
+</div>
+
+<div class="speech-bubble">
+<div>Wir hören zu.</div>
+<div>Wir verstehen.</div>
+<div>Wir lösen. ✓</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CHALLENGES -->
+<section class="challenges">
+  <div class="container">
+    <div class="challenges-head">
+      <h2>Kommt dir das bekannt vor?</h2>
+      <p>Viele Unternehmen stehen im Kundenservice vor denselben Herausforderungen.</p>
     </div>
 
+    <div class="challenges-grid">
+      <div class="challenge-card">
+        <div class="challenge-card-head">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          </div>
+          <h3>Anrufe bleiben liegen</h3>
+        </div>
+        <p>Besonders bei hoher Auslastung oder außerhalb der regulären Servicezeiten.</p>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card-head">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.5 2.8-5.5 5.5-5.5s5.5 2 5.5 5.5"/><path d="M14 15.5c.9-.7 2-1 3.1-1 2.4 0 4.4 1.6 4.4 4.5"/></svg>
+          </div>
+          <h3>Kapazitäten fehlen</h3>
+        </div>
+        <p>Stoßzeiten, Urlaub und Krankheit bringen interne Teams schnell an ihre Grenzen.</p>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card-head">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Kunden warten zu lange</h3>
+        </div>
+        <p>Lange Reaktionszeiten führen zu Frust und unnötigen Rückfragen.</p>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-card-head">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>
+          </div>
+          <h3>Servicequalität schwankt</h3>
+        </div>
+        <p>Fehlende Standards und wechselnde Kapazitäten machen gleichbleibende Qualität schwierig.</p>
+      </div>
     </div>
 
-    </header>
+    <p class="challenges-closing">Genau hier unterstützen wir – flexibel, persönlich und passend zu deinen Prozessen.</p>
+  </div>
+</section>
 
 
-    <main>
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="container">
+    <div class="comparison-head">
+      <h2>Kundenservice auslagern geht auch anders.</h2>
+      <p>Wir verstehen uns nicht als ausgelagertes Callcenter, sondern als Erweiterung deines Teams.</p>
+    </div>
+    <div class="comparison-grid">
+      <div class="compare-card callways">
+        <div class="compare-logo">
+          <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
+        </div>
+        <ul class="compare-list">
+          <li><span class="compare-mark">✓</span><span>Prozesse passend zu deinem Unternehmen</span></li>
+          <li><span class="compare-mark">✓</span><span>Persönliche Betreuung</span></li>
+          <li><span class="compare-mark">✓</span><span>Fokus auf Qualität &amp; Kundenerlebnis</span></li>
+          <li><span class="compare-mark">✓</span><span>Flexible Servicezeiten bis hin zu 24/7</span></li>
+          <li><span class="compare-mark">✓</span><span>Mensch + KI</span></li>
+          <li><span class="compare-mark">✓</span><span>Integration in deine bestehenden Prozesse</span></li>
+          <li><span class="compare-mark">✓</span><span>Fest angestellte und erfahrene Servicemitarbeitende</span></li>
+          <li><span class="compare-mark">✓</span><span>Kontinuierliche Schulungen und Weiterentwicklung</span></li>
+          <li><span class="compare-mark">✓</span><span>Messbares Qualitätsmanagement mit regelmäßigen Qualitätschecks</span></li>
+        </ul>
+      </div>
+      <div class="compare-card classic">
+        <h3>Andere Callcenter</h3>
+        <ul class="compare-list">
+          <li><span class="compare-mark">–</span><span>Standardisierte Abläufe</span></li>
+          <li><span class="compare-mark">–</span><span>Wechselnde Ansprechpartner</span></li>
+          <li><span class="compare-mark">–</span><span>Fokus auf Gesprächsvolumen</span></li>
+          <li><span class="compare-mark">–</span><span>Starre Servicezeiten</span></li>
+          <li><span class="compare-mark">–</span><span>Geringe Integration in interne Prozesse</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-    <!-- HERO -->
-
-    <section class="hero">
-
-    <div class="container hero-grid">
-
+<!-- ABOUT -->
+<section class="about-home">
+  <div class="container about-home-inner">
     <div>
+      <span class="about-kicker">Über uns</span>
+      <h2>Nicht einfach nur Dienstleisterin, sondern Teil deines Kundenservices.</h2>
+      <p>Callways ist seit über <span style="color:var(--gold-dark); font-weight:700;">25 Jahren</span> im Kundenservice tätig. Als inhabergeführtes Unternehmen setzen wir auf persönliche Betreuung, kurze Entscheidungswege und langfristige Partnerschaften.</p>
+      <p>Unsere Teams lernen deine Prozesse, dein Unternehmen und deine Kunden kennen. So entsteht Kundenservice, der sich nicht wie ausgelagert anfühlt.</p>
+      <a href="ueber-uns.html" class="btn btn-gold" style="margin-top:12px;">Mehr über uns →</a>
+    </div>
+    <div class="about-quote">
+      <strong>Service ist für uns Haltung.</strong>
+      <span>Wir arbeiten so, dass unser Team zu deinem Unternehmen, deinen Prozessen und deinen Kund:innen passt – persönlich, verlässlich und auf Augenhöhe.</span>
+    </div>
+  </div>
+</section>
 
-    <h1>
-    Kundenservice,<br>
-    der <span class="accent">immer erreichbar ist.</span>
-    </h1>
 
-    <p class="lead">
-    Professioneller Inbound-Kundenservice – 24/7, 365 Tage im Jahr.
-    Wir sorgen dafür, dass deine Kund:innen jederzeit jemanden erreichen
-    und ihre Anliegen zuverlässig bearbeitet werden.
-    </p>
+<!-- SERVICES -->
 
-    <div class="hero-actions">
+<section id="leistungen" style="padding-top:24px;">
 
-    <a href="leistungen.html" class="btn btn-outline">Unsere Leistungen →</a>
+<div class="container">
 
-    <a href="kontakt.html" class="btn btn-gold">Jetzt kostenlos testen →</a>
+<div class="section-head">
+<h2>Unsere Leistungen</h2>
+</div>
 
+<div class="services-grid">
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+<path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+</svg>
+</div>
+<h3>Kundenservice</h3>
+</div>
+
+<p>
+Professioneller Kundenservice über alle relevanten Kanäle – flexibel und zuverlässig.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="8" y="2" width="8" height="4" rx="1"/>
+<path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/>
+<path d="M9 12h6M9 16h6"/>
+</svg>
+</div>
+<h3>Beratung &amp; Callcenter-Aufbau</h3>
+</div>
+
+<p>
+Von der Planung bis zum laufenden Betrieb – wir unterstützen beim Aufbau effizienter Service-Strukturen.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</div>
+<h3>Wissensmanagement</h3>
+</div>
+
+<p>
+Wissen zentral organisieren, aktuell halten und für Mitarbeitende schnell verfügbar machen.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="2" y="7" width="20" height="14" rx="2"/>
+<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+</svg>
+</div>
+<h3>KI &amp; Automatisierung</h3>
+</div>
+
+<p>
+Intelligente Lösungen für effizientere und skalierbare Kundenservice-Prozesse.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+<path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+</svg>
+</div>
+<h3>Training &amp; Weiterbildung</h3>
+</div>
+
+<p>
+Praxisnahe Trainings für bessere Kommunikation und den sicheren Einsatz moderner KI-Tools.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="9"/>
+<path d="m9 12 2 2 4-4"/>
+</svg>
+</div>
+<h3>Qualitätsmanagement</h3>
+</div>
+
+<p>
+Servicequalität messbar machen und kontinuierlich verbessern.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M3 3v18h18"/>
+<path d="M7 15l4-5 4 3 5-7"/>
+</svg>
+</div>
+<h3>Reporting &amp; Analytics</h3>
+</div>
+
+<p>
+Klare Daten und KPIs als Grundlage für bessere Entscheidungen.
+</p>
+
+</div>
+
+
+<div class="card card-dark">
+
+<div class="card-head">
+<div class="card-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+<path d="M5 12h14M13 6l6 6-6 6"/>
+</svg>
+</div>
+<h3>Alle Leistungen entdecken</h3>
+</div>
+
+<p>
+Alle Teilleistungen im Detail – Inhalte, Kanäle, Daten und KI-Lösungen.
+</p>
+
+<a href="leistungen.html" class="discover">
+Mehr erfahren →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INDUSTRIES -->
+
+<section class="industries">
+
+<div class="container industries-inner">
+
+<h2>Branchen, die wir verstehen</h2>
+
+<div class="industries-list">
+
+<a class="industry-item" href="branchen.html">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+<path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4"/>
+</svg>
+Wohnungswirtschaft
+</a>
+
+<a class="industry-item" href="branchen.html">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+<path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/>
+</svg>
+Energie
+</a>
+
+<a class="industry-item" href="branchen.html">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+<circle cx="9" cy="20" r="1.4"/>
+<circle cx="18" cy="20" r="1.4"/>
+<path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H5.2"/>
+</svg>
+E-Commerce
+</a>
+
+<a class="industry-item" href="branchen.html">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+<circle cx="5" cy="12" r="1.6"/>
+<circle cx="12" cy="12" r="1.6"/>
+<circle cx="19" cy="12" r="1.6"/>
+</svg>
+Weitere Branchen
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEXT STEPS -->
+<section class="next-steps">
+  <div class="container">
+    <div class="next-steps-head">
+      <span class="about-kicker">So geht's weiter</span>
+      <h2>Dein nächster Schritt.</h2>
+      <p>Von der ersten Anfrage bis zur passenden Lösung – unkompliziert und persönlich.</p>
     </div>
 
-
-    <div class="hero-stats">
-
-    <div class="hero-stat">
-    <div class="hero-stat-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="12" cy="12" r="9"/>
-    <path d="M8 12h8M12 8v8"/>
-    </svg>
-    </div>
-    <div class="hero-stat-text">
-    <b>25+</b>
-    <span>Jahre Erfahrung</span>
-    </div>
-    </div>
-
-    <div class="hero-stat">
-    <div class="hero-stat-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/>
-    </svg>
-    </div>
-    <div class="hero-stat-text">
-    <b>100+</b>
-    <span>glückliche Auftraggeber:innen</span>
-    </div>
-    </div>
-
-    <div class="hero-stat">
-    <div class="hero-stat-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="12" cy="8" r="4"/>
-    <path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
-    </svg>
-    </div>
-    <div class="hero-stat-text">
-    <b>50+</b>
-    <span>geschulte Servicemitarbeitende</span>
-    </div>
-    </div>
-
-    <div class="hero-stat">
-    <div class="hero-stat-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="12" cy="12" r="9"/>
-    <path d="M12 7v5l3 3"/>
-    </svg>
-    </div>
-    <div class="hero-stat-text">
-    <b>365</b>
-    <span>Tage erreichbar</span>
-    </div>
-    </div>
-
-    </div>
-
-    </div>
-
-
-    <div class="hero-art">
-
-    <div class="giraffe-wrap">
-    <img
-    src="https://ik.imagekit.io/callways/New%20Folder/home.png"
-    class="giraffe-img"
-    alt="Callways Giraffe">
-    </div>
-
-    <div class="speech-bubble">
-    <div>Wir hören zu.</div>
-    <div>Wir verstehen.</div>
-    <div>Wir lösen. ✓</div>
-    </div>
-
-    </div>
-
-    </div>
-
-    </section>
-
-
-
-    <!-- CHALLENGES -->
-    <section class="challenges">
-      <div class="container">
-        <div class="challenges-head">
-          <h2>Kommt dir das bekannt vor?</h2>
-          <p>Viele Unternehmen stehen im Kundenservice vor denselben Herausforderungen.</p>
-        </div>
-
-        <div class="challenges-grid">
-          <div class="challenge-card">
-            <div class="challenge-card-head">
-              <div class="challenge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-              </div>
-              <h3>Anrufe bleiben liegen</h3>
-            </div>
-            <p>Besonders bei hoher Auslastung oder außerhalb der regulären Servicezeiten.</p>
-          </div>
-
-          <div class="challenge-card">
-            <div class="challenge-card-head">
-              <div class="challenge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.5 2.8-5.5 5.5-5.5s5.5 2 5.5 5.5"/><path d="M14 15.5c.9-.7 2-1 3.1-1 2.4 0 4.4 1.6 4.4 4.5"/></svg>
-              </div>
-              <h3>Kapazitäten fehlen</h3>
-            </div>
-            <p>Stoßzeiten, Urlaub und Krankheit bringen interne Teams schnell an ihre Grenzen.</p>
-          </div>
-
-          <div class="challenge-card">
-            <div class="challenge-card-head">
-              <div class="challenge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              </div>
-              <h3>Kunden warten zu lange</h3>
-            </div>
-            <p>Lange Reaktionszeiten führen zu Frust und unnötigen Rückfragen.</p>
-          </div>
-
-          <div class="challenge-card">
-            <div class="challenge-card-head">
-              <div class="challenge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg>
-              </div>
-              <h3>Servicequalität schwankt</h3>
-            </div>
-            <p>Fehlende Standards und wechselnde Kapazitäten machen gleichbleibende Qualität schwierig.</p>
-          </div>
-        </div>
-
-        <p class="challenges-closing">Genau hier unterstützen wir – flexibel, persönlich und passend zu deinen Prozessen.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <h3>Kontakt aufnehmen</h3>
+        <p>Fülle unser Kontaktformular aus oder buche direkt einen Termin.</p>
       </div>
-    </section>
-
-
-    <!-- COMPARISON -->
-    <section class="comparison">
-      <div class="container">
-        <div class="comparison-head">
-          <h2>Kundenservice auslagern geht auch anders.</h2>
-          <p>Wir verstehen uns nicht als ausgelagertes Callcenter, sondern als Erweiterung deines Teams.</p>
-        </div>
-        <div class="comparison-grid">
-          <div class="compare-card classic">
-            <h3>Andere Callcenter</h3>
-            <ul class="compare-list">
-              <li><span class="compare-mark">–</span><span>Standardisierte Abläufe</span></li>
-              <li><span class="compare-mark">–</span><span>Wechselnde Ansprechpartner</span></li>
-              <li><span class="compare-mark">–</span><span>Fokus auf Gesprächsvolumen</span></li>
-              <li><span class="compare-mark">–</span><span>Starre Servicezeiten</span></li>
-              <li><span class="compare-mark">–</span><span>Geringe Integration in interne Prozesse</span></li>
-            </ul>
-          </div>
-          <div class="compare-card callways">
-            <div class="compare-logo">
-              <img src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png" alt="Callways">
-            </div>
-            <ul class="compare-list">
-              <li><span class="compare-mark">✓</span><span>Prozesse passend zu deinem Unternehmen</span></li>
-              <li><span class="compare-mark">✓</span><span>Persönliche Betreuung</span></li>
-              <li><span class="compare-mark">✓</span><span>Fokus auf Qualität &amp; Kundenerlebnis</span></li>
-              <li><span class="compare-mark">✓</span><span>Flexible Servicezeiten bis hin zu 24/7</span></li>
-              <li><span class="compare-mark">✓</span><span>Mensch + KI</span></li>
-              <li><span class="compare-mark">✓</span><span>Integration in deine bestehenden Prozesse</span></li>
-              <li><span class="compare-mark">✓</span><span>Fest angestellte und erfahrene Servicemitarbeitende</span></li>
-              <li><span class="compare-mark">✓</span><span>Kontinuierliche Schulungen und Weiterentwicklung</span></li>
-              <li><span class="compare-mark">✓</span><span>Messbares Qualitätsmanagement mit regelmäßigen Qualitätschecks</span></li>
-            </ul>
-          </div>
-        </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <h3>Bedarf besprechen</h3>
+        <p>Wir sprechen über deine Anforderungen, Prozesse, Servicezeiten und Ziele.</p>
       </div>
-    </section>
-
-
-    <!-- ABOUT -->
-    <section class="about-home">
-      <div class="container about-home-inner">
-        <div>
-          <span class="about-kicker">Über uns</span>
-          <h2>Nicht einfach Dienstleister. Teil deines Kundenservice.</h2>
-          <p>Callways ist seit über 25 Jahren im Kundenservice tätig. Als inhabergeführtes Unternehmen setzen wir auf persönliche Betreuung, kurze Entscheidungswege und langfristige Partnerschaften.</p>
-          <p>Unsere Teams lernen deine Prozesse, dein Unternehmen und deine Kunden kennen. So entsteht Kundenservice, der sich nicht wie ausgelagert anfühlt.</p>
-          <a href="ueber-uns.html" class="btn btn-gold" style="margin-top:12px;">Mehr über uns →</a>
-        </div>
-        <div class="about-quote">
-          <strong>Service ist für uns Haltung.</strong>
-          <span>Wir arbeiten so, dass unser Team zu deinem Unternehmen, deinen Prozessen und deinen Kund:innen passt – persönlich, verlässlich und auf Augenhöhe.</span>
-        </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <h3>Lösung entwickeln</h3>
+        <p>Du erhältst ein Konzept, das zu deinem Unternehmen und deinem Kundenservice passt.</p>
       </div>
-    </section>
-
-
-    <!-- SERVICES -->
-
-    <section id="leistungen" style="padding-top:24px;">
-
-    <div class="container">
-
-    <div class="section-head">
-    <h2>Unsere Leistungen</h2>
     </div>
 
-    <div class="services-grid">
+  </div>
+</section>
 
 
-    <div class="card">
+<!-- CTA -->
 
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-    </svg>
-    </div>
-    <h3>Kundenservice</h3>
-    </div>
+<section class="cta-band">
 
-    <p>
-    Professioneller Kundenservice über alle relevanten Kanäle – flexibel und zuverlässig.
-    </p>
+<div class="container cta-inner">
 
-    </div>
+  <div class="cta-copy">
+    <h2>Bereit für besseren Kundenservice?</h2>
+    <p>Wir freuen uns auf deine Anfrage!</p>
+  </div>
 
+  <div class="cta-grid">
 
-    <div class="card">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <rect x="8" y="2" width="8" height="4" rx="1"/>
-    <path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/>
-    <path d="M9 12h6M9 16h6"/>
-    </svg>
-    </div>
-    <h3>Beratung &amp; Callcenter-Aufbau</h3>
-    </div>
-
-    <p>
-    Von der Planung bis zum laufenden Betrieb – wir unterstützen beim Aufbau effizienter Service-Strukturen.
-    </p>
-
-    </div>
-
-
-    <div class="card">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-    </svg>
-    </div>
-    <h3>Wissensmanagement</h3>
-    </div>
-
-    <p>
-    Wissen zentral organisieren, aktuell halten und für Mitarbeitende schnell verfügbar machen.
-    </p>
-
-    </div>
-
-
-    <div class="card">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <rect x="2" y="7" width="20" height="14" rx="2"/>
-    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-    </svg>
-    </div>
-    <h3>KI &amp; Automatisierung</h3>
-    </div>
-
-    <p>
-    Intelligente Lösungen für effizientere und skalierbare Kundenservice-Prozesse.
-    </p>
-
-    </div>
-
-
-    <div class="card">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
-    <path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
-    </svg>
-    </div>
-    <h3>Training &amp; Weiterbildung</h3>
-    </div>
-
-    <p>
-    Praxisnahe Trainings für bessere Kommunikation und den sicheren Einsatz moderner KI-Tools.
-    </p>
-
-    </div>
-
-
-    <div class="card">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="12" cy="12" r="9"/>
-    <path d="m9 12 2 2 4-4"/>
-    </svg>
-    </div>
-    <h3>Qualitätsmanagement</h3>
-    </div>
-
-    <p>
-    Servicequalität messbar machen und kontinuierlich verbessern.
-    </p>
-
-    </div>
-
-
-    <div class="card">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <path d="M3 3v18h18"/>
-    <path d="M7 15l4-5 4 3 5-7"/>
-    </svg>
-    </div>
-    <h3>Reporting &amp; Analytics</h3>
-    </div>
-
-    <p>
-    Klare Daten und KPIs als Grundlage für bessere Entscheidungen.
-    </p>
-
-    </div>
-
-
-    <div class="card card-dark">
-
-    <div class="card-head">
-    <div class="card-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-    <path d="M5 12h14M13 6l6 6-6 6"/>
-    </svg>
-    </div>
-    <h3>Alle Leistungen entdecken</h3>
-    </div>
-
-    <p>
-    Alle Teilleistungen im Detail – Inhalte, Kanäle, Daten und KI-Lösungen.
-    </p>
-
-    <a href="leistungen.html" class="discover">
-    Mehr erfahren →
+    <a href="tel:+4930330272727" class="cta-tile">
+      <div class="cta-tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      <div class="cta-tile-text">
+        <span class="cta-tile-label">Rufen Sie uns an</span>
+        <span class="cta-tile-value">+49 30 33027-2727</span>
+      </div>
+      <span class="cta-tile-arrow">→</span>
     </a>
 
-    </div>
-
-
-    </div>
-
-    </div>
-
-    </section>
-
-
-    <!-- INDUSTRIES -->
-
-    <section class="industries">
-
-    <div class="container industries-inner">
-
-    <h2>Branchen, die wir verstehen</h2>
-
-    <div class="industries-list">
-
-    <a class="industry-item" href="branchen.html">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M9 21v-4h6v4"/>
-    </svg>
-    Wohnungswirtschaft
-    </a>
-
-    <a class="industry-item" href="branchen.html">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-    <path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/>
-    </svg>
-    Energie
-    </a>
-
-    <a class="industry-item" href="branchen.html">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-    <circle cx="9" cy="20" r="1.4"/>
-    <circle cx="18" cy="20" r="1.4"/>
-    <path d="M2 3h3l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H5.2"/>
-    </svg>
-    E-Commerce
-    </a>
-
-    <a class="industry-item" href="branchen.html">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-    <circle cx="5" cy="12" r="1.6"/>
-    <circle cx="12" cy="12" r="1.6"/>
-    <circle cx="19" cy="12" r="1.6"/>
-    </svg>
-    Weitere Branchen
-    </a>
-
-    </div>
-
-    </div>
-
-    </section>
-
-
-    <!-- NEXT STEPS -->
-    <section class="next-steps">
-      <div class="container">
-        <div class="next-steps-head">
-          <span class="about-kicker">So geht's weiter</span>
-          <h2>Dein nächster Schritt.</h2>
-          <p>Von der ersten Anfrage bis zur passenden Lösung – unkompliziert und persönlich.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <h3>Kontakt aufnehmen</h3>
-            <p>Fülle unser Kontaktformular aus oder buche direkt einen Termin.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <h3>Bedarf besprechen</h3>
-            <p>Wir sprechen über deine Anforderungen, Prozesse, Servicezeiten und Ziele.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <h3>Lösung entwickeln</h3>
-            <p>Du erhältst ein Konzept, das zu deinem Unternehmen und deinem Kundenservice passt.</p>
-          </div>
-        </div>
-
+    <a href="kontakt.html" class="cta-tile">
+      <div class="cta-tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+        </svg>
       </div>
-    </section>
-
-
-    <!-- CTA -->
-
-    <section class="cta-band">
-
-    <div class="container cta-inner">
-
-      <div class="cta-copy">
-        <h2>Bereit für besseren Kundenservice?</h2>
-        <p>Wir freuen uns auf deine Anfrage!</p>
-      </div>
-
-      <div class="cta-grid">
-
-        <a href="tel:+4930330272727" class="cta-tile">
-          <div class="cta-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-          <div class="cta-tile-text">
-            <span class="cta-tile-label">Rufen Sie uns an</span>
-            <span class="cta-tile-value">+49 30 33027-2727</span>
-          </div>
-          <span class="cta-tile-arrow">→</span>
-        </a>
-
-        <a href="kontakt.html" class="cta-tile">
-          <div class="cta-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
-            </svg>
-          </div>
-          <span class="cta-tile-action">Jetzt kontaktieren</span>
-          <span class="cta-tile-arrow">→</span>
-        </a>
-
-        <div class="cta-email-tile">
-          <div class="cta-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="5" width="18" height="14" rx="2"/>
-              <path d="m3 7 9 6 9-6"/>
-            </svg>
-          </div>
-          <div class="cta-tile-text">
-            <span class="cta-tile-label">Schreiben Sie uns</span>
-            <a href="mailto:vertrieb@callways.de" class="cta-tile-value cta-email-link">vertrieb@callways.de</a>
-          </div>
-          <a href="mailto:vertrieb@callways.de" class="cta-email-arrow" aria-label="E-Mail schreiben">→</a>
-        </div>
-
-        <a href="https://calendly.com/achim-reinhardt-callways/30min" class="cta-tile" target="_blank" rel="noopener noreferrer">
-          <div class="cta-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="5" width="18" height="16" rx="2"/>
-              <path d="M16 3v4M8 3v4M3 10h18"/>
-            </svg>
-          </div>
-          <span class="cta-tile-action">Termin buchen</span>
-          <span class="cta-tile-arrow">→</span>
-        </a>
-
-      </div>
-
-    </div>
-
-    </section>
-
-    </main>
-
-
-    <footer class="site-footer">
-
-    <div class="footer-simple">
-
-    <div class="container footer-simple-inner">
-
-    <a href="index.html" class="footer-simple-logo">
-    <img
-    src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png"
-    alt="Callways">
+      <span class="cta-tile-action">Jetzt kontaktieren</span>
+      <span class="cta-tile-arrow">→</span>
     </a>
 
-    <div class="footer-simple-links">
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
+    <div class="cta-email-tile">
+      <div class="cta-tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+      </div>
+      <div class="cta-tile-text">
+        <span class="cta-tile-label">Schreiben Sie uns</span>
+        <a href="mailto:vertrieb@callways.de" class="cta-tile-value cta-email-link">vertrieb@callways.de</a>
+      </div>
+      <a href="mailto:vertrieb@callways.de" class="cta-email-arrow" aria-label="E-Mail schreiben">→</a>
     </div>
 
+    <a href="https://calendly.com/achim-reinhardt-callways/30min" class="cta-tile" target="_blank" rel="noopener noreferrer">
+      <div class="cta-tile-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="5" width="18" height="16" rx="2"/>
+          <path d="M16 3v4M8 3v4M3 10h18"/>
+        </svg>
+      </div>
+      <span class="cta-tile-action">Termin buchen</span>
+      <span class="cta-tile-arrow">→</span>
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+
+<div class="footer-simple">
+
+<div class="container footer-simple-inner">
+
+<a href="index.html" class="footer-simple-logo">
+<img
+src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png"
+alt="Callways">
+</a>
+
+<div class="footer-simple-links">
+<a href="#" id="cookieSettingsLink">Cookie-Einstellungen</a>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+menuToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+});
+
+mainNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+  });
+});
+
+</script>
+
+<!-- ===== COOKIE-HINWEIS ===== -->
+
+<div id="cookieOverlay" style="
+  position:fixed;
+  inset:0;
+  background:rgba(10,24,47,0.45);
+  z-index:9998;
+  display:none;
+"></div>
+
+<div id="cookieNotice" style="
+  position:fixed;
+  left:24px;
+  right:24px;
+  bottom:24px;
+  max-width:640px;
+  margin:0 auto;
+  background:#FFFFFF;
+  color:#101322;
+  border-radius:20px;
+  padding:32px 34px;
+  box-shadow:0 20px 50px rgba(10,24,47,0.25);
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  z-index:9999;
+  display:none;
+">
+  <h3 style="font-family:'Poppins',sans-serif; font-size:19px; font-weight:700; margin:0 0 14px 0; color:#0A182F;">
+    Wir nutzen Cookies und andere Technologien.
+  </h3>
+
+  <p style="margin:0 0 20px 0; color:#6B7280;">
+    Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung von Endgeräteinformationen und personenbezogenen Daten. Die Verarbeitung dient der Einbindung von Inhalten, externen Diensten und Elementen Dritter, der statistischen Analyse/Messung, der personalisierten Werbung sowie der Einbindung sozialer Medien. Je nach Funktion werden dabei Daten an Dritte weitergegeben und an Dritte in Ländern, in denen kein angemessenes Datenschutzniveau vorliegt und von diesen verarbeitet, z. B. die USA. Ihre Einwilligung ist stets freiwillig, für die Nutzung unserer Website nicht erforderlich und kann jederzeit auf unserer Seite abgelehnt oder widerrufen werden.
+  </p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:18px; margin-bottom:22px;">
+    <label style="display:flex; align-items:center; gap:8px; font-weight:600; color:#0A182F; opacity:0.6;">
+      <input type="checkbox" checked disabled style="width:16px; height:16px; accent-color:#D7BD09;">
+      Technisch notwendig (1)
+    </label>
+    <label style="display:flex; align-items:center; gap:8px; font-weight:600; color:#0A182F;">
+      <input type="checkbox" id="ccAnalytics" style="width:16px; height:16px; accent-color:#D7BD09;">
+      Analyse / Statistiken (2)
+    </label>
+    <label style="display:flex; align-items:center; gap:8px; font-weight:600; color:#0A182F;">
+      <input type="checkbox" id="ccPersonalization" checked style="width:16px; height:16px; accent-color:#D7BD09;">
+      Personalisierung (1)
+    </label>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
+    <button id="ccAcceptAll" style="
+      flex:1; min-width:150px;
+      background:#D7BD09; color:#0A182F; border:none; border-radius:10px;
+      padding:13px 18px; font-weight:700; font-size:13px; letter-spacing:.3px;
+      font-family:'Poppins',sans-serif; cursor:pointer; text-transform:uppercase;
+    ">Alles akzeptieren</button>
+
+    <button id="ccSave" style="
+      flex:1; min-width:150px;
+      background:#D7BD09; color:#0A182F; border:none; border-radius:10px;
+      padding:13px 18px; font-weight:700; font-size:13px; letter-spacing:.3px;
+      font-family:'Poppins',sans-serif; cursor:pointer; text-transform:uppercase;
+    ">Speichern</button>
+
+    <button id="ccReject" style="
+      flex:1; min-width:150px;
+      background:#D7BD09; color:#0A182F; border:none; border-radius:10px;
+      padding:13px 18px; font-weight:700; font-size:13px; letter-spacing:.3px;
+      font-family:'Poppins',sans-serif; cursor:pointer; text-transform:uppercase;
+    ">Ablehnen</button>
+  </div>
+
+  <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#6B7280;">
+    <div>
+      <a href="impressum.html" style="color:#6B7280; text-decoration:underline;">Impressum</a>
+      &nbsp;|&nbsp;
+      <a href="datenschutz.html" style="color:#6B7280; text-decoration:underline;">Datenschutzhinweis</a>
     </div>
+  </div>
+</div>
 
-    </div>
+<script>
+(function(){
+  var KEY = 'callways-cookie-consent';
+  var overlay = document.getElementById('cookieOverlay');
+  var notice = document.getElementById('cookieNotice');
+  var analytics = document.getElementById('ccAnalytics');
+  var personalization = document.getElementById('ccPersonalization');
 
-    </footer>
+  function saveConsent(value){
+    try{
+      localStorage.setItem(KEY, JSON.stringify(value));
+    }catch(e){}
+  }
 
+  function show(){
+    if(overlay) overlay.style.display = 'block';
+    if(notice) notice.style.display = 'block';
+  }
 
-    <script>
+  function hide(){
+    if(overlay) overlay.style.display = 'none';
+    if(notice) notice.style.display = 'none';
+  }
 
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
-
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
+  function on(id, handler){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('click', function(e){
+      try{ handler(e); }catch(err){}
     });
+  }
 
-    mainNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mainNav.classList.remove('open');
-      });
+  on('cookieSettingsLink', function(e){ e.preventDefault(); show(); });
+  on('cookieOverlay', hide);
+
+  on('ccAcceptAll', function(){
+    saveConsent({ necessary:true, analytics:true, personalization:true });
+    hide();
+  });
+
+  on('ccSave', function(){
+    saveConsent({
+      necessary:true,
+      analytics: analytics ? analytics.checked : false,
+      personalization: personalization ? personalization.checked : false
     });
+    hide();
+  });
 
-    </script>
+  on('ccReject', function(){
+    saveConsent({ necessary:true, analytics:false, personalization:false });
+    hide();
+  });
+})();
+</script>
 
-    </body>
-    </html>
+</body>
+</html>
