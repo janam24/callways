@@ -1757,15 +1757,48 @@ mainNav.querySelectorAll('a').forEach(a => {
 <script>
 (function(){
   var KEY = 'callways-cookie-consent';
+  var GA_ID = 'G-ZDTZ960X4V';
   var overlay = document.getElementById('cookieOverlay');
   var notice = document.getElementById('cookieNotice');
   var analytics = document.getElementById('ccAnalytics');
   var personalization = document.getElementById('ccPersonalization');
+  var gaLoaded = false;
+
+  function loadGoogleAnalytics(){
+    if(gaLoaded) return;
+    gaLoaded = true;
+    try{
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
+    }catch(e){}
+  }
+
+  function getStoredConsent(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      return raw ? JSON.parse(raw) : null;
+    }catch(e){
+      return null;
+    }
+  }
 
   function saveConsent(value){
     try{
       localStorage.setItem(KEY, JSON.stringify(value));
     }catch(e){}
+  }
+
+  // Returning visitor who already said yes to analytics: load GA right away.
+  var existing = getStoredConsent();
+  if(existing && existing.analytics){
+    loadGoogleAnalytics();
   }
 
   function show(){
@@ -1791,15 +1824,20 @@ mainNav.querySelectorAll('a').forEach(a => {
 
   on('ccAcceptAll', function(){
     saveConsent({ necessary:true, analytics:true, personalization:true });
+    loadGoogleAnalytics();
     hide();
   });
 
   on('ccSave', function(){
+    var wantsAnalytics = analytics ? analytics.checked : false;
     saveConsent({
       necessary:true,
-      analytics: analytics ? analytics.checked : false,
+      analytics: wantsAnalytics,
       personalization: personalization ? personalization.checked : false
     });
+    if(wantsAnalytics){
+      loadGoogleAnalytics();
+    }
     hide();
   });
 
