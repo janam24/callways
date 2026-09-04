@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über uns | Callways</title>
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -390,7 +395,7 @@
   <section class="company">
     <div class="container">
       <div class="company-box">
-        <h2>Nicht einfach ein externer Dienstleister.</h2>
+        <h2>Nicht einfach nur eine externe Dienstleisterin.</h2>
         <p>
           Wir arbeiten so, dass unser Team zu deinem Unternehmen, deinen Prozessen und
           deinen Kunden passt. Wissen, Tonalität und Abläufe werden gemeinsam aufgebaut
@@ -525,6 +530,7 @@
       <div class="yellow-footer-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
+        <button type="button" class="cookie-settings-link">Cookie-Einstellungen</button>
       </div>
     </div>
   </div>
@@ -862,3 +868,152 @@ nav.main-nav a.active::after{width:0;}
   }
 }
 </style>
+
+<style>
+/* ===== HOMEPAGE MOBILE NAV FINAL OVERRIDE ===== */
+@media(max-width:900px){
+  nav.main-nav{
+    position:fixed !important;
+    top:70px !important;
+    left:0 !important;
+    right:0 !important;
+    background:#fffdf7 !important;
+    flex-direction:column !important;
+    gap:0 !important;
+    max-height:0 !important;
+    overflow:hidden !important;
+    transition:max-height .3s ease !important;
+    border-bottom:1px solid var(--border) !important;
+    box-shadow:0 12px 24px rgba(10,24,47,0.10) !important;
+    z-index:99 !important;
+  }
+  nav.main-nav.open{max-height:420px !important;}
+  nav.main-nav a{
+    padding:18px 24px !important;
+    border-top:1px solid #ebe6d8 !important;
+    font-size:14.5px !important;
+    background:transparent !important;
+  }
+  nav.main-nav a:hover{background:rgba(215,189,9,0.06) !important;}
+  .menu-toggle{display:block !important;}
+  .nav-cta .btn-gold span{display:none !important;}
+  .nav-cta .btn-gold{padding:12px !important;}
+}
+</style>
+
+
+<style>
+/* ===== COOKIE CONSENT ===== */
+.cookie-banner{
+  position:fixed;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  z-index:9999;
+  max-width:760px;
+  margin:0 auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:0 18px 50px rgba(10,24,47,.18);
+  padding:20px;
+  display:none;
+}
+.cookie-banner.show{display:block;}
+.cookie-banner-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.cookie-banner p{
+  margin:0;
+  color:var(--gray);
+  font-size:13px;
+  line-height:1.55;
+}
+.cookie-banner p strong{
+  display:block;
+  font-family:'Poppins',sans-serif;
+  color:var(--navy);
+  font-size:15px;
+  margin-bottom:4px;
+}
+.cookie-actions{
+  display:flex;
+  gap:10px;
+  flex-shrink:0;
+}
+.cookie-btn{
+  border:0;
+  border-radius:999px;
+  padding:11px 16px;
+  font-family:'Poppins',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+.cookie-btn.accept{background:var(--gold);color:var(--navy);}
+.cookie-btn.reject{background:#f1efe7;color:var(--navy);}
+.cookie-settings-link{
+  border:0;
+  background:none;
+  padding:0;
+  font:inherit;
+  color:inherit;
+  cursor:pointer;
+}
+.cookie-settings-link:hover{color:#000;}
+@media(max-width:620px){
+  .cookie-banner{left:12px;right:12px;bottom:12px;padding:18px;}
+  .cookie-banner-inner{flex-direction:column;align-items:stretch;}
+  .cookie-actions{width:100%;}
+  .cookie-btn{flex:1;}
+}
+</style>
+
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-Einstellungen">
+  <div class="cookie-banner-inner">
+    <p>
+      <strong>Cookies & Datenschutz</strong>
+      Wir verwenden notwendige Cookies und – nur mit deiner Zustimmung – Analyse-Cookies, um unsere Website zu verbessern.
+      Mehr dazu findest du in unserer <a href="datenschutz.html" style="text-decoration:underline;">Datenschutzerklärung</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-btn reject" id="cookieReject" type="button">Ablehnen</button>
+      <button class="cookie-btn accept" id="cookieAccept" type="button">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const banner = document.getElementById('cookieBanner');
+  const accept = document.getElementById('cookieAccept');
+  const reject = document.getElementById('cookieReject');
+  const key = 'callways_cookie_consent';
+
+  function openBanner(){ if(banner) banner.classList.add('show'); }
+  function closeBanner(){ if(banner) banner.classList.remove('show'); }
+
+  if(!localStorage.getItem(key)) openBanner();
+
+  if(accept) accept.addEventListener('click', function(){
+    localStorage.setItem(key, 'accepted');
+    closeBanner();
+    window.dispatchEvent(new CustomEvent('callwaysCookieConsentAccepted'));
+  });
+
+  if(reject) reject.addEventListener('click', function(){
+    localStorage.setItem(key, 'rejected');
+    closeBanner();
+  });
+
+  document.querySelectorAll('.cookie-settings-link').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      openBanner();
+    });
+  });
+})();
+</script>
