@@ -1056,6 +1056,71 @@ color:rgba(10,24,47,.9);
 
 
 
+
+<!-- Google Analytics: consent required before loading -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+</script>
+
+
+<style>
+/* Cookie-Einstellungen im Footer */
+.footer-cookie-link{
+  appearance:none;
+  border:0;
+  background:transparent;
+  padding:0;
+  margin:0;
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  color:var(--navy);
+  cursor:pointer;
+  white-space:nowrap;
+}
+.footer-cookie-link:hover{
+  text-decoration:underline;
+}
+
+/* Logo im Footer niemals zusammendrücken */
+.footer-simple-logo{
+  flex:0 0 auto;
+}
+.footer-simple-logo img{
+  height:32px;
+  width:auto;
+  max-width:none;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+@media(max-width:600px){
+  .footer-simple-inner{
+    flex-direction:column;
+    gap:12px;
+  }
+  .footer-simple-logo{
+    width:auto;
+    flex:none;
+  }
+  .footer-simple-logo img{
+    height:32px;
+    width:auto;
+    max-width:160px;
+  }
+  .footer-cookie-link{
+    font-size:12px;
+  }
+}
+</style>
+
+
 </head>
 
 <body>
@@ -1596,7 +1661,7 @@ Weitere Branchen
         </svg>
       </div>
       <div class="cta-tile-text">
-        <span class="cta-tile-label">Rufen Sie uns an</span>
+        <span class="cta-tile-label">Ruf uns an</span>
         <span class="cta-tile-value">+49 30 33027-2727</span>
       </div>
       <span class="cta-tile-arrow">→</span>
@@ -1620,7 +1685,7 @@ Weitere Branchen
         </svg>
       </div>
       <div class="cta-tile-text">
-        <span class="cta-tile-label">Schreiben Sie uns</span>
+        <span class="cta-tile-label">Schreib uns</span>
         <a href="mailto:vertrieb@callways.de" class="cta-tile-value cta-email-link">vertrieb@callways.de</a>
       </div>
       <a href="mailto:vertrieb@callways.de" class="cta-email-arrow" aria-label="E-Mail schreiben">→</a>
@@ -1658,6 +1723,8 @@ src="https://ik.imagekit.io/callways/34245d92-2631-4ee0-90e6-919324fb45b6.png"
 alt="Callways">
 </a>
 
+<button id="cwFooterCookieSettings" class="footer-cookie-link" type="button">Cookie-Einstellungen</button>
+
 <div class="footer-simple-links">
 <a href="impressum.html">Impressum</a>
 <a href="datenschutz.html">Datenschutz</a>
@@ -1686,4 +1753,452 @@ mainNav.querySelectorAll('a').forEach(a => {
 });
 
 </script>
+
+<!-- ===== CALLWAYS COOKIE CONSENT ===== -->
+<div class="cw-cookie-overlay" id="cwCookieOverlay" hidden></div>
+
+<section class="cw-cookie-banner" id="cwCookieBanner" role="dialog" aria-modal="true" aria-labelledby="cwCookieTitle" hidden>
+  <div class="cw-cookie-top">
+    <div>
+      <h2 id="cwCookieTitle">Cookies &amp; Datenschutz</h2>
+      <p>
+        Wir verwenden notwendige Technologien für den Betrieb unserer Website.
+        Mit deiner Einwilligung nutzen wir außerdem Google Analytics, um zu verstehen,
+        wie unsere Website genutzt wird. Du entscheidest selbst, was du erlaubst.
+      </p>
+    </div>
+  </div>
+
+  <div class="cw-cookie-actions">
+    <button class="cw-cookie-btn cw-cookie-primary" id="cwAcceptAll" type="button">Alle akzeptieren</button>
+    <button class="cw-cookie-btn cw-cookie-secondary" id="cwRejectAll" type="button">Nur notwendige</button>
+    <button class="cw-cookie-btn cw-cookie-outline" id="cwOpenSettings" type="button">Einstellungen</button>
+  </div>
+
+  <div class="cw-cookie-links">
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</section>
+
+<section class="cw-cookie-modal" id="cwCookieModal" role="dialog" aria-modal="true" aria-labelledby="cwSettingsTitle" hidden>
+  <div class="cw-cookie-modal-head">
+    <h2 id="cwSettingsTitle">Cookie-Einstellungen</h2>
+    <button class="cw-cookie-close" id="cwCloseSettings" type="button" aria-label="Schließen">&times;</button>
+  </div>
+
+  <div class="cw-cookie-category">
+    <div class="cw-cookie-category-line">
+      <div>
+        <h3>Notwendig</h3>
+        <button class="cw-more-btn" type="button" aria-expanded="false">Mehr anzeigen <span>⌄</span></button>
+      </div>
+      <label class="cw-switch" aria-label="Notwendige Cookies immer aktiv">
+        <input type="checkbox" checked disabled>
+        <span class="cw-slider"></span>
+      </label>
+    </div>
+    <div class="cw-cookie-details" hidden>
+      <p>
+        Diese Technologien sind erforderlich, damit die Website zuverlässig funktioniert
+        und deine Cookie-Auswahl gespeichert werden kann. Sie können nicht deaktiviert werden.
+      </p>
+    </div>
+  </div>
+
+  <div class="cw-cookie-category">
+    <div class="cw-cookie-category-line">
+      <div>
+        <h3>Statistik</h3>
+        <button class="cw-more-btn" type="button" aria-expanded="false">Mehr anzeigen <span>⌄</span></button>
+      </div>
+      <label class="cw-switch">
+        <input type="checkbox" id="cwAnalyticsToggle">
+        <span class="cw-slider"></span>
+      </label>
+    </div>
+    <div class="cw-cookie-details" hidden>
+      <p>
+        Wenn du zustimmst, laden wir Google Analytics mit der Measurement-ID
+        <strong>G-ZDTZ960X4V</strong>. Damit können wir z. B. Seitenaufrufe und die Nutzung
+        unserer Website auswerten. Ohne deine Einwilligung wird Google Analytics nicht geladen.
+      </p>
+    </div>
+  </div>
+
+  <div class="cw-cookie-category">
+    <div class="cw-cookie-category-line">
+      <div>
+        <h3>Marketing</h3>
+        <button class="cw-more-btn" type="button" aria-expanded="false">Mehr anzeigen <span>⌄</span></button>
+      </div>
+      <label class="cw-switch">
+        <input type="checkbox" id="cwMarketingToggle">
+        <span class="cw-slider"></span>
+      </label>
+    </div>
+    <div class="cw-cookie-details" hidden>
+      <p>
+        Diese Kategorie ist für zukünftige Marketing- oder Werbetechnologien vorbereitet.
+        Aktuell werden über diese Einstellung keine zusätzlichen Marketing-Dienste geladen.
+      </p>
+    </div>
+  </div>
+
+  <div class="cw-modal-actions">
+    <button class="cw-cookie-btn cw-cookie-primary" id="cwSaveSettings" type="button">Einstellungen speichern</button>
+    <button class="cw-cookie-btn cw-cookie-outline cw-dark-outline" id="cwModalAcceptAll" type="button">Alle akzeptieren</button>
+    <button class="cw-cookie-btn cw-cookie-secondary" id="cwModalRejectAll" type="button">Alle ablehnen</button>
+  </div>
+
+  <div class="cw-cookie-modal-links">
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</section>
+
+<style>
+/* ===== Callways Cookie Consent ===== */
+.cw-cookie-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  background:rgba(10,24,47,.34);
+  backdrop-filter:blur(2px);
+}
+.cw-cookie-banner{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%);
+  z-index:9999;
+  width:min(760px,calc(100% - 32px));
+  background:#fff;
+  color:#0A182F;
+  border:1px solid #E7E2D4;
+  border-radius:20px;
+  box-shadow:0 22px 70px rgba(10,24,47,.24);
+  padding:24px;
+  font-family:'Inter',sans-serif;
+}
+.cw-cookie-banner h2,
+.cw-cookie-modal h2{
+  margin:0 0 10px;
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+}
+.cw-cookie-banner p{
+  margin:0;
+  color:#6B7280;
+  font-size:13.5px;
+  line-height:1.6;
+}
+.cw-cookie-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+.cw-cookie-btn{
+  border:0;
+  border-radius:999px;
+  padding:12px 18px;
+  font-family:'Poppins',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+.cw-cookie-primary{background:#D7BD09;color:#0A182F;}
+.cw-cookie-secondary{background:#0A182F;color:#fff;}
+.cw-cookie-outline{background:#fff;color:#0A182F;border:1.5px solid #0A182F;}
+.cw-cookie-links,
+.cw-cookie-modal-links{
+  margin-top:14px;
+  font-size:11.5px;
+}
+.cw-cookie-links a,
+.cw-cookie-modal-links a{
+  text-decoration:underline;
+  margin-right:14px;
+}
+
+.cw-cookie-modal{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:10000;
+  width:min(620px,calc(100% - 28px));
+  max-height:calc(100vh - 28px);
+  overflow:auto;
+  background:#111315;
+  color:#fff;
+  border-radius:20px;
+  box-shadow:0 24px 80px rgba(0,0,0,.44);
+  padding:26px;
+  font-family:'Inter',sans-serif;
+}
+.cw-cookie-modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  padding-bottom:6px;
+}
+.cw-cookie-close{
+  border:0;
+  background:transparent;
+  color:#B8BDC5;
+  font-size:30px;
+  line-height:1;
+  cursor:pointer;
+}
+.cw-cookie-category{
+  border-top:1px solid #3A4048;
+  padding:17px 0;
+}
+.cw-cookie-category-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.cw-cookie-category h3{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  font-size:17px;
+  font-weight:700;
+}
+.cw-more-btn{
+  border:0;
+  background:transparent;
+  color:#AEB4BD;
+  padding:5px 0 0;
+  font-size:12px;
+  cursor:pointer;
+}
+.cw-more-btn span{
+  display:inline-block;
+  transition:transform .18s ease;
+}
+.cw-more-btn[aria-expanded="true"] span{transform:rotate(180deg);}
+.cw-cookie-details{
+  padding-top:10px;
+}
+.cw-cookie-details p{
+  margin:0;
+  color:#D3D6DA;
+  font-size:13px;
+  line-height:1.55;
+}
+.cw-switch{
+  position:relative;
+  width:44px;
+  height:25px;
+  display:inline-block;
+  flex:0 0 auto;
+}
+.cw-switch input{opacity:0;width:0;height:0;}
+.cw-slider{
+  position:absolute;
+  inset:0;
+  background:#373B40;
+  border-radius:999px;
+  cursor:pointer;
+  transition:.2s;
+}
+.cw-slider:before{
+  content:"";
+  position:absolute;
+  width:17px;
+  height:17px;
+  left:4px;
+  top:4px;
+  background:#fff;
+  border-radius:50%;
+  transition:.2s;
+}
+.cw-switch input:checked + .cw-slider{background:#D7BD09;}
+.cw-switch input:checked + .cw-slider:before{transform:translateX(19px);}
+.cw-switch input:disabled + .cw-slider{
+  background:#747980;
+  cursor:not-allowed;
+}
+.cw-modal-actions{
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr;
+  gap:9px;
+  margin-top:12px;
+}
+.cw-dark-outline{
+  background:transparent;
+  color:#fff;
+  border-color:#8B9097;
+}
+.cw-cookie-modal-links a{color:#C8CCD1;}
+
+[hidden]{display:none !important;}
+
+@media(max-width:620px){
+  .cw-cookie-banner{
+    bottom:12px;
+    width:calc(100% - 24px);
+    padding:19px;
+    border-radius:17px;
+  }
+  .cw-cookie-actions,
+  .cw-modal-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .cw-cookie-btn{width:100%;}
+  .cw-cookie-modal{padding:20px;}
+}
+</style>
+
+<script>
+(function(){
+  const KEY='callways_cookie_consent_v1';
+  const banner=document.getElementById('cwCookieBanner');
+  const modal=document.getElementById('cwCookieModal');
+  const overlay=document.getElementById('cwCookieOverlay');
+  const analyticsToggle=document.getElementById('cwAnalyticsToggle');
+  const marketingToggle=document.getElementById('cwMarketingToggle');
+  const footerButton=document.getElementById('cwFooterCookieSettings');
+  let gaLoaded=false;
+
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=window.gtag||function(){dataLayer.push(arguments);};
+
+  gtag('consent','default',{
+    analytics_storage:'denied',
+    ad_storage:'denied',
+    ad_user_data:'denied',
+    ad_personalization:'denied'
+  });
+
+  function getConsent(){
+    try{return JSON.parse(localStorage.getItem(KEY));}
+    catch(e){return null;}
+  }
+
+  function showOverlay(){overlay.hidden=false;}
+  function hideOverlay(){overlay.hidden=true;}
+
+  function showBanner(){
+    modal.hidden=true;
+    banner.hidden=false;
+    showOverlay();
+  }
+
+  function showSettings(){
+    const c=getConsent();
+    analyticsToggle.checked=!!(c&&c.analytics);
+    marketingToggle.checked=!!(c&&c.marketing);
+    banner.hidden=true;
+    modal.hidden=false;
+    showOverlay();
+  }
+
+  function closeAll(){
+    banner.hidden=true;
+    modal.hidden=true;
+    hideOverlay();
+  }
+
+  function loadGoogleAnalytics(){
+    if(gaLoaded)return;
+    gaLoaded=true;
+
+    const script=document.createElement('script');
+    script.async=true;
+    script.src='https://www.googletagmanager.com/gtag/js?id=G-ZDTZ960X4V';
+    document.head.appendChild(script);
+
+    gtag('js',new Date());
+    gtag('config','G-ZDTZ960X4V');
+  }
+
+  function applyConsent(c){
+    if(c.analytics){
+      loadGoogleAnalytics();
+      gtag('consent','update',{analytics_storage:'granted'});
+    }else{
+      gtag('consent','update',{analytics_storage:'denied'});
+    }
+
+    if(c.marketing){
+      gtag('consent','update',{
+        ad_storage:'granted',
+        ad_user_data:'granted',
+        ad_personalization:'granted'
+      });
+    }else{
+      gtag('consent','update',{
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied'
+      });
+    }
+  }
+
+  function saveConsent(analytics,marketing){
+    const c={
+      necessary:true,
+      analytics:!!analytics,
+      marketing:!!marketing,
+      updated:new Date().toISOString()
+    };
+    localStorage.setItem(KEY,JSON.stringify(c));
+    applyConsent(c);
+    closeAll();
+  }
+
+  function acceptAllCookies(event){
+    if(event) event.preventDefault();
+    analyticsToggle.checked=true;
+    marketingToggle.checked=true;
+    saveConsent(true,true);
+  }
+
+  document.getElementById('cwAcceptAll').addEventListener('click',acceptAllCookies);
+  document.getElementById('cwRejectAll').addEventListener('click',()=>saveConsent(false,false));
+  document.getElementById('cwOpenSettings').addEventListener('click',showSettings);
+
+  document.getElementById('cwSaveSettings').addEventListener('click',()=>{
+    saveConsent(analyticsToggle.checked,marketingToggle.checked);
+  });
+  document.getElementById('cwModalAcceptAll').addEventListener('click',acceptAllCookies);
+  document.getElementById('cwModalRejectAll').addEventListener('click',()=>saveConsent(false,false));
+
+  document.getElementById('cwCloseSettings').addEventListener('click',()=>{
+    if(getConsent())closeAll();
+    else showBanner();
+  });
+
+  if(footerButton){
+    footerButton.addEventListener('click',showSettings);
+  }
+
+  document.querySelectorAll('.cw-more-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const details=btn.closest('.cw-cookie-category').querySelector('.cw-cookie-details');
+      const open=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded',String(!open));
+      details.hidden=open;
+      btn.childNodes[0].nodeValue=open?'Mehr anzeigen ':'Weniger anzeigen ';
+    });
+  });
+
+  const existing=getConsent();
+  if(existing){
+    applyConsent(existing);
+    closeAll();
+  }else{
+    showBanner();
+  }
+})();
+</script>
+<!-- ===== END CALLWAYS COOKIE CONSENT ===== -->
+
 </html>
