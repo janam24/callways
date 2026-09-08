@@ -15,10 +15,3 @@ Also, nehmen wir diese Gespräche sehr ernst.
 
  Wir klären Anwendung, prüfen Chargeninformationen, gleichen Rückmeldungen mit vorhandenen Daten ab und dokumentieren Auffälligkeiten sauber im System. Für unsere Auftraggeberinnen bedeutet das vor allem eines: Fragen zur Wirkung bleiben Teil einer nachvollziehbaren Produktnutzung. Sie werden nicht zu Reklamationen oder zum Anlass zu einer anderen Anbieterin zu wechseln.
 
-
-
-&nbsp;
-
-**[Achim (AJ) Reinhardt,](https://www.linkedin.com/in/achimreinhardt/)** Co-CEO
-
-[https://www.linkedin.com/feed/update/urn:li:activity:7500494492496707604/](https://www.linkedin.com/feed/update/urn:li:activity:7500494492496707604/)
