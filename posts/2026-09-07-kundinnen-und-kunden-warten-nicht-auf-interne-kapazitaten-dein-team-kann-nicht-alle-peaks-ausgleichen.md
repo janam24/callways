@@ -1,8 +1,9 @@
 ---
-title: Kundinnen und Kunden warten nicht auf interne Kapazitäten. Dein Team kann
-  nicht alle Peaks ausgleichen.
+title: Kundinnen und Kunden warten nicht auf interne Kapazitäten.
 date: 2026-09-08
 ---
+Kundinnen und Kunden warten nicht auf interne Kapazitäten. Dein Team kann nicht alle Peaks ausgleichen.
+
 Eine französischsprachige Kundin möchte eine einfache Frage zu ihrer Bestellung klären.  
 
 Sie schreibt eine E-Mail mit einem Überseztungsprogramm. Es kommt: keine Antwort.  
@@ -21,18 +22,3 @@ Wer schnell reagiert und sofort verständlich kommuniziert, löst mehr als nur e
 
 Wie stellt ihr sicher, dass Kundinnen und Kunden schnell eine Antwort von Eurem Team erhalten, unabhängig davon, wie viele Anliegen es gibt und in welcher Sprache sie kommen?
 
-
-
-&nbsp;
-
-&nbsp;
-
-Achim Reinhardt
-
-Geschäftsführer
-
----
-
-CALLWAYS Call Center GmbH
-
-E-Mail: [Achim.Reinhardt@callways.de](mailto:Achim.Reinhardt@callways.de)
