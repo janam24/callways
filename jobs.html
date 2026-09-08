@@ -9,7 +9,8 @@
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src 'self' https://fonts.gstatic.com data:;
   img-src 'self' data: https://ik.imagekit.io;
-  connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com;
+  connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://submit-form.com;
+  form-action 'self' https://submit-form.com;
 ">
   <title>Jobs | Callways</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1509,6 +1510,38 @@ select:focus{
 }
 </style>
 
+<style>
+/* Form success/error banner (text only) */
+.form-banner{
+  margin-top:16px;
+  padding:14px 16px;
+  border-radius:14px;
+  font-family:'Inter',sans-serif;
+}
+.form-banner strong{
+  display:block;
+  font-family:'Poppins',sans-serif;
+  font-size:13.5px;
+  margin-bottom:2px;
+  color:var(--navy);
+}
+.form-banner span{
+  display:block;
+  font-size:12.5px;
+  line-height:1.5;
+  color:#4a5566;
+}
+.form-banner-success{
+  background:rgba(215,189,9,.14);
+  border:1px solid rgba(215,189,9,.5);
+}
+.form-banner-error{
+  background:rgba(220,53,69,.08);
+  border:1px solid rgba(220,53,69,.35);
+}
+.form-banner a{text-decoration:underline;color:inherit;}
+</style>
+
 <!-- Google Analytics: consent required before loading -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -1645,26 +1678,23 @@ gtag('consent', 'default', {
           <h2>Bewirb dich bei uns.</h2>
           <p>Du hast eine passende Stelle gefunden oder möchtest dich initiativ bewerben? Schreib uns direkt hier.</p>
 
-          <form action="https://formsubmit.co/vertrieb@callways.de" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_subject" value="Neue Bewerbung über callways.de">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
+          <form action="https://submit-form.com/7YVmcCdMJ" method="POST" enctype="multipart/form-data" id="jobsForm">
 
             <div class="form-grid">
 
               <div class="field">
-                <label for="firstname">Vorname *</label>
-                <input id="firstname" name="vorname" type="text" autocomplete="given-name" required>
+                <label for="name">Name *</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
               </div>
 
               <div class="field">
-                <label for="surname">Nachname *</label>
-                <input id="surname" name="nachname" type="text" autocomplete="family-name" required>
+                <label for="email">E-Mail *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
               </div>
 
               <div class="field full">
-                <label for="position">Position / Stellenbezeichnung *</label>
-                <input id="position" name="position" type="text" placeholder="z. B. Kundenservice Agent" required>
+                <label for="position">Position / Stellenbezeichnung</label>
+                <input id="position" name="position" type="text" placeholder="z. B. Kundenservice Agent">
               </div>
 
               <div class="field full">
@@ -1682,8 +1712,8 @@ gtag('consent', 'default', {
               </div>
 
               <div class="field full">
-                <label for="message">Nachricht *</label>
-                <textarea id="message" name="nachricht" placeholder="Kurze Nachricht zu deiner Bewerbung." required></textarea>
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="nachricht" placeholder="Kurze Nachricht zu deiner Bewerbung."></textarea>
               </div>
 
               <div class="field full">
@@ -1701,6 +1731,16 @@ gtag('consent', 'default', {
             </p>
 
             <button class="submit-btn" type="submit">Bewerbung senden →</button>
+
+            <div class="form-banner form-banner-success" id="formSuccessBanner" hidden>
+              <strong>Danke für deine Bewerbung!</strong>
+              <span>Wir haben deine Bewerbung erhalten und melden uns innerhalb der nächsten 24 Stunden bei dir.</span>
+            </div>
+
+            <div class="form-banner form-banner-error" id="formErrorBanner" hidden>
+              <strong>Da ist etwas schiefgelaufen.</strong>
+              <span>Bitte versuch es erneut oder schreib uns direkt an <a href="mailto:vertrieb@callways.de">vertrieb@callways.de</a>.</span>
+            </div>
 
           </form>
         </div>
@@ -1802,6 +1842,42 @@ const mainNav=document.getElementById('mainNav');
 if(menuToggle && mainNav){
   menuToggle.addEventListener('click',()=>mainNav.classList.toggle('open'));
   mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('open')));
+}
+</script>
+
+<script>
+const jobsForm=document.getElementById('jobsForm');
+if(jobsForm){
+  const successBanner=document.getElementById('formSuccessBanner');
+  const errorBanner=document.getElementById('formErrorBanner');
+  const submitBtn=jobsForm.querySelector('.submit-btn');
+
+  jobsForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    successBanner.hidden=true;
+    errorBanner.hidden=true;
+    submitBtn.disabled=true;
+    submitBtn.textContent='Wird gesendet...';
+
+    fetch(jobsForm.action, {
+      method:'POST',
+      body:new FormData(jobsForm),
+      headers:{'Accept':'application/json'}
+    })
+    .then(res=>{
+      if(res.ok){
+        successBanner.hidden=false;
+        jobsForm.reset();
+      } else {
+        errorBanner.hidden=false;
+      }
+    })
+    .catch(()=>{ errorBanner.hidden=false; })
+    .finally(()=>{
+      submitBtn.disabled=false;
+      submitBtn.textContent='Bewerbung senden →';
+    });
+  });
 }
 </script>
 
