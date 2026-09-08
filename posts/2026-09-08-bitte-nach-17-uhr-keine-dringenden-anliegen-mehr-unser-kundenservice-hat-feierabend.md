@@ -1,7 +1,7 @@
 ---
 title: Bitte nach 17 Uhr keine dringenden Anliegen mehr. Unser Kundenservice hat
   Feierabend.
-date: 2026-09-04
+date: 2026-09-05
 ---
 Ein dringendes Anliegen am Abend.  
 
